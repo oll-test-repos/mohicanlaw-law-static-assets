@@ -11,9 +11,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/typeof.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/toConsumableArray.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/typeof.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/toConsumableArray.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash.debounce */ "../../../../../../node_modules/lodash.debounce/index.js");
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_3__);
 
@@ -211,10 +211,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     nodeMap2Obj: function nodeMap2Obj(nodeMap) {
       // Converts nodeMap into regular object that we can use
-      var convertedObject = Object.assign.apply(Object, [{}].concat((0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Array.from(nodeMap, function (_ref) {
+      var convertedObject = Object.assign.apply(Object, [{}].concat((0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_toConsumableArray_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Array.from(nodeMap, function (_ref) {
         var name = _ref.name,
             value = _ref.value;
-        return (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__["default"])({}, name, value);
+        return (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__["default"])({}, name, value);
       }))));
 
       if (Object.keys(convertedObject).length === 0) {
@@ -234,7 +234,7 @@ __webpack_require__.r(__webpack_exports__);
     attr: function attr(name, object) {
       // Returns attribute if exists, otherwise returns false, so that the
       // template system wouldn't make an error
-      if ((0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(object) !== 'object') {
+      if ((0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(object) !== 'object') {
         return false;
       }
 
@@ -539,4 +539,4 @@ function _typeof(obj) {
 /***/ })
 
 }]);
-//# sourceMappingURL=oll-filterable-table-24af944-v2-43-6.js.map
+//# sourceMappingURL=oll-filterable-table-2226289-v2-44-0.js.map

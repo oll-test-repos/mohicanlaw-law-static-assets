@@ -5586,7 +5586,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ReaderLite": () => (/* binding */ ReaderLite)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Shared/js/utils/HtmlUtils */ "../../../../../../core__front-end/v2/shared/js/utils/HtmlUtils.js");
@@ -5693,7 +5693,7 @@ __webpack_require__.r(__webpack_exports__);
 var ReaderLite = function ReaderLite() {
   var parameters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     themeSettings: {},
     disabledComponents: []
   }, parameters); // Display error if config is not passed
@@ -6040,8 +6040,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* eslint-disable class-methods-use-this */
@@ -6057,10 +6057,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var DocumentMetadataFetch = /*#__PURE__*/function () {
   function DocumentMetadataFetch() {
-    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentMetadataFetch);
+    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentMetadataFetch);
   }
 
-  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentMetadataFetch, [{
+  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentMetadataFetch, [{
     key: "meta",
     value: function meta(itemProp) {
       return document.querySelector("meta[itemprop='".concat(itemProp, "']"));
@@ -6131,9 +6131,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/index.js");
@@ -6156,7 +6156,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var FullHtmlFetch = /*#__PURE__*/function () {
   function FullHtmlFetch(contentEl, articleEl) {
-    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FullHtmlFetch);
+    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FullHtmlFetch);
 
     this._content = contentEl;
     this._article = articleEl;
@@ -6165,7 +6165,7 @@ var FullHtmlFetch = /*#__PURE__*/function () {
   // Default
 
 
-  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__["default"])(FullHtmlFetch, [{
+  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__["default"])(FullHtmlFetch, [{
     key: "content",
     get: function get() {
       return this._content;
@@ -6251,7 +6251,7 @@ var FullHtmlFetch = /*#__PURE__*/function () {
       var inserting = false;
       var order = '';
 
-      var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(paras),
+      var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(paras),
           _step;
 
       try {
@@ -6323,8 +6323,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
 
@@ -6340,7 +6340,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var HeadingReorder = /*#__PURE__*/function () {
   function HeadingReorder(contentEl) {
-    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeadingReorder);
+    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeadingReorder);
 
     this._content = contentEl;
   } // Getters and setters
@@ -6348,7 +6348,7 @@ var HeadingReorder = /*#__PURE__*/function () {
   // Default
 
 
-  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(HeadingReorder, [{
+  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(HeadingReorder, [{
     key: "content",
     get: function get() {
       return this._content;
@@ -6785,7 +6785,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "scrollToC": () => (/* binding */ scrollToC),
 /* harmony export */   "urlToMarginaliaId": () => (/* binding */ urlToMarginaliaId)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 /* harmony import */ var _ResourceUtil__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ResourceUtil */ "../../../../../../core__front-end/v2/reader/js/misc/utils/ResourceUtil.js");
 /* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../consts */ "../../../../../../core__front-end/v2/reader/js/misc/consts.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
@@ -6870,7 +6870,7 @@ var parseDocument = function parseDocument(HTMLString, settings, searchResult) {
   if (mainContentArea) {
     // In case there are multiple classes on content area
     // fetch the one that starts with 'ns__'
-    var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(mainContentArea.classList || []),
+    var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(mainContentArea.classList || []),
         _step;
 
     try {
@@ -6967,7 +6967,7 @@ var removeHighlights = function removeHighlights() {
     if (html_content) {
       var marks = html_content.querySelectorAll('mark');
 
-      var _iterator2 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(marks || []),
+      var _iterator2 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(marks || []),
           _step2;
 
       try {
@@ -7018,7 +7018,7 @@ var findAnnotatedEl = function findAnnotatedEl(url) {
 var removeAnnotations = function removeAnnotations() {
   var annotations = document.querySelectorAll('aside.user-generated');
 
-  var _iterator3 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(annotations),
+  var _iterator3 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(annotations),
       _step3;
 
   try {
@@ -7057,7 +7057,7 @@ var normalizeURL = function normalizeURL(url) {
   var path = urlSplit[0];
   var hash = urlSplit.length > 1 ? "#".concat(urlSplit[1]) : '';
 
-  var _iterator4 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(UNWANTED_URL_SUFFIXES),
+  var _iterator4 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(UNWANTED_URL_SUFFIXES),
       _step4;
 
   try {
@@ -7323,8 +7323,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getDocumentResourceLinks": () => (/* binding */ getDocumentResourceLinks),
 /* harmony export */   "missingReaderFonts": () => (/* binding */ missingReaderFonts)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 /* harmony import */ var Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Shared/js/utils/isFalsy */ "../../../../../../core__front-end/v2/shared/js/utils/isFalsy.js");
 /* harmony import */ var Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -7342,7 +7342,7 @@ var RESPONSIVE_CSS_FILE = 'responsive.min.css'; // -----------------------------
 var getDocumentResourceLinks = function getDocumentResourceLinks(headSection) {
   var links = headSection.querySelectorAll('link[rel=stylesheet]');
 
-  var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+  var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
       _step;
 
   try {
@@ -7366,7 +7366,7 @@ var getDocumentResourceLinks = function getDocumentResourceLinks(headSection) {
 }; // Create <a> html node with specified params
 
 var generateStyleLink = function generateStyleLink(parameters) {
-  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: '',
     media: ''
   }, parameters); // Error checking
@@ -7464,7 +7464,7 @@ var addReaderFonts = function addReaderFonts(fontArray) {
 var findLink = function findLink(fileName) {
   var links = document.head.querySelectorAll('link[rel=stylesheet]');
 
-  var _iterator2 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+  var _iterator2 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
       _step2;
 
   try {
@@ -7489,7 +7489,7 @@ var findLink = function findLink(fileName) {
 var listLinks = function listLinks() {
   var links = document.head.querySelectorAll('link[rel=stylesheet]');
 
-  var _iterator3 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+  var _iterator3 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
       _step3;
 
   try {
@@ -8315,7 +8315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SearchMixin": () => (/* binding */ SearchMixin)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash.debounce */ "../../../../../../node_modules/lodash.debounce/index.js");
@@ -8589,7 +8589,7 @@ var SearchMixin = {
       // 4. Focus desired element on $nextTick
       var vm = this;
 
-      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         type: false,
         // `help` or `search`
         resetPage: false
@@ -9476,7 +9476,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AsyncQuerySelector": () => (/* binding */ AsyncQuerySelector)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -9484,7 +9484,7 @@ __webpack_require__.r(__webpack_exports__);
 // This function waits for element to become available to select it
 // It will wait for 2s by default
 var AsyncQuerySelector = function AsyncQuerySelector(options) {
-  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     selector: false,
     maxWait: 2000,
     interval: 20
@@ -9529,8 +9529,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
 
@@ -9538,7 +9538,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var FindThemeDir = /*#__PURE__*/function () {
   function FindThemeDir(elem) {
-    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, FindThemeDir);
+    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, FindThemeDir);
 
     this._elem = elem; // Finds path + _document + version number, starting with `v` + any digit
 
@@ -9546,7 +9546,7 @@ var FindThemeDir = /*#__PURE__*/function () {
   } // Getters and Setters
 
 
-  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(FindThemeDir, [{
+  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(FindThemeDir, [{
     key: "elem",
     get: function get() {
       return this._elem;
@@ -9621,8 +9621,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "hasFileExtension": () => (/* binding */ hasFileExtension),
 /* harmony export */   "isDocumentUrl": () => (/* binding */ isDocumentUrl)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! platform */ "../../../../../../node_modules/platform/platform.js");
@@ -9674,7 +9674,7 @@ var hasFileExtension = function hasFileExtension(url) {
     throw new Error("Please add a proper file extension. Got ".concat(extension));
   }
 
-  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
+  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
   return urlPattern.test(url);
 };
 /**
@@ -9721,7 +9721,7 @@ var findThemeDir = function findThemeDir(url) {
  */
 
 var addJS = function addJS(parameters) {
-  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     src: null,
     head: true
   }, parameters); // Error checks
@@ -9749,7 +9749,7 @@ var addJS = function addJS(parameters) {
  */
 
 var addCSS = function addCSS(parameters) {
-  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: null,
     media: null
   }, parameters); // Error checking
@@ -10454,7 +10454,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SharedSearchModule": () => (/* binding */ SharedSearchModule)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 
 var SharedSearchModule = {
   namespaced: true,
@@ -10640,7 +10640,7 @@ var SharedSearchModule = {
     findHit: function findHit(state) {
       return function (id) {
         // unused
-        var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.searchData.response.hits.hits || []),
+        var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.searchData.response.hits.hits || []),
             _step;
 
         try {
@@ -11946,7 +11946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var Shared_js_mixins_SharedMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Shared/js/mixins/SharedMixin */ "../../../../../../core__front-end/v2/shared/js/mixins/SharedMixin.js");
 /* harmony import */ var Shared_js_mixins_SearchMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Shared/js/mixins/SearchMixin */ "../../../../../../core__front-end/v2/shared/js/mixins/SearchMixin.js");
 /* harmony import */ var lodash_throttle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash.throttle */ "../../../../../../node_modules/lodash.throttle/index.js");
@@ -12060,7 +12060,7 @@ __webpack_require__.r(__webpack_exports__);
       return Number(this.searchDropdownKeySelected) === Number(itemKey);
     },
     selectOption: function selectOption(parameters) {
-      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         itemKey: false,
         itemPath: false,
         itemName: false
@@ -12076,7 +12076,7 @@ __webpack_require__.r(__webpack_exports__);
     selectAndClose: function selectAndClose(parameters) {
       var vm = this;
 
-      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         itemKey: false,
         itemPath: false,
         itemName: false
@@ -37308,7 +37308,7 @@ function _unsupportedIterableToArray(o, minLen) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"resolutions":{"mobile":{"name":"mobile","breakpointStart":"320px","baseFontSize":"14px","fluidWidth":"true"},"phablet":{"name":"phablet","breakpointStart":"520px","baseFontSize":"14px","fluidWidth":"true"},"tablet":{"name":"tablet","breakpointStart":"768px","baseFontSize":"16px","fluidWidth":"true"},"desktop":{"name":"desktop","breakpointStart":"1080px","baseFontSize":"16px","fluidWidth":"true"},"desktop2":{"name":"desktop2","breakpointStart":"1440px","baseFontSize":"18px","fluidWidth":"true"},"desktop3":{"name":"desktop3","breakpointStart":"2540px","baseFontSize":"18px","fluidWidth":"false"}}}');
+module.exports = JSON.parse('{"resolutions":{"mobile":{"name":"mobile","breakpointStart":"320px","baseFontSize":"16px","fluidWidth":"true"},"phablet":{"name":"phablet","breakpointStart":"520px","baseFontSize":"16px","fluidWidth":"true"},"tablet":{"name":"tablet","breakpointStart":"768px","baseFontSize":"16px","fluidWidth":"true"},"desktop":{"name":"desktop","breakpointStart":"1080px","baseFontSize":"18px","fluidWidth":"true"},"desktop2":{"name":"desktop2","breakpointStart":"1440px","baseFontSize":"18px","fluidWidth":"true"},"desktop3":{"name":"desktop3","breakpointStart":"2540px","baseFontSize":"18px","fluidWidth":"false"}}}');
 
 /***/ }),
 
@@ -37319,7 +37319,7 @@ module.exports = JSON.parse('{"resolutions":{"mobile":{"name":"mobile","breakpoi
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"clientVersion":"2.43.6","themeVersion":"v2","themeType":"custom","themeName":"custom","themeId":"/us/nsn/mohican/council","style":{"namespaceSuffix":"us-nsn-mhcn-council"},"logo":{"libraryLogo":{"image":"","srcset":[]},"header":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]},"footer":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]}},"fonts":["/biticons/biticons.css","/fonts/roboto-condensed/roboto-condensed.css","/fonts/roboto/roboto.css"],"contact":{"email":"help@openlawlib.org"},"fetchCodeRecency":true,"reader":{"rootUrl":"/"}}');
+module.exports = JSON.parse('{"clientVersion":"2.44.0","themeVersion":"v2","themeType":"custom","themeName":"custom","themeId":"/us/nsn/mohican/council","style":{"namespaceSuffix":"us-nsn-mhcn-council"},"logo":{"libraryLogo":{"image":"","srcset":[]},"header":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]},"footer":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]}},"fonts":["/biticons/biticons.css","/fonts/roboto-condensed/roboto-condensed.css","/fonts/roboto/roboto.css"],"contact":{"email":"help@openlawlib.org"},"fetchCodeRecency":true,"reader":{"rootUrl":"/"}}');
 
 /***/ })
 
@@ -37440,7 +37440,7 @@ module.exports = JSON.parse('{"clientVersion":"2.43.6","themeVersion":"v2","them
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-24af944-v2-43-6.js";
+/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-2226289-v2-44-0.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
