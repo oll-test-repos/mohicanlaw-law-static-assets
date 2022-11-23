@@ -12,38 +12,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addReaderLiteScripts": () => (/* binding */ addReaderLiteScripts)
 /* harmony export */ });
-/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
-/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Shared/js/utils/HtmlUtils */ "../../../../../../core__front-end/v2/shared/js/utils/HtmlUtils.js");
+/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
+/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
+/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Shared/js/utils/HtmlUtils */ "../../../../../../core__front-end/v2/shared/js/utils/HtmlUtils.js");
+
+
 
 
 /**
  * Adds Reader Lite and analytics scripts to the HTML document.
  * Correct analytics will be added through nginx url rewrite
  */
-
 var addReaderLiteScripts = function addReaderLiteScripts() {
   var cssFiles = document.querySelectorAll('head link[rel="stylesheet"]');
-  var cssUrls = []; // Find first document css and extract path to static resources
+  var cssUrls = [];
 
+  // Find first document css and extract path to static resources
   cssFiles.forEach(function (cssFile) {
     cssUrls.push(cssFile.getAttribute('href'));
   });
   var documentCss = cssUrls.find(function (cssUrl) {
     return cssUrl.includes('_document');
   }) || null;
-
   if (documentCss === null) {
     throw new Error('Unable to find static assets root. Not initializing Reader Lite');
   } else {
     try {
-      var resourcePaths = (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_1__.findThemeDir)(documentCss); // Add Reader lite to the head of the HTML document
+      var resourcePaths = (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.findThemeDir)(documentCss);
 
-      (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_1__.addJS)({
+      // Add Reader lite to the head of the HTML document
+      (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.addJS)({
         src: resourcePaths.documentUrl + '/js/readerLite.js'
-      }); // Attach analytics to the end of the body
+      });
 
-      (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_1__.addJS)({
+      // Attach analytics to the end of the body
+      (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.addJS)({
         src: '/_analytics/stats.js'
       });
     } catch (error) {
@@ -66,6 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "AddHtmlClasses": () => (/* binding */ AddHtmlClasses),
 /* harmony export */   "addCSS": () => (/* binding */ addCSS),
 /* harmony export */   "addJS": () => (/* binding */ addJS),
+/* harmony export */   "findClosest": () => (/* binding */ findClosest),
 /* harmony export */   "findThemeDir": () => (/* binding */ findThemeDir),
 /* harmony export */   "hasFileExtension": () => (/* binding */ hasFileExtension),
 /* harmony export */   "isDocumentUrl": () => (/* binding */ isDocumentUrl)
@@ -80,7 +86,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _isFalsy__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_isFalsy__WEBPACK_IMPORTED_MODULE_4__);
 
 
-
 var _templateObject;
 
 
@@ -89,14 +94,11 @@ var _templateObject;
 /**
  * Adds basic utility classes to HTML element: `js`, browser engine and browser name
  */
-
 var AddHtmlClasses = function AddHtmlClasses() {
   var _htmlEl$classList;
-
   var acceptableClassName = function acceptableClassName(name) {
     return String(name).toLowerCase().replace(/\s/gi, '_');
   };
-
   var browserName = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().name));
   var browserEngine = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().layout));
   var htmlEl = document.firstElementChild;
@@ -105,6 +107,7 @@ var AddHtmlClasses = function AddHtmlClasses() {
   htmlEl.classList.add(browserEngine);
   htmlEl.classList.add(browserName);
 };
+
 /**
  * Tests is file has a specific extension
  *
@@ -115,28 +118,26 @@ var AddHtmlClasses = function AddHtmlClasses() {
  * @example
  * hasFileExtension('//resources/main.js?v=1.2.3', 'js') // True
  */
-
 var hasFileExtension = function hasFileExtension(url) {
   var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(extension) || extension.length < 2) {
     throw new Error("Please add a proper file extension. Got ".concat(extension));
   }
-
   var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
   return urlPattern.test(url);
 };
+
 /**
  * Tests if url is a document URL
  *
  * @param {String} url
  * @returns {Boolean}
  */
-
 var isDocumentUrl = function isDocumentUrl(url) {
   var documentPattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   return documentPattern.test(url);
 };
+
 /**
  * Finds theme directory based on a complete resource URL
  *
@@ -152,7 +153,6 @@ var isDocumentUrl = function isDocumentUrl(url) {
  *   themeUrl: "/us/ngo/oll/"
  * }
  */
-
 var findThemeDir = function findThemeDir(url) {
   var pattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   var result = pattern.exec(url);
@@ -161,6 +161,7 @@ var findThemeDir = function findThemeDir(url) {
     themeUrl: result[1]
   } : null;
 };
+
 /**
  * Add JS resource to HTML document
  *
@@ -168,27 +169,26 @@ var findThemeDir = function findThemeDir(url) {
  * @param {String} parameters.src - Script URL / path
  * @param {Boolean} [parameters.head = true] - Adds to `head`, otherwise to the end of `body`
  */
-
 var addJS = function addJS(parameters) {
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     src: null,
     head: true
-  }, parameters); // Error checks
+  }, parameters);
 
-
+  // Error checks
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.src) && _isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.script)) {
     throw new Error('Both "src" and "script" are missing. One must be present.');
   }
-
   if (!hasFileExtension(OPTIONS.src, 'js')) {
     throw new Error("File extension is not \"js\". Got resource URL ".concat(OPTIONS.src));
-  } // Add script resource to HTML
+  }
 
-
+  // Add script resource to HTML
   var script = document.createElement('script');
   script.setAttribute('src', OPTIONS.src);
   OPTIONS.head ? document.head.insertAdjacentElement('beforeend', script) : document.body.insertAdjacentElement('beforeend', script);
 };
+
 /**
  * Add JS resource to HTML document
  *
@@ -196,30 +196,45 @@ var addJS = function addJS(parameters) {
  * @param {String} parameters.url - CSS URL / path
  * @param {String} [parameters.media = true] - Optional media attribute
  */
-
 var addCSS = function addCSS(parameters) {
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: null,
     media: null
-  }, parameters); // Error checking
+  }, parameters);
 
-
+  // Error checking
   if (!hasFileExtension(OPTIONS.src, 'css')) {
     throw new Error("Invalid file extension in resource URL. Expected \"css\" file, got ".concat(OPTIONS.url));
-  } // Build style link
+  }
 
-
+  // Build style link
   var link = document.createElement('link');
-
   if (!_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.media)) {
     link.setAttribute('media', OPTIONS.media);
   }
-
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
-  link.setAttribute('href', OPTIONS.url); // Append link to head
+  link.setAttribute('href', OPTIONS.url);
 
+  // Append link to head
   document.head.insertAdjacentElement('beforeend', link);
+};
+
+/**
+ * Finds the closest node in the DOM that has the given selector.
+ *
+ * @param {HTMLElement} el - The element to start searching from
+ * @param {string} selector - The selector to search for
+ * @returns {HTMLElement|null} The closest matching element, or null if none found
+ */
+var findClosest = function findClosest(el, selector) {
+  while (el) {
+    if (el.matches(selector)) {
+      return el;
+    }
+    el = el.parentElement;
+  }
+  return null;
 };
 
 /***/ }),
@@ -236,16 +251,14 @@ var addCSS = function addCSS(parameters) {
  * @param { Any } statement - Checks any statement for falsy
  * @returns { Boolean }
  */
+
 var isFalsy = function isFalsy() {
   var statement = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
   if (!statement || statement === null || typeof statement === 'undefined' || statement === 0 || statement === '') {
     return true;
   }
-
   return false;
 };
-
 module.exports = isFalsy;
 
 /***/ }),
@@ -587,6 +600,23 @@ var EXISTS = isObject(document) && isObject(document.createElement);
 
 module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ "../../../../../../node_modules/core-js/internals/does-not-exceed-safe-integer.js":
+/*!****************************************************************************************!*\
+  !*** ../../../../../../node_modules/core-js/internals/does-not-exceed-safe-integer.js ***!
+  \****************************************************************************************/
+/***/ ((module) => {
+
+var $TypeError = TypeError;
+var MAX_SAFE_INTEGER = 0x1FFFFFFFFFFFFF; // 2 ** 53 - 1 == 9007199254740991
+
+module.exports = function (it) {
+  if (it > MAX_SAFE_INTEGER) throw $TypeError('Maximum allowed index exceeded');
+  return it;
 };
 
 
@@ -2146,6 +2176,56 @@ module.exports = function (FULL_NAME, wrapper, FORCED, IS_AGGREGATE_ERROR) {
 
 /***/ }),
 
+/***/ "../../../../../../node_modules/core-js/modules/es.array.push.js":
+/*!***********************************************************************!*\
+  !*** ../../../../../../node_modules/core-js/modules/es.array.push.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "../../../../../../node_modules/core-js/internals/export.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "../../../../../../node_modules/core-js/internals/to-object.js");
+var lengthOfArrayLike = __webpack_require__(/*! ../internals/length-of-array-like */ "../../../../../../node_modules/core-js/internals/length-of-array-like.js");
+var doesNotExceedSafeInteger = __webpack_require__(/*! ../internals/does-not-exceed-safe-integer */ "../../../../../../node_modules/core-js/internals/does-not-exceed-safe-integer.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "../../../../../../node_modules/core-js/internals/fails.js");
+
+var INCORRECT_TO_LENGTH = fails(function () {
+  return [].push.call({ length: 0x100000000 }, 1) !== 4294967297;
+});
+
+// V8 and Safari <= 15.4, FF < 23 throws InternalError
+// https://bugs.chromium.org/p/v8/issues/detail?id=12681
+var SILENT_ON_NON_WRITABLE_LENGTH = !function () {
+  try {
+    // eslint-disable-next-line es-x/no-object-defineproperty -- safe
+    Object.defineProperty([], 'length', { writable: false }).push();
+  } catch (error) {
+    return error instanceof TypeError;
+  }
+}();
+
+// `Array.prototype.push` method
+// https://tc39.es/ecma262/#sec-array.prototype.push
+$({ target: 'Array', proto: true, arity: 1, forced: INCORRECT_TO_LENGTH || SILENT_ON_NON_WRITABLE_LENGTH }, {
+  // eslint-disable-next-line no-unused-vars -- required for `.length`
+  push: function push(item) {
+    var O = toObject(this);
+    var len = lengthOfArrayLike(O);
+    var argCount = arguments.length;
+    doesNotExceedSafeInteger(len + argCount);
+    for (var i = 0; i < argCount; i++) {
+      O[len] = arguments[i];
+      len++;
+    }
+    O.length = len;
+    return len;
+  }
+});
+
+
+/***/ }),
+
 /***/ "../../../../../../node_modules/core-js/modules/es.error.cause.js":
 /*!************************************************************************!*\
   !*** ../../../../../../node_modules/core-js/modules/es.error.cause.js ***!
@@ -3497,7 +3577,6 @@ function _defineProperty(obj, key, value) {
   } else {
     obj[key] = value;
   }
-
   return obj;
 }
 
@@ -3516,20 +3595,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _defineProperty_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./defineProperty.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 
-
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
-
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
     enumerableOnly && (symbols = symbols.filter(function (sym) {
       return Object.getOwnPropertyDescriptor(object, sym).enumerable;
     })), keys.push.apply(keys, symbols);
   }
-
   return keys;
 }
-
 function _objectSpread2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = null != arguments[i] ? arguments[i] : {};
@@ -3539,7 +3614,6 @@ function _objectSpread2(target) {
       Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
     });
   }
-
   return target;
 }
 
@@ -3560,7 +3634,6 @@ function _taggedTemplateLiteral(strings, raw) {
   if (!raw) {
     raw = strings.slice(0);
   }
-
   return Object.freeze(Object.defineProperties(strings, {
     raw: {
       value: Object.freeze(raw)
