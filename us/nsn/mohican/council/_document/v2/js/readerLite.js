@@ -5586,7 +5586,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ReaderLite": () => (/* binding */ ReaderLite)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/index.js");
@@ -5617,34 +5617,28 @@ __webpack_require__.r(__webpack_exports__);
 
 // Import resources
 // -----------------------------------------------------------------------------
-
 // Misc
 // ----
 
 
-
-
-// Vue core
+ // Vue core
 // --------
 
 
 
 
-
-// Legacy components
+ // Legacy components
 // -----------------
 
 
 
 
-
-// Custom implementations
+ // Custom implementations
 // ----------------------
 
 
 
-
-// Vue Components
+ // Vue Components
 // --------------
 // There are two ways we can load these components:
 // 1. With regular imports and single bundle
@@ -5658,7 +5652,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 // To tweak how those components are loaded, read Webpack section on magic
 // comments: https://webpack.js.org/api/module-methods/#magic-comments
-
 // Component loading without code splitting
 
 
@@ -5667,8 +5660,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// Component loading with code splitting
+ // Component loading with code splitting
 //
 // const LiteSearch = () => import(
 //  /* webpackChunkName: "Search" */
@@ -5694,64 +5686,60 @@ __webpack_require__.r(__webpack_exports__);
 //  /* webpackPreload: true */
 //  'Shared/js/components/lightbox/Lightbox.vue'
 // )
-
 // Attach utility classes to `html` element
 // -----------------------------------------------------------------------------
-(0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_3__.AddHtmlClasses)();
 
-// Reader Lite
+(0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_3__.AddHtmlClasses)(); // Reader Lite
 // -----------------------------------------------------------------------------
 // eslint-disable-next-line consistent-return
+
 var ReaderLite = function ReaderLite() {
   var parameters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     themeSettings: {},
     disabledComponents: []
-  }, parameters);
+  }, parameters); // Display error if config is not passed
 
-  // Display error if config is not passed
+
   if (!parameters || parameters === '') {
     console.error('Error: Cannot initialize Reader Lite! Parameters are not set.');
     return false;
-  }
+  } // Find theme root
 
-  // Find theme root
-  var DOCROOT = new Shared_js_utils_FindThemeDir__WEBPACK_IMPORTED_MODULE_11__["default"](document.querySelector('head link[rel="stylesheet"]').getAttribute('href')).documentUrl();
 
-  // Vue media queries
+  var DOCROOT = new Shared_js_utils_FindThemeDir__WEBPACK_IMPORTED_MODULE_11__["default"](document.querySelector('head link[rel="stylesheet"]').getAttribute('href')).documentUrl(); // Vue media queries
+
   vue__WEBPACK_IMPORTED_MODULE_22__["default"].use(vue_mq__WEBPACK_IMPORTED_MODULE_6__["default"], {
     // Breakpoints can be accessed with $mq
     breakpoints: (0,Shared_js_utils_responsiveConfigUtil__WEBPACK_IMPORTED_MODULE_12__.loadResponsiveConfig)(_styles_resolutions_resolutions_document_json__WEBPACK_IMPORTED_MODULE_13__)
-  });
+  }); // Load components when DOM is ready
 
-  // Load components when DOM is ready
   window.onload = function () {
     // Save theme settings in store
     // -------------------------------------------------------------------------
     _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setThemeSettings', OPTIONS.themeSettings);
     _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setComponentMode', 'lite');
-    _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setDocumentRoot', DOCROOT);
-
-    // Full html fetcher
+    _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setDocumentRoot', DOCROOT); // Full html fetcher
     // -----------------
+
     var FULL_HTML_FETCH = new _utils_ajax_FullHtmlFetch__WEBPACK_IMPORTED_MODULE_9__["default"]('#area__content', 'article.content div.tuf-authenticate');
     FULL_HTML_FETCH.run().then(function () {
       return HEADING_REORDER_UTIL.run();
-    })["catch"](function () {
-      // console.warn(error)
-    });
-
-    // Heading reordering utility
+    })["catch"](function () {// console.warn(error)
+    }); // Heading reordering utility
     // --------------------------
-    var HEADING_REORDER_UTIL = new _utils_ajax_HeadingReorder__WEBPACK_IMPORTED_MODULE_10__["default"]('#area__content');
 
-    // Document metadata fetcher
+    var HEADING_REORDER_UTIL = new _utils_ajax_HeadingReorder__WEBPACK_IMPORTED_MODULE_10__["default"]('#area__content'); // Document metadata fetcher
     // --------------------------
+
     var settingsUrl = "".concat(DOCROOT, "/js/settings/partner-settings-documents.json");
+
     var initMeta = function initMeta(el) {
       var METADATA_FETCH = new _utils_ajax_DocumentMetadataFetch__WEBPACK_IMPORTED_MODULE_8__["default"]();
       METADATA_FETCH.run('#area__document_meta', '#area__content');
     };
+
     axios__WEBPACK_IMPORTED_MODULE_2___default().get(settingsUrl).then(function (partnerSettingsDoc) {
       // If override setting exists, use that setting
       if (partnerSettingsDoc.data.fetchCodeRecency && partnerSettingsDoc.data.themeVersion === OPTIONS.themeSettings.themeVersion) {
@@ -5762,9 +5750,7 @@ var ReaderLite = function ReaderLite() {
       if (OPTIONS.themeSettings.fetchCodeRecency) {
         initMeta();
       }
-    });
-
-    // ADD COMPONENTS TO PAGE
+    }); // ADD COMPONENTS TO PAGE
     // -------------------------------------------------------------------------
     // Please mind the order of which we add components to page, because it
     // influences the tabbing navigation. Ideally, we want this order:
@@ -5790,18 +5776,16 @@ var ReaderLite = function ReaderLite() {
     // 11. Popup info
     // 12. Lightbox
     // </body>
-
     // 1. Vue announcer
     // ----------------
-    vue__WEBPACK_IMPORTED_MODULE_22__["default"].use((vue_announcer__WEBPACK_IMPORTED_MODULE_7___default()));
 
-    // 3. Search component
+    vue__WEBPACK_IMPORTED_MODULE_22__["default"].use((vue_announcer__WEBPACK_IMPORTED_MODULE_7___default())); // 3. Search component
     // -------------------
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('LiteSearch', OPTIONS.disabledComponents)) {
       var initSearch = function initSearch(el) {
-        el.insertAdjacentHTML('beforeend', '<div id="area__search"></div>');
+        el.insertAdjacentHTML('beforeend', '<div id="area__search"></div>'); // Initialize component
 
-        // Initialize component
         var SearchComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
           el: '#area__search',
           components: {
@@ -5811,8 +5795,10 @@ var ReaderLite = function ReaderLite() {
           store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
         });
       };
+
       var customSearchArea = document.querySelector('#ollTemplateSearch');
       var ollSearchArea = document.querySelector('#section__header__inner');
+
       if (customSearchArea !== null) {
         initSearch(customSearchArea);
       } else if (ollSearchArea !== null) {
@@ -5820,10 +5806,10 @@ var ReaderLite = function ReaderLite() {
       } else {
         console.info('Open Law Library: Not attaching Search component');
       }
-    }
-
-    // 4. Document Login component
+    } // 4. Document Login component
     // ---------------------------
+
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('DocumentLogin', OPTIONS.disabledComponents)) {
       // Check if User API is present and load data if available
       _store__WEBPACK_IMPORTED_MODULE_5__["default"].dispatch('user/fetchUserData').then(function () {
@@ -5840,23 +5826,23 @@ var ReaderLite = function ReaderLite() {
       })["catch"](function (err) {
         return console.error(err);
       });
-    }
-
-    // 8. Historical versions component
+    } // 8. Historical versions component
     // --------------------------------
     // Check if API Is working and only then initialize this component
+
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('HistoricalVersions', OPTIONS.disabledComponents)) {
       var urlPath = window.location.pathname.replace('.full', '').replace('.html', '');
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("/_api/versions".concat(urlPath)).then(function (result) {
         _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedHistoricalVersions/setHistoricalVersionsData', result.data);
-        _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedHistoricalVersions/historyPopulateStore', result.data);
-        // Add wrapper for Historical versions
+        _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedHistoricalVersions/historyPopulateStore', result.data); // Add wrapper for Historical versions
         // FIX: Historical versions widget needs to be updated to use template classes
-        var ollHistoricalArea = document.querySelector('#area__content');
-        if (ollHistoricalArea !== null) {
-          ollHistoricalArea.insertAdjacentHTML('afterend', '<div id="historyWrap"></div>');
 
-          // Initialize Historical versions
+        var ollHistoricalArea = document.querySelector('#area__content');
+
+        if (ollHistoricalArea !== null) {
+          ollHistoricalArea.insertAdjacentHTML('afterend', '<div id="historyWrap"></div>'); // Initialize Historical versions
+
           var HistoricalVersionsComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
             el: '#historyWrap',
             components: {
@@ -5869,19 +5855,17 @@ var ReaderLite = function ReaderLite() {
       })["catch"](function (err) {
         return console.info("Open Law Library: Historical Versions are not available - ".concat(err));
       });
-    }
-
-    // 9. Feedback component
+    } // 9. Feedback component
     // ---------------------
+
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('RLFeedback', OPTIONS.disabledComponents)) {
       var initFeedback = function initFeedback(el) {
-        el.insertAdjacentHTML('beforeend', '<div id="RLFeedback"></div>');
+        el.insertAdjacentHTML('beforeend', '<div id="RLFeedback"></div>'); // Add contacts to store
 
-        // Add contacts to store
         _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setContactEmail', OPTIONS.themeSettings.contact.email);
-        _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setContactFeedback', OPTIONS.themeSettings.contact.email);
+        _store__WEBPACK_IMPORTED_MODULE_5__["default"].commit('sharedComponents/setContactFeedback', OPTIONS.themeSettings.contact.email); // Initialize component
 
-        // Initialize component
         var FeedbackComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
           el: '#RLFeedback',
           components: {
@@ -5891,8 +5875,10 @@ var ReaderLite = function ReaderLite() {
           store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
         });
       };
+
       var customFeedbackArea = document.querySelector('#ollTemplateFeedback');
       var ollFeedbackArea = document.querySelector('#section__content__inner');
+
       if (customFeedbackArea !== null) {
         initFeedback(customFeedbackArea);
       } else if (ollFeedbackArea !== null) {
@@ -5900,14 +5886,13 @@ var ReaderLite = function ReaderLite() {
       } else {
         console.info('Open Law Library: Not attaching Feedback component');
       }
-    }
-
-    // 10. Reader switch component
+    } // 10. Reader switch component
     // ---------------------------
-    if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('ReaderLiteSwitch', OPTIONS.disabledComponents)) {
-      document.querySelector('#section__content__inner').insertAdjacentHTML('beforeend', '<div id="area__switch"></div>');
 
-      // Initialize component
+
+    if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('ReaderLiteSwitch', OPTIONS.disabledComponents)) {
+      document.querySelector('#section__content__inner').insertAdjacentHTML('beforeend', '<div id="area__switch"></div>'); // Initialize component
+
       var ReaderLiteSwitchComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
         el: '#area__switch',
         components: {
@@ -5916,14 +5901,13 @@ var ReaderLite = function ReaderLite() {
         template: '<ReaderLiteSwitch />',
         store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
       });
-    }
-
-    // 11. Popup info component
+    } // 11. Popup info component
     // ------------------------
-    if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('PopupInfo', OPTIONS.disabledComponents)) {
-      document.body.insertAdjacentHTML('beforeend', '<div id="popupInfo"></div>');
 
-      // Initialize component
+
+    if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('PopupInfo', OPTIONS.disabledComponents)) {
+      document.body.insertAdjacentHTML('beforeend', '<div id="popupInfo"></div>'); // Initialize component
+
       var PopupComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
         el: '#popupInfo',
         components: {
@@ -5932,18 +5916,16 @@ var ReaderLite = function ReaderLite() {
         template: '<PopupInfo />',
         store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
       });
-    }
-
-    // 12. Lightbox component
+    } // 12. Lightbox component
     // ----------------------
+
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('Lightbox', OPTIONS.disabledComponents)) {
       // Add wrapper for Lightbox before the `<body>` ends
-      document.body.insertAdjacentHTML('beforeend', '<div id="lightboxWrap"></div>');
+      document.body.insertAdjacentHTML('beforeend', '<div id="lightboxWrap"></div>'); // Set inert area when the lightbox is opened
 
-      // Set inert area when the lightbox is opened
-      var LightboxInertList = ['#message_container', '#message_container > *', '.skip-link', '.skip-link > *', '#grid', '#grid > *'];
+      var LightboxInertList = ['#message_container', '#message_container > *', '.skip-link', '.skip-link > *', '#grid', '#grid > *']; // Initialize Lightbox
 
-      // Initialize Lightbox
       var LightboxComponent = new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
         el: '#lightboxWrap',
         components: {
@@ -5953,12 +5935,12 @@ var ReaderLite = function ReaderLite() {
         // Mode needs to be passed as a prop here
         store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
       });
-    }
-
-    // Filterable table component
+    } // Filterable table component
     // --------------------------
     // This component will superimpose itself over every table with class
     // `.filterable-table`
+
+
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_4__.isComponentDisabled)('TableFilter', OPTIONS.disabledComponents)) {
       /**
        * Cleans up breaks in HTML and temporarily replaces single quote with
@@ -5977,14 +5959,17 @@ var ReaderLite = function ReaderLite() {
         // Needs to use temporary character instead of single quote
         return text.replace(/\n|\t|\r|\s{2,}/gmi, ' ').replace(/'/gmi, '´');
       };
+
       var filterableTableEls = document.querySelectorAll('.filterable-table');
+
       if (filterableTableEls.length > 0) {
         var tableComponents = []; // We will add Vue components here
-
         // Loading Table filter only when needed
+
         var TableFilter = function TableFilter() {
           return __webpack_require__.e(/*! import() | OLL-Filterable-Table */ "OLL-Filterable-Table").then(__webpack_require__.bind(__webpack_require__, /*! Shared/js/components/table-filter/TableFilter */ "../../../../../../core__front-end/v2/shared/js/components/table-filter/TableFilter.vue"));
         };
+
         filterableTableEls.forEach(function (filterableTableEl) {
           if (filterableTableEl !== null && filterableTableEl !== '') {
             tableComponents.push(new vue__WEBPACK_IMPORTED_MODULE_22__["default"]({
@@ -6029,8 +6014,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-// import { SharedLocalization } from 'Shared/js/vuex/SharedLocalization' // Disabled until completed
+ // import { SharedLocalization } from 'Shared/js/vuex/SharedLocalization' // Disabled until completed
 
 vue__WEBPACK_IMPORTED_MODULE_6__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
@@ -6040,11 +6024,10 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_7__["default"].Store({
     sharedSearch: Shared_js_vuex_SharedSearchModule__WEBPACK_IMPORTED_MODULE_2__.SharedSearchModule,
     sharedLoading: Shared_js_vuex_SharedLoadingModule__WEBPACK_IMPORTED_MODULE_3__.SharedLoadingModule,
     sharedMessages: Shared_js_vuex_SharedMessages__WEBPACK_IMPORTED_MODULE_4__.SharedMessages,
-    user: _vuex_DocumentUserModule__WEBPACK_IMPORTED_MODULE_5__.DocumentUserModule
-    // localization: SharedLocalization, // Disabled until completed
+    user: _vuex_DocumentUserModule__WEBPACK_IMPORTED_MODULE_5__.DocumentUserModule // localization: SharedLocalization, // Disabled until completed
+
   }
 });
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (store);
 
 /***/ }),
@@ -6060,12 +6043,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* eslint-disable class-methods-use-this */
-
 
 
 
@@ -6075,11 +6057,13 @@ __webpack_require__.r(__webpack_exports__);
  * Class for fetching Code Publication Information metadata and putting it into all
  * document sub-pages.
  */
+
 var DocumentMetadataFetch = /*#__PURE__*/function () {
   function DocumentMetadataFetch() {
-    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentMetadataFetch);
+    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentMetadataFetch);
   }
-  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentMetadataFetch, [{
+
+  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentMetadataFetch, [{
     key: "meta",
     value: function meta(itemProp) {
       return document.querySelector("meta[itemprop='".concat(itemProp, "']"));
@@ -6103,21 +6087,26 @@ var DocumentMetadataFetch = /*#__PURE__*/function () {
     key: "run",
     value: function run(querySource, queryDestination) {
       var _this = this;
+
       if (this.meta('parent-doc-url')) {
         axios__WEBPACK_IMPORTED_MODULE_2___default().get(this.metaContent('parent-doc-url')).then(function (response) {
           var customMetaArea = document.querySelector('#ollTemplateMeta');
           var ollMetaArea = document.querySelector(queryDestination);
           var responseDOM = new DOMParser().parseFromString(response.data, 'text/html');
           var responseDocInfo = responseDOM.querySelector(querySource);
+
           if (responseDocInfo === null) {
             // console.log('warning: parent doc has no metadata to be inserted.')
             return;
           }
+
           if (customMetaArea !== null) {
             _this.insertInside(customMetaArea, responseDocInfo);
+
             responseDocInfo.classList.add('position--custom');
           } else if (ollMetaArea !== null) {
             _this.insertAfter(ollMetaArea, responseDocInfo);
+
             responseDocInfo.classList.add('position--native');
           } else {
             console.info('Open Law Library: Not attaching Meta info component');
@@ -6126,8 +6115,10 @@ var DocumentMetadataFetch = /*#__PURE__*/function () {
       }
     }
   }]);
+
   return DocumentMetadataFetch;
 }();
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DocumentMetadataFetch);
 
 /***/ }),
@@ -6143,9 +6134,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
@@ -6157,7 +6148,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* eslint-disable consistent-return */
+
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line no-unused-expressions
 "use strict";
@@ -6166,18 +6159,19 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Class for fetching proper part of `x.full.html` content for the given container.
  */
+
 var FullHtmlFetch = /*#__PURE__*/function () {
   function FullHtmlFetch(contentEl, articleEl) {
-    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FullHtmlFetch);
+    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FullHtmlFetch);
+
     this._content = contentEl;
     this._article = articleEl;
-  }
-
-  // Getters and setters
+  } // Getters and setters
   // -------------------
-
   // Default
-  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__["default"])(FullHtmlFetch, [{
+
+
+  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_2__["default"])(FullHtmlFetch, [{
     key: "content",
     get: function get() {
       return this._content;
@@ -6203,19 +6197,19 @@ var FullHtmlFetch = /*#__PURE__*/function () {
     value: function metaContent(itemProp) {
       return this.meta(itemProp) ? this.meta(itemProp).content : '';
     }
-
     /**
      * Check if element's data-order attribute contains parent data-order attribute.
      */
+
   }, {
     key: "isChild",
     value: function isChild(order, parentOrder) {
       return order.indexOf(parentOrder) === 0 && order !== parentOrder;
     }
-
     /**
      * Return data-order attribute value or null.
      */
+
   }, {
     key: "tryGetDataOrderAttr",
     value: function tryGetDataOrderAttr(el) {
@@ -6225,49 +6219,56 @@ var FullHtmlFetch = /*#__PURE__*/function () {
         return null;
       }
     }
-
     /**
      * Return data-order of element or one of its children elements (breadth first traverse).
      */
+
   }, {
     key: "tryGetDataOrderAttrBreadthFirst",
     value: function tryGetDataOrderAttrBreadthFirst(el) {
       var queue = [el];
+
       while (queue.length > 0) {
         var processingEl = queue.shift();
         var order = this.tryGetDataOrderAttr(processingEl);
+
         if (order) {
           return order;
-        }
+        } // Add child nodes to the queue
 
-        // Add child nodes to the queue
+
         processingEl.childNodes.forEach(function (n) {
           return queue.push(n);
         });
       }
+
       return null;
     }
-
     /**
      * Collect all elements (by matching data-order attribute) and their siblings
      * NOTE: When on comparison page, collect `ins` and `del` elements with children
      * elements that are matching data-order attribute.
     */
+
   }, {
     key: "getParas",
     value: function getParas(parentOrder, paras) {
       var out = [];
       var inserting = false;
       var order = '';
-      var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(paras),
-        _step;
+
+      var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(paras),
+          _step;
+
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var p = _step.value;
           order = this.tryGetDataOrderAttrBreadthFirst(p);
+
           if (order !== null) {
             inserting = this.isChild(order, parentOrder);
           }
+
           if (inserting) {
             out.push(p);
           }
@@ -6277,22 +6278,29 @@ var FullHtmlFetch = /*#__PURE__*/function () {
       } finally {
         _iterator.f();
       }
+
       return out;
     }
   }, {
     key: "run",
     value: function run() {
       var _this = this;
+
       if (!this.metaContent('full-html') || this.metaContent('full-html') === window.location.pathname || this.metaContent('doc-type') === 'section') {
         return Promise.reject(new Error('Page not suitable for full html fetch.'));
       }
+
       return axios__WEBPACK_IMPORTED_MODULE_5___default().get(this.metaContent('full-html')).then(function (response) {
         var responseDoc = new DOMParser().parseFromString(response.data, 'text/html');
         var sourceContentNode = responseDoc.querySelector(_this._article);
         var targetContentNode = document.querySelector(_this._article);
+
         var parentOrder = _this.metaContent('order');
+
         var allParas = sourceContentNode.childNodes;
+
         var filteredParas = _this.getParas(parentOrder, allParas);
+
         var readerLiteContainer = document.createElement('div');
         readerLiteContainer.setAttribute('class', 'readerlite-content');
         targetContentNode.parentElement.appendChild(readerLiteContainer);
@@ -6302,8 +6310,10 @@ var FullHtmlFetch = /*#__PURE__*/function () {
       });
     }
   }]);
+
   return FullHtmlFetch;
 }();
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FullHtmlFetch);
 
 /***/ }),
@@ -6319,63 +6329,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+
 
 
 /* eslint-disable consistent-return */
+
 /* eslint-disable class-methods-use-this */
 // eslint-disable-next-line no-unused-expressions
 "use strict";
-
 /**
  * Utility class for reordering `h` elements on page.
  */
+
+
 var HeadingReorder = /*#__PURE__*/function () {
   function HeadingReorder(contentEl) {
-    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeadingReorder);
+    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, HeadingReorder);
+
     this._content = contentEl;
-  }
-
-  // Getters and setters
+  } // Getters and setters
   // -------------------
-
   // Default
-  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(HeadingReorder, [{
+
+
+  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(HeadingReorder, [{
     key: "content",
     get: function get() {
       return this._content;
     },
     set: function set(value) {
       this._content = value;
-    }
-
-    // Functions
+    } // Functions
     // ---------
+
   }, {
     key: "reorderHeadlines",
     value: function reorderHeadlines() {
       var headingsQuery = '';
+
       for (var i = 1; i <= 6; i++) {
         headingsQuery += "".concat(this._content, " h").concat(i, ", ");
       }
+
       headingsQuery = headingsQuery.substr(0, headingsQuery.lastIndexOf(', '));
       var headings = document.querySelectorAll(headingsQuery);
+
       for (var _i = 1; _i < headings.length; _i++) {
         var current = headings[_i];
         var previous = headings[_i - 1];
         var currentLevel = parseInt(current.nodeName.substr(1), 10);
         var prevLevel = parseInt(previous.nodeName.substr(1), 10);
         var diff = currentLevel - prevLevel;
+
         if (diff > 1 && current.parentNode) {
           var newHeading = document.createElement('h' + (prevLevel + 1));
           newHeading.innerHTML = current.innerHTML;
-          current.parentNode.replaceChild(newHeading, current);
-          // console.log('\t' + current.nodeName + ' --> ' + newHeading.nodeName);
+          current.parentNode.replaceChild(newHeading, current); // console.log('\t' + current.nodeName + ' --> ' + newHeading.nodeName);
 
           this.reorderHeadlines();
         }
       }
+
       return true;
     }
   }, {
@@ -6384,8 +6400,10 @@ var HeadingReorder = /*#__PURE__*/function () {
       this.reorderHeadlines();
     }
   }]);
+
   return HeadingReorder;
 }();
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeadingReorder);
 
 /***/ }),
@@ -6397,6 +6415,7 @@ var HeadingReorder = /*#__PURE__*/function () {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
+
 /**
  * Checks if component is in the list of disabled components
  *
@@ -6407,13 +6426,16 @@ __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../
 var isComponentDisabled = function isComponentDisabled() {
   var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var disabledComponents = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
   if (!name) {
     throw new Error('Component name is missing');
   }
+
   return disabledComponents.some(function (componentName) {
     return componentName === name;
   }) || false;
 };
+
 module.exports = {
   isComponentDisabled: isComponentDisabled
 };
@@ -6489,12 +6511,12 @@ var DocumentUserModule = {
           timeout: PORTAL_REQ_TIMEOUT
         }).then(function (response) {
           var _response$data;
+
           context.commit('setLoginApiState', {
             status: response.status,
             statusText: response.statusText
-          });
+          }); // If there are messages, show them
 
-          // If there are messages, show them
           if (((_response$data = response.data) === null || _response$data === void 0 ? void 0 : _response$data._messages.length) > 0) {
             response.data._messages.forEach(function (message) {
               context.commit('sharedMessages/addPopupMessage', {
@@ -6507,13 +6529,14 @@ var DocumentUserModule = {
               });
               message.level === 'error' ? console.error(message.message) : console.info(message.message);
             });
-          }
+          } // Set user data and load annotations
 
-          // Set user data and load annotations
+
           context.commit('setUserData', response.data);
           resolve(response.data);
         })["catch"](function (error) {
           var _error$response, _error$response2;
+
           context.commit('setLoginApiState', {
             status: (error === null || error === void 0 ? void 0 : (_error$response = error.response) === null || _error$response === void 0 ? void 0 : _error$response.status) || false,
             statusText: (error === null || error === void 0 ? void 0 : (_error$response2 = error.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.statusText) || false
@@ -6524,11 +6547,10 @@ var DocumentUserModule = {
     },
     login: function login(context, url) {
       // Login URL obtained from auth provider:
-      var login_url = context.state.userData.login_urls[0][1];
-      // Actual portal login URL:
-      var portal_login_url = login_url + '?next=/_portal/api/user/forward?app_url=' + window.location.origin + window.location.pathname + window.location.hash;
+      var login_url = context.state.userData.login_urls[0][1]; // Actual portal login URL:
 
-      // Escaping # keeps the hash part when redirecting to portal and back
+      var portal_login_url = login_url + '?next=/_portal/api/user/forward?app_url=' + window.location.origin + window.location.pathname + window.location.hash; // Escaping # keeps the hash part when redirecting to portal and back
+
       window.location.assign(portal_login_url.replace('#', '%23'));
     },
     logout: function logout(context, url) {
@@ -6577,17 +6599,15 @@ __webpack_require__.r(__webpack_exports__);
 /***************************************************************
  *            CORE STRINGS AND OTHER UI CONSTANTS              *
  ***************************************************************/
-
 // UI strings and messages
 var Messages = Object.freeze({
   LOADING: 'Loading...',
   SEARCH_LOADING: 'Searching...',
   LOADING_ERROR: 'Error loading the document!',
   SEARCH_CONFIG_ERROR: 'Unable to perform search. Search parameters not configured.'
-});
-
-// Toolbar groups and tool names
+}); // Toolbar groups and tool names
 // These are used to identify tools and groups for async component loading
+
 var CoreTools = Object.freeze({
   TOOL_GROUP_DOCUMENT: 'document',
   TOOL_DOCUMENT_TOC: 'OLLToC',
@@ -6615,10 +6635,9 @@ var CoreTools = Object.freeze({
   TOOL_SEARCH_BAR: 'OLLSearchBar',
   TOOL_GROUP_TOOLS: 'tools',
   TOOL_TOOLS_AUTH: 'ReaderAuthTool'
-});
-
-// These components provide additional functionalities for Reader App, but are
+}); // These components provide additional functionalities for Reader App, but are
 // not a part of the sidebar menu's groups and tools
+
 var CoreWidgets = Object.freeze({
   FILTERABLE_TABLE: 'TableFilter',
   GLOBAL_SHORTCUTS: 'OLLGlobalShortcuts',
@@ -6626,17 +6645,15 @@ var CoreWidgets = Object.freeze({
   READER_SWITCH: 'ReaderAppSwitch',
   SKIP_MENU: 'OLLSkipLinks',
   LIGHTBOX: 'Lightbox'
-});
+}); // Types of pages that could be activated in the content area
 
-// Types of pages that could be activated in the content area
 var Page = Object.freeze({
   CONTENT: 'PageContent',
   ERROR: 'PageError',
   WELCOME: 'PageAccountActive',
   PASSWORD_RESET: 'PagePasswordReset'
-});
+}); // Live messages for Vue Announcer component
 
-// Live messages for Vue Announcer component
 var LiveMessages = Object.freeze({
   // SIDEBAR
   // ---------------------------------------------------------------------------
@@ -6684,32 +6701,29 @@ var LiveMessages = Object.freeze({
   // ---------------------------------------------------------------------------
   CONTENT_UI_OFF: 'Content UI has been disabled. To re-enable it, press ALT + SHIFT + Q',
   CONTENT_UI_ON: 'Content UI has been enabled. To disable it, press ALT + SHIFT + Q'
-});
-
-// CARDVIEW VALUES
+}); // CARDVIEW VALUES
 // -----------------------------------------------------------------------------
+
 var CardViewModes = Object.freeze({
   VIEW_MODE: 'VIEW',
   EDIT_MODE: 'EDIT'
-});
+}); // Possible results of URL comparison
 
-// Possible results of URL comparison
 var URLComparisonResults = Object.freeze({
   EQUAL_URLS: 0,
   PATH_CHANGED: 1,
   HASH_CHANGED: 2
-});
+}); // Different UI timeouts
 
-// Different UI timeouts
 var Timeouts = Object.freeze({
   SIDEBAR_ANIMATION_DURATION: 500,
   COMPONENT_LOADING_DELAY: 200,
   // Delay before "please wait..." component is shown
   COMPONENT_LOADING_TIMEOUT: 60000 // Delay before "problem loading..." component is shown
-});
 
-// LOGIN MODAL
+}); // LOGIN MODAL
 // -----------------------------------------------------------------------------
+
 var LoginModalCards = Object.freeze({
   // Use these component names in order to activate cards. Names must match
   // the actual file names in `core__front-end\v2\reader\js\components\modals\login\cards`
@@ -6779,7 +6793,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "scrollToC": () => (/* binding */ scrollToC),
 /* harmony export */   "urlToMarginaliaId": () => (/* binding */ urlToMarginaliaId)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ResourceUtil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResourceUtil */ "../../../../../../core__front-end/v2/reader/js/misc/utils/ResourceUtil.js");
@@ -6789,9 +6803,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // PARSING CONSTANTS:
 
-
-// PARSING CONSTANTS:
 var META_HTML_SELECTOR = 'meta[itemprop=full-html]';
 var META_TOC_SELECTOR = 'meta[itemprop=toc-json]';
 var META_PARENT_DOCUMENT = 'meta[itemprop=parent-doc-url]';
@@ -6804,70 +6817,77 @@ var DOCUMENT_TOC_SELECTOR = "#".concat(CONTENT_AREA_ID, " nav[role=navigation]")
 var LAW_INFO_SELECTOR = 'section#area__document_meta';
 var SEARCH_PATHS_LIST_SELECTOR = '.ancestors';
 var FOOTER_A_SELECTORS = '#area__footer__content a';
-var UNWANTED_URL_SUFFIXES = ['/index.html', '/index', '.html', '.full', '/'];
+var UNWANTED_URL_SUFFIXES = ['/index.html', '/index', '.html', '.full', '/']; // Regular expressions used to parse historical URLs
 
-// Regular expressions used to parse historical URLs
 var dateRegex = /\/_date\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm;
 var publicationRegex = /\/_publication\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm;
 var compareRegex = /\/_compare\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm;
 var compareWithCurrentRegex = /\/_compare\/current\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm;
-
 /*
 	Parse document body and meta from loaded url
 */
+
 var parseDocument = function parseDocument(HTMLString, settings, searchResult) {
   var parser = new DOMParser();
-  var tempDocument = parser.parseFromString(HTMLString, 'text/html');
-
-  // Load document-specific document resources
+  var tempDocument = parser.parseFromString(HTMLString, 'text/html'); // Load document-specific document resources
   // Search for meta tag that holds root document html and ToC JSON urls
+
   var fullHTMLMeta = tempDocument.querySelector(META_HTML_SELECTOR);
   var ogURLMeta = document.querySelector(META_OG_URL);
   var tocMeta = tempDocument.querySelector(META_TOC_SELECTOR);
   var fullHTMLURL = fullHTMLMeta ? fullHTMLMeta.content : ogURLMeta.content;
   var tocURL = '/';
+
   if (tocMeta) {
     tocURL = tocMeta.getAttribute('content');
   }
+
   var titleElement = tempDocument.querySelector(TITLE_SELECTOR);
   var documentTitle = titleElement ? titleElement.innerHTML : '';
   editLinks(tempDocument);
+
   if (searchResult) {
     highlightResult(tempDocument, searchResult);
   }
+
   (0,_ResourceUtil__WEBPACK_IMPORTED_MODULE_2__.getDocumentResourceLinks)(tempDocument.head, settings);
   var bodySection = tempDocument.querySelector(TUF_AUTHENTICATE_DIV_SELECTOR);
-  var inlineTOCSection = tempDocument.querySelector(DOCUMENT_TOC_SELECTOR);
+  var inlineTOCSection = tempDocument.querySelector(DOCUMENT_TOC_SELECTOR); // Display title and table of contents for empty documents
 
-  // Display title and table of contents for empty documents
   if (bodySection && bodySection.childElementCount === 0) {
     var node = document.createElement('h1');
     var textNode = document.createTextNode(documentTitle);
     node.appendChild(textNode);
     bodySection.appendChild(node);
+
     if (inlineTOCSection) {
       var tocList = inlineTOCSection.querySelector('ul');
+
       if (tocList && tocList.childElementCount > 0) {
         bodySection.appendChild(tocList);
       }
     }
   }
+
   var metaList = tempDocument.querySelector(LAW_INFO_SELECTOR);
-  var meta = processMeta(metaList);
-  // Document style namespace is fetched from content area class
+  var meta = processMeta(metaList); // Document style namespace is fetched from content area class
+
   var namespace = '';
   var mainContentArea = tempDocument.getElementById(CONTENT_AREA_ID);
   var searchPaths = parseSearchPaths(tempDocument);
   var historicalPrefix = parseHistoricalPrefix(tempDocument);
   var parentURL = tempDocument.querySelector(META_PARENT_DOCUMENT) ? tempDocument.querySelector(META_PARENT_DOCUMENT).getAttribute('content') : null;
+
   if (mainContentArea) {
     // In case there are multiple classes on content area
     // fetch the one that starts with 'ns__'
-    var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(mainContentArea.classList || []),
-      _step;
+    var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(mainContentArea.classList || []),
+        _step;
+
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var cls = _step.value;
+
         if (cls.startsWith('ns__')) {
           namespace = cls;
           break;
@@ -6878,10 +6898,10 @@ var parseDocument = function parseDocument(HTMLString, settings, searchResult) {
     } finally {
       _iterator.f();
     }
-  }
-
-  // If document body cannot be parsed, set error message as document body
+  } // If document body cannot be parsed, set error message as document body
   // Note that, if this happens, something is probably wrong with the documents (shouldn't happen in production)
+
+
   var bodyHTML = bodySection ? bodySection.outerHTML.trim() : '<h1>This document cannot be displayed</h1><p>If the problem persist please contact our support.</p>';
   return {
     documentTitle: documentTitle,
@@ -6912,6 +6932,7 @@ var parseFooter = function parseFooter(HTMLString) {
     if (anchor.getAttribute('href').includes('-xml')) {
       footerLinks.xml = anchor.getAttribute('href');
     }
+
     if (anchor.getAttribute('href').includes('-html')) {
       footerLinks.html = anchor.getAttribute('href');
     }
@@ -6920,21 +6941,26 @@ var parseFooter = function parseFooter(HTMLString) {
 };
 var findElementByURLOrHash = function findElementByURLOrHash(url) {
   var element = document.getElementById(url);
+
   if (!element) {
     var url_parts = url ? url.split('#') : [];
+
     if (url_parts.length === 2) {
       var hash = url_parts[1];
+
       if (hash !== '') {
         element = document.getElementById(hash);
       }
     }
   }
+
   return element;
 };
 var highlightResult = function highlightResult(html_document, result) {
   try {
     var elementID = "#".concat(MAIN_CONTENT_ID, " #").concat(CSS.escape(result._id));
     var elementToHighlight = html_document.querySelector(elementID);
+
     if (elementToHighlight) {
       if (result.highlight.title) {
         elementToHighlight.innerHTML = elementToHighlight.innerHTML.replace(result._source.title, result.highlight.title[0]);
@@ -6943,16 +6969,18 @@ var highlightResult = function highlightResult(html_document, result) {
   } catch (error) {
     console.error(error);
   }
-};
+}; // Unwrap all <mark> tags
 
-// Unwrap all <mark> tags
 var removeHighlights = function removeHighlights() {
   return new Promise(function (resolve, reject) {
     var html_content = document.getElementById(MAIN_CONTENT_ID);
+
     if (html_content) {
       var marks = html_content.querySelectorAll('mark');
-      var _iterator2 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(marks || []),
-        _step2;
+
+      var _iterator2 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(marks || []),
+          _step2;
+
       try {
         for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
           var mark = _step2.value;
@@ -6964,6 +6992,7 @@ var removeHighlights = function removeHighlights() {
       } finally {
         _iterator2.f();
       }
+
       resolve();
     }
   })["catch"](function (error) {
@@ -6982,26 +7011,27 @@ var isExternalLink = function isExternalLink(url) {
 var isPdfLink = function isPdfLink(url) {
   var pattern = /\.pdf$/;
   return pattern.test(url);
-};
-
-// Find the <span> associated with the annotation
+}; // Find the <span> associated with the annotation
 // NOTE: This function is copied from Reader Lite implementation
-var findAnnotatedEl = function findAnnotatedEl(url) {
-  var hash = url.split('#')[1];
 
-  // First, try finding it within the container page (id should be equal to the full annotation url)
+var findAnnotatedEl = function findAnnotatedEl(url) {
+  var hash = url.split('#')[1]; // First, try finding it within the container page (id should be equal to the full annotation url)
+
   var annotatedSpan = document.getElementById(url.replace('.html', '')) || document.getElementById(hash); // TODO: remove .html hack once all elements
 
   while (annotatedSpan && annotatedSpan.tagName.toLowerCase() === 'span') {
     // have id hash values instead of urls
     annotatedSpan = annotatedSpan.parentElement;
   }
+
   return annotatedSpan;
 };
 var removeAnnotations = function removeAnnotations() {
   var annotations = document.querySelectorAll('aside.user-generated');
-  var _iterator3 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(annotations),
-    _step3;
+
+  var _iterator3 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(annotations),
+      _step3;
+
   try {
     for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
       var marginalia = _step3.value;
@@ -7012,34 +7042,39 @@ var removeAnnotations = function removeAnnotations() {
   } finally {
     _iterator3.f();
   }
-};
+}; // Compare two URL strings to determine what has changed
 
-// Compare two URL strings to determine what has changed
 var compareURLs = function compareURLs(path1, path2) {
   if (path1 === path2) {
     return _consts__WEBPACK_IMPORTED_MODULE_3__.URLComparisonResults.EQUAL_URLS;
   }
+
   var path1Split = path1.split('#');
   var path2Split = path2.split('#');
+
   if (path1Split[0] !== path2Split[0]) {
     return _consts__WEBPACK_IMPORTED_MODULE_3__.URLComparisonResults.PATH_CHANGED;
   }
-  return _consts__WEBPACK_IMPORTED_MODULE_3__.URLComparisonResults.HASH_CHANGED;
-};
 
-// Strip suffixes like `index.html` from URL
+  return _consts__WEBPACK_IMPORTED_MODULE_3__.URLComparisonResults.HASH_CHANGED;
+}; // Strip suffixes like `index.html` from URL
+
 var normalizeURL = function normalizeURL(url) {
   if (typeof url === 'undefined') {
     return null;
   }
+
   var urlSplit = url.split('#');
   var path = urlSplit[0];
   var hash = urlSplit.length > 1 ? "#".concat(urlSplit[1]) : '';
-  var _iterator4 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(UNWANTED_URL_SUFFIXES),
-    _step4;
+
+  var _iterator4 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(UNWANTED_URL_SUFFIXES),
+      _step4;
+
   try {
     for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
       var suffix = _step4.value;
+
       if (path.endsWith(suffix)) {
         path = path.substring(0, path.length - suffix.length);
       }
@@ -7049,26 +7084,24 @@ var normalizeURL = function normalizeURL(url) {
   } finally {
     _iterator4.f();
   }
+
   return path === '' ? url : "".concat(path).concat(hash);
-};
+}; // Returns list of sibling elements until element that matches specified selector is found
 
-// Returns list of sibling elements until element that matches specified selector is found
 var nextUntil = function nextUntil(elem, selector) {
-  var siblings = [];
+  var siblings = []; // Get the next sibling element
 
-  // Get the next sibling element
-  elem = elem ? elem.nextElementSibling : null;
+  elem = elem ? elem.nextElementSibling : null; // As long as a sibling exists
 
-  // As long as a sibling exists
   while (elem) {
     // If we've reached our match, bail
-    if (elem.matches(selector)) break;
+    if (elem.matches(selector)) break; // Otherwise, push it to the siblings array
 
-    // Otherwise, push it to the siblings array
-    siblings.push(elem);
-    // Get the next sibling element
+    siblings.push(elem); // Get the next sibling element
+
     elem = elem.nextElementSibling;
   }
+
   return siblings;
 };
 var checkForFilterableTable = function checkForFilterableTable() {
@@ -7093,14 +7126,17 @@ var attachTableFilterComponent = function attachTableFilterComponent() {
     // Needs to use temporary character instead of single quote
     return text.replace(/\n|\t|\r|\s{2,}/gmi, ' ').replace(/'/gmi, '´');
   };
+
   var filterableTableEls = document.querySelectorAll('.filterable-table');
+
   if (filterableTableEls.length > 0) {
     var tableComponents = []; // We will add Vue components here
-
     // Loading Table filter only when needed
+
     var TableFilter = function TableFilter() {
       return __webpack_require__.e(/*! import() | Open-Law-Library-Filterable-Table */ "OLL-Filterable-Table").then(__webpack_require__.bind(__webpack_require__, /*! Shared/js/components/table-filter/TableFilter */ "../../../../../../core__front-end/v2/shared/js/components/table-filter/TableFilter.vue"));
     };
+
     filterableTableEls.forEach(function (filterableTableEl) {
       if (filterableTableEl !== null && filterableTableEl !== '') {
         tableComponents.push(new vue__WEBPACK_IMPORTED_MODULE_4__["default"]({
@@ -7118,24 +7154,27 @@ var urlToMarginaliaId = function urlToMarginaliaId(url) {
   if (!url) {
     return '';
   }
+
   return 'marginalia_' + url.replace(/[^a-zA-Z0-9]/g, '_');
-};
-// Scrolls ToC area to make the active link visible if it's outside of viewport
+}; // Scrolls ToC area to make the active link visible if it's outside of viewport
+
 var scrollToC = function scrollToC(skipNextScroll) {
   // Check if ToC scrolling is disabled before scrolling:
   // context.state.skipNextScroll
   var activeLink = document.querySelector('.toc a.active');
+
   if (activeLink) {
     requestAnimationFrame(function () {
       var tocSection = document.querySelector('section.toc');
       var tocRect = tocSection.getBoundingClientRect();
-      var linkRect = activeLink.getBoundingClientRect();
-      // Get vertical boundaries of Table of contents area and the currently active link
+      var linkRect = activeLink.getBoundingClientRect(); // Get vertical boundaries of Table of contents area and the currently active link
       // Values are rounded so sub-pixel values are ignored
+
       var tocTop = Math.round(tocRect.top);
       var tocBottom = Math.round(tocRect.bottom);
       var linkTop = Math.round(linkRect.top);
       var linkBottom = Math.round(linkRect.bottom);
+
       if (String(platform.name).toLowerCase() === 'safari' && String(platform.engine).toLowerCase() === 'webkit') {
         // If link is above the visible ToC area (even partially),
         // scroll it into view aligning it to top:
@@ -7151,6 +7190,7 @@ var scrollToC = function scrollToC(skipNextScroll) {
           // First check if ToC should be scrolled
           var oneThird = Math.round(tocRect.top + tocRect.height / 3);
           var twoThirds = Math.round(tocRect.bottom - tocRect.height / 3);
+
           if (linkTop <= oneThird || linkBottom >= twoThirds) {
             activeLink.scrollIntoView({
               block: 'center'
@@ -7165,41 +7205,45 @@ var scrollToC = function scrollToC(skipNextScroll) {
       }
     });
   }
-};
-// ------------------------------------------------------------------- LOCAL UTIL FUNCTIONS:
-
+}; // ------------------------------------------------------------------- LOCAL UTIL FUNCTIONS:
 // Historical prefix is contained in <meta itemprop='historical-prefix'> tag's content attribute
 // Only historical documents have that tag, so this function returns empty prefix for current versions.
+
 var parseHistoricalPrefix = function parseHistoricalPrefix(html_document) {
   var prefixMetaEl = html_document.querySelector('head meta[itemprop=historical-prefix]');
   return prefixMetaEl ? prefixMetaEl.getAttribute('content') : '';
 };
+
 var processMeta = function processMeta(metaList) {
   if (metaList && metaList.innerHTML.trim() !== '') {
     var links = metaList.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
 
-      // Only links to PDF files need to be opened in new tab automatically
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i]; // Only links to PDF files need to be opened in new tab automatically
+
       if (link.getAttribute('href').toLowerCase().indexOf('.pdf') !== -1) {
         link.setAttribute('target', '_blank');
       }
+
       link.classList.remove('documentLink');
     }
+
     return metaList.outerHTML;
   }
+
   return 'Nothing to show';
 };
+
 var editLinks = function editLinks(section) {
   if (section) {
     var links = section.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
-      // Add a class to all links inside fetched documents
-      // so they can be fetched with AJAX
-      var url = link.getAttribute('href');
 
-      // Skip external links
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i]; // Add a class to all links inside fetched documents
+      // so they can be fetched with AJAX
+
+      var url = link.getAttribute('href'); // Skip external links
+
       if (!isExternalLink(url) && !isPdfLink(url)) {
         link.classList.add('documentLink');
       } else {
@@ -7209,9 +7253,11 @@ var editLinks = function editLinks(section) {
     }
   }
 };
+
 var parseSearchPaths = function parseSearchPaths(documentHTML) {
   var paths = [];
   var ancestorList = documentHTML.querySelector(SEARCH_PATHS_LIST_SELECTOR);
+
   if (ancestorList) {
     for (var i = 0; i < ancestorList.children.length; i++) {
       var item = ancestorList.children[i];
@@ -7224,13 +7270,15 @@ var parseSearchPaths = function parseSearchPaths(documentHTML) {
       });
     }
   }
-  return paths;
-};
 
-// DEPRECATED FOR NOW
+  return paths;
+}; // DEPRECATED FOR NOW
+
+
 var parseBreadcrumbs = function parseBreadcrumbs(list) {
   var breadcrumbs = [];
   var links = list.getElementsByTagName('a');
+
   for (var i = 0; i < links.length; i++) {
     var link = links[i];
     var url = link.getAttribute('href');
@@ -7242,15 +7290,20 @@ var parseBreadcrumbs = function parseBreadcrumbs(list) {
       url: url
     });
   }
+
   return breadcrumbs;
 };
+
 var parseMeta = function parseMeta(metaHTML) {
   var meta = [];
+
   if (metaHTML) {
     var definitions = metaHTML.getElementsByTagName('dt');
     var items = metaHTML.getElementsByTagName('dd');
+
     if (definitions && items) {
       var count = definitions.length;
+
       for (var i = 0; i < count; i++) {
         var title = definitions[i].innerText;
         var metaItems = items[i].innerHTML.split('<br>');
@@ -7261,6 +7314,7 @@ var parseMeta = function parseMeta(metaHTML) {
       }
     }
   }
+
   return meta;
 };
 
@@ -7280,8 +7334,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getDocumentResourceLinks": () => (/* binding */ getDocumentResourceLinks),
 /* harmony export */   "missingReaderFonts": () => (/* binding */ missingReaderFonts)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! Shared/js/utils/isFalsy */ "../../../../../../core__front-end/v2/shared/js/utils/isFalsy.js");
@@ -7290,27 +7344,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // SET OF UTIL FUNCTIONS THAT SET UP READER STATIC RESOURCE LINKS
+ // Responsive CSS file name
 
-
-// Responsive CSS file name
-var RESPONSIVE_CSS_FILE = 'responsive.min.css';
-
-// ----------------------------------------------------------------------------
+var RESPONSIVE_CSS_FILE = 'responsive.min.css'; // ----------------------------------------------------------------------------
 // DOCUMENT SETUP FUNCTIONS:
 // ----------------------------------------------------------------------------
 // When documents are fetched using ajax, we need to extract links to document
 // specific resources (styles and fonts) that are NOT already loaded and load
 // them
+
 var getDocumentResourceLinks = function getDocumentResourceLinks(headSection) {
   var links = headSection.querySelectorAll('link[rel=stylesheet]');
-  var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
-    _step;
+
+  var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+      _step;
+
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var link = _step.value;
       var href = link.getAttribute('href');
+
       if (href.indexOf(RESPONSIVE_CSS_FILE) === -1) {
         var found = findLink(href);
+
         if (!found) {
           document.head.appendChild(link);
         }
@@ -7321,35 +7377,34 @@ var getDocumentResourceLinks = function getDocumentResourceLinks(headSection) {
   } finally {
     _iterator.f();
   }
-};
+}; // Create <a> html node with specified params
 
-// Create <a> html node with specified params
 var generateStyleLink = function generateStyleLink(parameters) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: '',
     media: ''
-  }, parameters);
+  }, parameters); // Error checking
 
-  // Error checking
+
   if (!parameters || !OPTIONS.url) {
     console.error('Parameters for resource URL are not set properly!');
     return false;
-  }
+  } // Build style link
 
-  // Build style link
+
   var link = document.createElement('link');
+
   if (OPTIONS.media) {
     link.setAttribute('media', OPTIONS.media);
   }
+
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
-  link.setAttribute('href', OPTIONS.url);
+  link.setAttribute('href', OPTIONS.url); // Append link to head
 
-  // Append link to head
   document.head.appendChild(link);
   return true;
 };
-
 /**
  * Finds which Reader fonts should be added to HEAD. Choose only those that
  * differ from Document fonts, excluding Biticons.
@@ -7359,32 +7414,31 @@ var generateStyleLink = function generateStyleLink(parameters) {
  * @param {Array} fontArray - URL's relative to `/_reader/` directory
  * @returns {Array} Array of added fonts and adds fonts to the HEAD element
  */
+
 var missingReaderFonts = function missingReaderFonts(fontArray) {
   if (Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_3___default()(fontArray) || fontArray.length === 0) {
     return false;
   }
-  var loadedStyles = Array.from(document.head.querySelectorAll('[rel="stylesheet"]'));
 
-  // Create an array of fonts that differ from loaded ones
+  var loadedStyles = Array.from(document.head.querySelectorAll('[rel="stylesheet"]')); // Create an array of fonts that differ from loaded ones
+
   var missingFonts = [];
   fontArray.forEach(function (fontItem) {
     var isPresent = loadedStyles.some(function (loadedStyle) {
       return loadedStyle.href.includes(fontItem);
-    });
+    }); // Add missing font
 
-    // Add missing font
     if (!isPresent) {
       missingFonts.push(fontItem);
-    }
+    } // Always add Biticons if present, because they differ from Document Biticons
 
-    // Always add Biticons if present, because they differ from Document Biticons
+
     if (fontItem.includes('biticons')) {
       missingFonts.push('/biticons/biticons-reader.css');
     }
   });
   return missingFonts;
 };
-
 /**
  * Adds missing fonts to Reader App HEAD element
  *
@@ -7392,15 +7446,20 @@ var missingReaderFonts = function missingReaderFonts(fontArray) {
  * @param {String} [version=false] - Version suffix
  * @returns {void}
  */
+
 var addReaderFonts = function addReaderFonts(fontArray) {
   var version = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   if (Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_3___default()(fontArray) || fontArray.length === 0) {
     return false;
   }
+
   if (version) {
     version = "?v=".concat(version);
   }
+
   var missingFonts = missingReaderFonts(fontArray);
+
   if (missingFonts.length > 0) {
     missingFonts.forEach(function (missingFont) {
       generateStyleLink({
@@ -7409,22 +7468,24 @@ var addReaderFonts = function addReaderFonts(fontArray) {
       });
     });
   }
-  return true;
-};
 
-// ----------------------------------------------------------------------------
+  return true;
+}; // ----------------------------------------------------------------------------
 // UTIL FUNCTIONS:
 // ----------------------------------------------------------------------------
-
 // Finds the link with specified filename in url
+
 var findLink = function findLink(fileName) {
   var links = document.head.querySelectorAll('link[rel=stylesheet]');
-  var _iterator2 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
-    _step2;
+
+  var _iterator2 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+      _step2;
+
   try {
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
       var link = _step2.value;
       var href = link.getAttribute('href');
+
       if (href.indexOf(fileName) !== -1) {
         return link;
       }
@@ -7434,14 +7495,17 @@ var findLink = function findLink(fileName) {
   } finally {
     _iterator2.f();
   }
-  return null;
-};
 
-// DEBUG: List all style links from <head>
+  return null;
+}; // DEBUG: List all style links from <head>
+
+
 var listLinks = function listLinks() {
   var links = document.head.querySelectorAll('link[rel=stylesheet]');
-  var _iterator3 = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
-    _step3;
+
+  var _iterator3 = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(links || []),
+      _step3;
+
   try {
     for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
       var link = _step3.value;
@@ -7470,7 +7534,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /***/ }),
 
 /***/ "../../../../../../core__front-end/v2/shared/js/directives/checkbox-indeterminate/Indeterminate.js":
@@ -7483,9 +7546,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
 
+
 var Indeterminate = function Indeterminate(element, binding) {
   element.indeterminate = binding.value === true;
 };
+
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('checkbox-indeterminate', Indeterminate);
 
 /***/ }),
@@ -7501,11 +7566,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var tippy_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tippy.js */ "../../../../../../node_modules/tippy.js/dist/tippy.esm.js");
 
-
-
-// CSS TOOLTIPS
+ // CSS TOOLTIPS
 // -----------------------------------------------------------------------------
 // Initialize the tooltip directive.
+
 var setAndRemoveTooltip = function setAndRemoveTooltip(element, bindValue) {
   if (bindValue) {
     element.setAttribute('data-tooltip', bindValue);
@@ -7513,6 +7577,7 @@ var setAndRemoveTooltip = function setAndRemoveTooltip(element, bindValue) {
     element.removeAttribute('data-tooltip');
   }
 };
+
 var CSSTooltip = {
   bind: function bind(el, binding, vnode) {
     setAndRemoveTooltip(el, binding.value);
@@ -7523,11 +7588,9 @@ var CSSTooltip = {
   componentUpdated: function componentUpdated(el, binding, vnode) {
     setAndRemoveTooltip(el, binding.value);
   }
-};
+}; // Make this directive available globally
 
-// Make this directive available globally
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('css-tooltip', CSSTooltip); // CSS-only tooltips
-
 // TIPPY.JS
 // -----------------------------------------------------------------------------
 // Directive represents the simplified usage of Tippy.js
@@ -7549,50 +7612,66 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('css-tooltip', CSSTooltip)
 var setTippy = function setTippy(el, binding) {
   // Tooltip position
   var position = 'auto'; // Default positioning
+
   var tipTrigger = 'mouseenter';
   var delay = 500;
+
   if (binding.modifiers.left) {
     position = 'left';
   }
+
   if (binding.modifiers.leftStart) {
     position = 'left-start';
   }
+
   if (binding.modifiers.leftEnd) {
     position = 'left-end';
   }
+
   if (binding.modifiers.right) {
     position = 'right';
   }
+
   if (binding.modifiers.rightStart) {
     position = 'right-start';
   }
+
   if (binding.modifiers.rightEnd) {
     position = 'right-end';
   }
+
   if (binding.modifiers.top) {
     position = 'top';
   }
+
   if (binding.modifiers.topStart) {
     position = 'top-start';
   }
+
   if (binding.modifiers.topEnd) {
     position = 'top-end';
   }
+
   if (binding.modifiers.bottom) {
     position = 'bottom';
   }
+
   if (binding.modifiers.bottomStart) {
     position = 'bottom-start';
   }
+
   if (binding.modifiers.bottomEnd) {
     position = 'bottom-end';
   }
+
   if (binding.modifiers.click) {
     tipTrigger = 'click';
   }
+
   if (binding.modifiers.noDelay) {
     delay = 0;
   }
+
   if (binding.value.content.trim() !== '') {
     var instance = (0,tippy_js__WEBPACK_IMPORTED_MODULE_1__["default"])(el, {
       content: binding.value.content,
@@ -7611,6 +7690,7 @@ var setTippy = function setTippy(el, binding) {
     instance.enable();
   }
 };
+
 var Tooltip = {
   bind: function bind(el, binding, vnode) {
     setTippy(el, binding);
@@ -7624,13 +7704,13 @@ var Tooltip = {
     var opts = typeof binding.value === 'string' ? {
       content: binding.value
     } : binding.value || {};
+
     if (el._tippy) {
       el._tippy.setProps(opts || {});
     }
   }
-};
+}; // Make this directive available globally
 
-// Make this directive available globally
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('tooltip', Tooltip); // Simple tippy.js tooltip
 
 /***/ }),
@@ -7729,42 +7809,42 @@ var HistoricalVersionsMixin = {
     // -------------------------------------------------------------------------
     fetchHistoricalVersions: function fetchHistoricalVersions() {
       var _this = this;
+
       var vm = this;
       return new Promise(function (resolve, reject) {
         // Remove file extension from API request
         var urlPath = '/';
+
         if (_this.$store.getters['sharedComponents/getComponentMode'] === 'reader') {
           var _this$$route;
+
           urlPath = (_this$$route = _this.$route) === null || _this$$route === void 0 ? void 0 : _this$$route.path;
         } else {
           urlPath = String(vm.cleanHistoricalPath(window.location.pathname));
-        }
+        } // console.log('Fetching historical versions for', window.location.pathname)
 
-        // console.log('Fetching historical versions for', window.location.pathname)
 
         if (urlPath !== vm.fetchedHistoricalPath) {
           vm.$store.commit('sharedLoading/setLoadingHistory', true);
           axios__WEBPACK_IMPORTED_MODULE_1___default().get("/_api/versions".concat(urlPath)).then(function (result) {
             vm.$store.commit('sharedHistoricalVersions/setHistoricalVersionsPath', urlPath);
             vm.$store.commit('sharedHistoricalVersions/setHistoricalVersionsData', result.data);
-            vm.$store.commit('sharedLoading/setLoadingHistory', false);
-            // console.info('HISTORICAL VERSIONS: Fetched new path', result.data.path, result.data)
+            vm.$store.commit('sharedLoading/setLoadingHistory', false); // console.info('HISTORICAL VERSIONS: Fetched new path', result.data.path, result.data)
+
             resolve(result.data);
           })["catch"](function () {
             vm.$store.commit('sharedLoading/setLoadingHistory', false);
           });
         } else {
           // Since path was already fetched, return value from the store
-
           // console.warn('HISTORICAL VERSIONS: Path already fetched', vm.$store.getters['sharedHistoricalVersions/getHistoricalVersionsData'].path, vm.$store.getters['sharedHistoricalVersions/getHistoricalVersionsData'])
           resolve(vm.$store.getters['sharedHistoricalVersions/getHistoricalVersionsData']);
         }
       });
     },
     fetchHistoricalVersionsData: function fetchHistoricalVersionsData() {
-      var vm = this;
+      var vm = this; // Load from API and populate data
 
-      // Load from API and populate data
       vm.fetchHistoricalVersions().then(function (data) {
         vm.$store.commit('sharedHistoricalVersions/historyPopulateStore', data);
       });
@@ -7776,14 +7856,14 @@ var HistoricalVersionsMixin = {
       this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedHistory', {
         index: e.target.options.selectedIndex
       });
+
       if (this.historyUiVersion.index > -1) {
         var selectedOption = e.target.options[this.historyUiVersion.index];
         this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedHistory', {
           display: selectedOption.dataset.display,
           date: selectedOption.dataset.date.toLowerCase()
-        });
+        }); // Check if comparison is same as history
 
-        // Check if comparison is same as history
         if (this.historyUiVersion.display === this.historyUiCompare.display) {
           this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedCompare', {
             display: false,
@@ -7797,6 +7877,7 @@ var HistoricalVersionsMixin = {
       this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedCompare', {
         index: e.target.options.selectedIndex
       });
+
       if (this.historyUiCompare.index > -1) {
         var selectedOption = e.target.options[this.historyUiCompare.index];
         this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedCompare', {
@@ -7810,6 +7891,7 @@ var HistoricalVersionsMixin = {
       this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedPublication', {
         index: e.target.options.selectedIndex
       });
+
       if (this.historyUiPublication.index > -1) {
         var selectedOption = e.target.options[this.historyUiPublication.index];
         this.$store.commit('sharedHistoricalVersions/setHistoricalSelectedPublication', {
@@ -7825,56 +7907,57 @@ var HistoricalVersionsMixin = {
     },
     reSelectHistoricalOptionsAfterUrlChange: function reSelectHistoricalOptionsAfterUrlChange(url) {
       var _this2 = this;
+
       // If URL was changed and for some reason select component is not updating,
       // we need to re-check what is selected in URL and select that option
       // by changing the store value for `historicalVersions.ui.selected`
-
       // Operations:
       // - check the URL
       // - find matching dates and url slugs (regex)
       // - select matching select options in store
       // - select proper option on next tick
-
       // Regex patterns and groups
       var matchDate = /(_date)\/([a-zA-Z0-9-]{0,})/;
       var matchCompare = /(_compare)\/([a-zA-Z0-9-]{0,})\/([a-zA-Z0-9-]{0,})/;
-      var matchPublication = /(_publication)\/([a-zA-Z0-9-]{0,})/;
-
-      // Groups
+      var matchPublication = /(_publication)\/([a-zA-Z0-9-]{0,})/; // Groups
       // If pattern is matched, returns array of results
-      var groupDate = url.match(matchDate); // actual date is on groupDate[2]
-      var groupCompare = url.match(matchCompare); // actual dates are on groupCompare[2] and [3]
-      var groupPublication = url.match(matchPublication); // actual date is on groupPublication[2]
 
+      var groupDate = url.match(matchDate); // actual date is on groupDate[2]
+
+      var groupCompare = url.match(matchCompare); // actual dates are on groupCompare[2] and [3]
+
+      var groupPublication = url.match(matchPublication); // actual date is on groupPublication[2]
       // CHECK HISTORICAL VERSIONS
       // -------------------------
+
       if (groupDate !== null && groupCompare === null) {
         // Find select field with this day and get it's index
         var dateHistory = groupDate[2];
-        var selectDateEl = document.querySelector('.historical-versions__date #historyForm') || false;
+        var selectDateEl = document.querySelector('.historical-versions__date #historyForm') || false; // Save selection to store, which will change the selected option in UI
 
-        // Save selection to store, which will change the selected option in UI
         if (selectDateEl) {
           (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_6__.AsyncQuerySelector)({
             selector: ".historical-versions__date #historyForm [data-date=\"".concat(dateHistory, "\"]")
           }).then(function (el) {
             var optionDateIndex = el.getAttribute('data-index');
+
             _this2.$store.commit('sharedHistoricalVersions/setHistoricalSelectedHistory', {
               display: el.value,
               date: dateHistory,
               index: optionDateIndex
             });
+
             _this2.$nextTick(function () {
               selectDateEl.selectedIndex = optionDateIndex; // Select proper select
+
               _this2.$store.commit('sharedHistoricalVersions/resetHistoricalVersion'); // Re-render component
+
             });
           })["catch"](function (error) {
             return console.error(error);
           });
         }
-      }
-
-      // CHECK HISTORICAL VERSION COMPARISON
+      } // CHECK HISTORICAL VERSION COMPARISON
       // -----------------------------------
       else if (groupCompare !== null) {
         // In compare URL, older date is compare to date, and the newer one is
@@ -7884,11 +7967,11 @@ var HistoricalVersionsMixin = {
         var compareDate1 = groupCompare[2];
         var compareDate2 = groupCompare[3];
         var date1 = compareDate1 !== 'current' ? new Date(compareDate1) : 'current';
-        var date2 = compareDate2 !== 'current' ? new Date(compareDate2) : 'current';
+        var date2 = compareDate2 !== 'current' ? new Date(compareDate2) : 'current'; // Find which date is compare
 
-        // Find which date is compare
         if (date1 !== 'current' && date2 !== 'current') {
           dateCompare = date1 > date2 ? compareDate1 : compareDate2; // Older one is compare to date
+
           _dateHistory = date1 > date2 ? compareDate2 : compareDate1; // Newer one is historical version
         } else if (date1 === 'current' && date2 !== 'current') {
           _dateHistory = compareDate1;
@@ -7896,76 +7979,88 @@ var HistoricalVersionsMixin = {
         } else if (date1 !== 'current' && date2 === 'current') {
           _dateHistory = compareDate2;
           dateCompare = compareDate1;
-        }
-
-        // Find select field with this day and get it's index
+        } // Find select field with this day and get it's index
         // History
-        var _selectDateEl = document.querySelector('.historical-versions__compare #historyForm') || false;
 
-        // Find and select option in Date select
+
+        var _selectDateEl = document.querySelector('.historical-versions__compare #historyForm') || false; // Find and select option in Date select
+
+
         if (_selectDateEl) {
           (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_6__.AsyncQuerySelector)({
             selector: ".historical-versions__compare #historyForm [data-date=\"".concat(_dateHistory, "\"]")
           }).then(function (el) {
             var optionDateIndex = el.getAttribute('data-index');
+
             _this2.$store.commit('sharedHistoricalVersions/setHistoricalSelectedHistory', {
               display: el.value,
               date: _dateHistory,
               index: optionDateIndex
             });
+
             _this2.$nextTick(function () {
               _selectDateEl.selectedIndex = optionDateIndex; // Select proper select
+
               _this2.$store.commit('sharedHistoricalVersions/resetHistoricalVersion'); // Re-render component
+
             });
           })["catch"](function (error) {
             return console.error(error);
           });
-        }
+        } // Find and select option in Compare select
 
-        // Find and select option in Compare select
+
         var selectCompareEl = document.getElementById('compareForm') || false;
+
         if (selectCompareEl) {
           (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_6__.AsyncQuerySelector)({
             selector: "#compareForm [value=\"".concat(dateCompare, "\"]")
           }).then(function (el) {
             var optionCompareIndex = el.getAttribute('data-index');
+
             _this2.$store.commit('sharedHistoricalVersions/setHistoricalSelectedCompare', {
               display: el.value,
               date: dateCompare,
               index: optionCompareIndex
             });
+
             _this2.$nextTick(function () {
               selectCompareEl.selectedIndex = optionCompareIndex; // Select proper select
+
               _this2.$store.commit('sharedHistoricalVersions/resetHistoricalCompare'); // Re-render component
+
             });
           })["catch"](function (error) {
             return console.error(error);
           });
         }
-      }
-
-      // CHECK PUBLICATION
+      } // CHECK PUBLICATION
       // -----------------
+
+
       if (groupPublication !== null) {
         // Find select field with this day and get it's index
         var datePublication = groupPublication[2];
-        var selectPublicationEl = document.getElementById('publicationForm') || false;
+        var selectPublicationEl = document.getElementById('publicationForm') || false; // Save selection to store, which will change the selected option in UI
 
-        // Save selection to store, which will change the selected option in UI
         if (selectPublicationEl) {
           (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_6__.AsyncQuerySelector)({
             selector: "#publicationForm [data-name=\"".concat(datePublication, "\"]")
           }).then(function (el) {
             var optionPublicationIndex = el.getAttribute('data-index');
+
             _this2.$store.commit('sharedHistoricalVersions/setHistoricalSelectedPublication', {
               display: el.value,
               date: datePublication,
               index: optionPublicationIndex,
               name: el.getAttribute('data-name')
             });
+
             _this2.$nextTick(function () {
               selectPublicationEl.selectedIndex = optionPublicationIndex; // Select proper select
+
               _this2.$store.commit('sharedHistoricalVersions/resetHistoricalPublication'); // Re-render component
+
             });
           })["catch"](function (error) {
             return console.error(error);
@@ -7978,48 +8073,45 @@ var HistoricalVersionsMixin = {
       // in v-for loop in template. We pass two options:
       // - type: `history`, `compare` or `publication`
       // - selectContext: single object from v-for loop
-
       // Historical versions dropdown
-      if (type === 'history' && (
-      // Check if this date is selected
-      this.historyUiVersion.date === selectContext.date.toLowerCase() ||
-      // Check if this is the default select, while no option is selected
+      if (type === 'history' && ( // Check if this date is selected
+      this.historyUiVersion.date === selectContext.date.toLowerCase() || // Check if this is the default select, while no option is selected
       !this.historyUiVersion.date && selectContext.date.toLowerCase() === this.historicalVersionsData.activeVersion)) {
         return 'selected';
-      }
+      } // Comparison dropdown
 
-      // Comparison dropdown
-      if (type === 'compare' && (
-      // Check if this date is selected
-      this.historyUiCompare.date === selectContext.date.toLowerCase() ||
-      // Check if this is the default select, while no option is selected
+
+      if (type === 'compare' && ( // Check if this date is selected
+      this.historyUiCompare.date === selectContext.date.toLowerCase() || // Check if this is the default select, while no option is selected
       !this.historyUiCompare.date && selectContext.date.toLowerCase() === this.historicalVersionsData.activeCompareTo)) {
         return 'selected';
-      }
+      } // Publication dropdown
 
-      // Publication dropdown
+
       if (type === 'publication' && this.historyUiPublication.name === selectContext.name) {
         return 'selected';
       }
+
       return false;
     },
     isHistoryOptionDisabled: function isHistoryOptionDisabled(type, selectContext) {
       // This method checks if currently listed object is disabled.
       // Active historical version should be disabled in compare select
       // Active compare field should be disabled in version select
-
       // Historical versions
       if (type === 'history' && this.historyUiVersion.date === selectContext.date) {
         return 'disabled';
-      }
+      } // Compare
 
-      // Compare
+
       if (type === 'compare' && this.historyUiCompare.date === selectContext.date) {
         return 'disabled';
       }
+
       if (type === 'publication' && this.historicalVersionsData.activePublication === selectContext.name) {
         return 'disabled';
       }
+
       return false;
     },
     // isCompareEnabled() { // FIX: See if this is better than `isHistoryButtonDisabled(type)`
@@ -8030,35 +8122,41 @@ var HistoricalVersionsMixin = {
     // },
     historyButtonOpen: function historyButtonOpen(type) {
       var _this3 = this;
+
       // Documents links
       if (this.componentMode === 'lite') {
         var origin = window.location.origin;
+
         if (type === 'history' && this.historyUiVersion.date) {
           var redirectHistoryUrl = new URL(this.fixPath(this.historyURL()), origin);
           window.location.href = redirectHistoryUrl;
         }
+
         if (type === 'compare' && this.historyUiCompare.date) {
           var redirectCompareUrl = new URL(this.fixPath(this.compareURL()), origin);
           window.location.href = redirectCompareUrl;
         }
+
         if (type === 'publication' && this.historyUiPublication.date) {
           var redirectPublicationUrl = new URL(this.fixPath(this.publicationURL()), origin);
           window.location.href = redirectPublicationUrl;
         }
-      }
+      } // Reader links
 
-      // Reader links
+
       if (this.componentMode === 'reader') {
         var documentURL = this.historyURL();
+
         if (type === 'compare' && this.historyUiCompare.date) {
           documentURL = this.compareURL();
         }
+
         if (type === 'publication' && this.historyUiPublication.name) {
           documentURL = this.publicationURL();
         }
-        documentURL = this.$route.hash ? (0,Reader_js_misc_utils_HTMLUtil__WEBPACK_IMPORTED_MODULE_4__.normalizeURL)(documentURL + this.$route.hash) : (0,Reader_js_misc_utils_HTMLUtil__WEBPACK_IMPORTED_MODULE_4__.normalizeURL)(documentURL);
 
-        // Dispatch to store
+        documentURL = this.$route.hash ? (0,Reader_js_misc_utils_HTMLUtil__WEBPACK_IMPORTED_MODULE_4__.normalizeURL)(documentURL + this.$route.hash) : (0,Reader_js_misc_utils_HTMLUtil__WEBPACK_IMPORTED_MODULE_4__.normalizeURL)(documentURL); // Dispatch to store
+
         this.$store.commit('sharedLoading/setLoadingHistory', true);
         this.$store.dispatch('document/loadDocument', {
           url: documentURL,
@@ -8066,11 +8164,12 @@ var HistoricalVersionsMixin = {
         }).then(function () {
           // Set focus
           var contentArea = document.getElementById('main-content');
+
           if (contentArea) {
             contentArea.focus();
-          }
+          } // Load new historical versions for newly loaded page
 
-          // Load new historical versions for newly loaded page
+
           _this3.fetchHistoricalVersionsData();
         });
       }
@@ -8079,12 +8178,15 @@ var HistoricalVersionsMixin = {
       if (type === 'history' && this.historyURL() && (this.historyUiVersion.date !== this.historicalVersionsData.activeVersion || this.historicalVersionsData.activeCompareTo) || type === 'history' && this.historyURL() && this.historyUiVersion.date === 'info') {
         return false;
       }
+
       if (type === 'compare' && this.compareURL() && this.historyUiCompare.date !== this.historyUiVersion.date && !(this.historyUiCompare.date === this.historicalVersionsData.activeCompareTo && this.historyUiVersion.date === this.historicalVersionsData.activeVersion) || type === 'compare' && this.compareURL() && this.historyUiCompare.date === 'info') {
         return false;
       }
+
       if (type === 'publication' && this.historicalVersionsData.activePublication !== this.historyUiPublication.name || type === 'publication' && this.historyUiPublication.name === 'info') {
         return false;
       }
+
       return true;
     },
     // Backend
@@ -8102,25 +8204,30 @@ var HistoricalVersionsMixin = {
       if (this.historyUiVersion.date === 'current') {
         return this.fixPath("/".concat(this.basePublicationURL(), "/").concat(this.historicalVersionsData.path));
       }
+
       if (this.historyUiVersion.date !== '' && this.historyUiVersion.date !== 'current') {
         return this.fixPath("/".concat(this.basePublicationURL(), "/_date/").concat(this.historyUiVersion.date, "/").concat(this.historicalVersionsData.path));
       }
+
       return false;
     },
     compareURL: function compareURL() {
       if (this.historyUiVersion.date && this.historyUiCompare.date) {
         return this.fixPath("/".concat(this.basePublicationURL(), "/_compare/").concat(this.historyUiVersion.date, "/").concat(this.historyUiCompare.date, "/").concat(this.historicalVersionsData.path));
       }
+
       return false;
     },
     publicationURL: function publicationURL() {
       var location = window.location.pathname;
       var slug = /_publication\/[\d,-]*\/?/i;
+
       if (this.historyUiPublication.name.toLowerCase() === 'current') {
         return location.replace(slug, '/');
       } else if (this.historyUiPublication.name !== '' && this.historyUiPublication.date.toLowerCase() !== 'current') {
         return this.fixPath("/_publication/".concat(this.historyUiPublication.name, "/").concat(location.replace(slug, '/')));
       }
+
       return false;
     },
     cleanHistoricalPath: function cleanHistoricalPath(urlPath) {
@@ -8141,9 +8248,8 @@ var HistoricalVersionsMixin = {
             groupName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_2__.CoreTools.TOOL_GROUP_DOCUMENT,
             toolName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_2__.CoreTools.TOOL_DOCUMENT_HISTORICAL_COMPARE,
             isAvailable: true
-          });
+          }); // Populate fields
 
-          // Populate fields
           vm.$store.commit('sharedHistoricalVersions/historyPopulateStore', data);
           resolve('Historical versions are available');
         })["catch"](function (err) {
@@ -8204,6 +8310,7 @@ var LightboxMixin = {
           return true;
         }
       }
+
       return false;
     }
   }
@@ -8222,7 +8329,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SearchMixin": () => (/* binding */ SearchMixin)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
@@ -8249,12 +8356,14 @@ var SearchMixin = {
       if (typeof this.searchUI.dropdown.key.selected !== 'undefined') {
         return this.searchUI.dropdown.key.selected;
       }
+
       return 0;
     },
     searchCurrentPath: function searchCurrentPath() {
       if (typeof this.searchPaths[this.searchDropdownKeySelected] !== 'undefined') {
         return this.searchPaths[this.searchDropdownKeySelected];
       }
+
       return this.searchPaths[0];
     },
     searchPaths: function searchPaths() {
@@ -8285,24 +8394,28 @@ var SearchMixin = {
       if (typeof this.$store.getters['sharedSearch/getSearchApiResponse'].error === 'undefined') {
         return this.$store.getters['sharedSearch/getSearchApiResponse'];
       }
+
       return false;
     },
     searchApiError: function searchApiError() {
       if (typeof this.$store.getters['sharedSearch/getSearchApiResponse'].error !== 'undefined' && this.$store.getters['sharedSearch/getSearchApiResponse'].error) {
         return this.$store.getters['sharedSearch/getSearchApiResponse'].error;
       }
+
       return false;
     },
     searchResultsFound: function searchResultsFound() {
       if (!this.searchApiError && this.searchApiResponse && 'hits' in this.searchApiResponse && this.searchApiResponse.hits.total > 0) {
         return true;
       }
+
       return false;
     },
     searchResultsNotFound: function searchResultsNotFound() {
       if (!this.searchApiError && this.searchApiResponse && 'hits' in this.searchApiResponse && this.searchApiResponse.hits.total === 0) {
         return true;
       }
+
       return false;
     },
     searchPage: function searchPage() {
@@ -8312,6 +8425,7 @@ var SearchMixin = {
       if (this.searchApiResponse.hasOwnProperty('hits') && this.searchApiResponse.hits.hits.length > 0) {
         return this.searchApiResponse.hits.hits;
       }
+
       return false;
     },
     searchPopup: function searchPopup() {
@@ -8328,8 +8442,10 @@ var SearchMixin = {
         if (Number(this.searchPagesLeftover) > 0) {
           return Math.floor(Number(this.searchApiResponse.hits.total) / 5) + 1;
         }
+
         return Math.floor(Number(this.searchApiResponse.hits.total) / 5);
       }
+
       return 0;
     },
     // Previous and next searches are disabled if search parameters are changed
@@ -8339,6 +8455,7 @@ var SearchMixin = {
         // return !this.isQuerySearched || Number(this.searchPage) <= 0
         return Number(this.searchPage) <= 0;
       }
+
       return Number(this.searchPage) <= 0;
     },
     isNextSearchDisabled: function isNextSearchDisabled() {
@@ -8346,6 +8463,7 @@ var SearchMixin = {
         // return !this.isQuerySearched || Number(this.searchPageCurrent) === Number(this.searchPagesTotal)
         return Number(this.searchPageCurrent) === Number(this.searchPagesTotal);
       }
+
       return Number(this.searchPageCurrent) === Number(this.searchPagesTotal);
     },
     performedFirstSearch: function performedFirstSearch() {
@@ -8370,30 +8488,37 @@ var SearchMixin = {
       return new Promise(function (resolve, reject) {
         var searchPaths = [];
         var elements = '';
+
         if (HTMLString) {
           elements = HTMLString.getElementsByClassName('ancestors');
         } else {
           elements = document.getElementsByClassName('ancestors');
         }
+
         var breadcrumbs = elements[0].children;
+
         for (var i = 0; i < breadcrumbs.length; i++) {
           var x = breadcrumbs[i];
           var path = x.attributes['data-search-path'];
           var heading = x.attributes['data-search-heading'];
           var isDefault = x.attributes['data-search-default'];
           var name = heading ? heading.value : '';
+
           if (!name) {
             name = x.innerText || '';
             name = name.replace('↪ ', '');
           }
+
           searchPaths.push({
             path: path ? path.value : 'library',
             name: name,
             isDefault: isDefault !== undefined ? isDefault.value : 'false'
           });
         }
+
         if (searchPaths.length > 0) {
           vm.$store.commit('sharedSearch/setSearchPaths', searchPaths);
+
           if (vm.searchFormExternal.fullHash === '') {
             vm.$store.commit('sharedSearch/setSearchDropdownSelectedKeyToDefault');
           } else {
@@ -8409,11 +8534,13 @@ var SearchMixin = {
     findSearchPathName: function findSearchPathName(path) {
       var vm = this;
       var foundPath = false;
+
       for (var i = 0; i < vm.searchPaths.length; i++) {
         if (vm.searchPaths[i].path === path) {
           foundPath = vm.searchPaths[i].name;
         }
       }
+
       return foundPath;
     },
     testIfSearchPathExists: function testIfSearchPathExists(requestedPath) {
@@ -8425,6 +8552,7 @@ var SearchMixin = {
           return i;
         }
       }
+
       return 0; // this is default option, first option in menu, if nothing is found
     },
     scopeItemName: function scopeItemName(nameObject) {
@@ -8433,6 +8561,7 @@ var SearchMixin = {
       if (this.componentMode === 'reader') {
         return nameObject.search_label || nameObject.name;
       }
+
       return nameObject.name;
     },
     getURLQuery: function getURLQuery() {
@@ -8475,48 +8604,47 @@ var SearchMixin = {
       //    in `store.searchUI.popup.type`
       // 3. We change the `store.searchUI.popup.open` to `true`
       // 4. Focus desired element on $nextTick
-
       var vm = this;
-      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+
+      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         type: false,
         // `help` or `search`
         resetPage: false
-      }, parameters);
-
-      // If page is already searched, resetPage is reset to false
+      }, parameters); // If page is already searched, resetPage is reset to false
       // because we just want to open popup with old results
+
+
       if (vm.isQuerySearched) {
         OPTIONS.resetPage = false;
-      }
-
-      // SELECTING A PROPER POPUP
+      } // SELECTING A PROPER POPUP
       // ------------------------
-
       // SEARCH POPUP
+
+
       if (OPTIONS.type === String('search')) {
         if (vm.componentMode === 'reader') {
           // Reader App doesn't open popup, but activates tool instead
-          vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
-          // Open side bar
+          vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS); // Open side bar
+
           vm.$store.commit('structure/setMainMenuOpen', true);
         }
+
         if (vm.componentMode === 'lite') {
           // Set previous hash in URL on popup open
           if (vm.$store.getters['sharedSearch/getSearchFormStoreExternal'].fullHash) {
             location.hash = vm.$store.getters['sharedSearch/getSearchFormStoreExternal'].fullHash;
           }
-        }
+        } // Record a previously focused element
 
-        // Record a previously focused element
-        vm.$store.commit('sharedSearch/changeSearchPopupPrevFocus', document.activeElement);
 
-        // Perform a search
+        vm.$store.commit('sharedSearch/changeSearchPopupPrevFocus', document.activeElement); // Perform a search
+
         vm.doSearch(OPTIONS.resetPage).then(function () {
           // Set popup type
-          vm.$store.commit('sharedSearch/changeSearchPopupType', 'search');
-          // Open a popup
-          vm.$store.commit('sharedSearch/changeSearchPopupOpen', true);
-          // Focus result in search results list
+          vm.$store.commit('sharedSearch/changeSearchPopupType', 'search'); // Open a popup
+
+          vm.$store.commit('sharedSearch/changeSearchPopupOpen', true); // Focus result in search results list
+
           if (vm.$store.getters['sharedComponents/getComponentMode'] === 'reader') {
             vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
             vm.$nextTick(function () {
@@ -8531,24 +8659,23 @@ var SearchMixin = {
           // `error` isn't being passed, no need
           // If no search results are found, just show the header component.
           // Set popup type
-          vm.$store.commit('sharedSearch/changeSearchPopupType', 'search');
-          // Open a popup
-          vm.$store.commit('sharedSearch/changeSearchPopupOpen', true);
-          // No need for console.error, since we save Error response to store
+          vm.$store.commit('sharedSearch/changeSearchPopupType', 'search'); // Open a popup
+
+          vm.$store.commit('sharedSearch/changeSearchPopupOpen', true); // No need for console.error, since we save Error response to store
           // and display it in more meaningful way through UI
           // console.error(err)
         });
-      }
+      } // ADVANCED HELP POPUP
 
-      // ADVANCED HELP POPUP
+
       if (OPTIONS.type === String('help')) {
         // Record a previously focused element
-        vm.$store.commit('sharedSearch/changeSearchPopupPrevFocus', document.activeElement);
-        // Set popup type
-        vm.$store.commit('sharedSearch/changeSearchPopupType', 'help');
-        // Open a popup
-        vm.$store.commit('sharedSearch/changeSearchPopupOpen', true);
-        // Focus content
+        vm.$store.commit('sharedSearch/changeSearchPopupPrevFocus', document.activeElement); // Set popup type
+
+        vm.$store.commit('sharedSearch/changeSearchPopupType', 'help'); // Open a popup
+
+        vm.$store.commit('sharedSearch/changeSearchPopupOpen', true); // Focus content
+
         vm.$nextTick(function () {
           document.querySelector('.search-lite .advanced-help-content').focus();
         });
@@ -8556,15 +8683,19 @@ var SearchMixin = {
     },
     closeSearchPopup: function closeSearchPopup() {
       var _this = this;
+
       if (this.$store.getters['sharedSearch/getSearchPopup'].previousFocus) {
         // Must be wrapped in condition, in case that it collides with skip links
         this.$store.getters['sharedSearch/getSearchPopup'].previousFocus.focus();
       }
+
       this.$store.commit('sharedSearch/changeSearchPopupPrevFocus', false);
       this.$nextTick(function () {
         // Reset these values
         _this.$store.commit('sharedSearch/changeSearchPopupOpen', false);
+
         _this.$store.commit('sharedSearch/changeSearchPopupType', false);
+
         if (_this.componentMode === 'lite') {
           // Remove search hash in Reader Lite
           window.history.replaceState(window.history.state, '', window.location.pathname);
@@ -8577,6 +8708,7 @@ var SearchMixin = {
       if (fromNo % 5 === 0) {
         return fromNo;
       }
+
       var extra = fromNo % 5;
       return fromNo - extra;
     },
@@ -8585,10 +8717,12 @@ var SearchMixin = {
       var formError = {
         'type': "Form type is not set.\nShould be: \"temporary\", \"active\", \"previous\" or \"external\""
       };
+
       if ('from' in data && !isNaN(data.from)) {
         // Round the number to pagination step
         data.from = vm.roundFrom(data.from);
       }
+
       return new Promise(function (resolve, reject) {
         if ('form' in data && data.form && data.form !== '') {
           if (data.form === 'temporary') {
@@ -8622,10 +8756,11 @@ var SearchMixin = {
         if (!this.performedFirstSearch) {
           this.$store.commit('sharedSearch/setFirstSearch');
         }
-        this.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
-      }
 
-      // Search only if temporary search query is present
+        this.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
+      } // Search only if temporary search query is present
+
+
       if (this.searchFormTemporary.query.length > 2) {
         // Save temporary query as active
         // From field depends on whether it is the same search as before. We are
@@ -8633,13 +8768,14 @@ var SearchMixin = {
         if (this.$store.getters['sharedSearch/getSearchPopupState']) {
           this.closeSearchPopup();
         }
+
         this.$store.commit('sharedSearch/setFormStoreActive', {
           query: this.$store.getters['sharedSearch/getSearchFormStoreTemporary'].query,
           path: this.$store.getters['sharedSearch/getSearchFormStoreTemporary'].path,
           name: this.$store.getters['sharedSearch/getSearchFormStoreTemporary'].name,
           from: this.isQuerySearched ? this.$store.getters['sharedSearch/getSearchFormStoreActive'].from : 0
-        });
-        // Set popup parameters and do search
+        }); // Set popup parameters and do search
+
         this.openSearchPopup({
           type: 'search'
         });
@@ -8648,9 +8784,8 @@ var SearchMixin = {
     querySearchAPI: function querySearchAPI() {
       var vm = this;
       return new Promise(function (resolve, reject) {
-        vm.$store.commit('sharedLoading/setLoadingSearch', true);
+        vm.$store.commit('sharedLoading/setLoadingSearch', true); // Compare search queries and search only if query is different
 
-        // Compare search queries and search only if query is different
         if (vm.isQuerySearched) {
           resolve('Query already searched');
           vm.$store.commit('sharedLoading/setLoadingSearch', false);
@@ -8692,13 +8827,14 @@ var SearchMixin = {
     doSearch: function doSearch() {
       var resetPage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       var vm = this;
+
       if (resetPage) {
         vm.$store.commit('sharedSearch/setFormStoreTemporary', {
           from: Number(0)
         });
-      }
+      } // Search only if temporary search query is present
 
-      // Search only if temporary search query is present
+
       if (vm.searchFormTemporary) {
         return new Promise(function (resolve, reject) {
           if (vm.$store.getters['sharedSearch/getSearchFormStoreActive'].query) {
@@ -8716,17 +8852,18 @@ var SearchMixin = {
           }
         });
       }
+
       return false;
     },
     checkPreviousSearch: function checkPreviousSearch() {
       var _this2 = this;
+
       // This method will load URL GET parameters from previous search
       // Successful query returns object with decoded `query`, `path` and `from`
       return new Promise(function (resolve, reject) {
         var vm = _this2;
-        var searchItems = new URLSearchParams(encodeURI(window.location.hash.replace('#!', '')));
+        var searchItems = new URLSearchParams(encodeURI(window.location.hash.replace('#!', ''))); // Save previous query to store
 
-        // Save previous query to store
         if (decodeURIComponent(searchItems.get('q')) !== '' && decodeURIComponent(searchItems.get('q')).length > 2) {
           var prevQ = searchItems.get('q') ? decodeURIComponent(searchItems.get('q')) : false;
           var prevPath = searchItems.get('path') ? decodeURIComponent(searchItems.get('path')) : false;
@@ -8784,12 +8921,12 @@ var SearchMixin = {
     },
     queryPreviousSearch: function queryPreviousSearch() {
       var _this3 = this;
+
       // This method will load URL GET parameters from previous search,
       // save them to store and then perform the new search
       var vm = this;
-      var searchItems = new URLSearchParams(encodeURI(window.location.hash.replace('#!', '')));
+      var searchItems = new URLSearchParams(encodeURI(window.location.hash.replace('#!', ''))); // Save previous query to store
 
-      // Save previous query to store
       if (decodeURIComponent(searchItems.get('q')) !== '') {
         var prevQ = searchItems.get('q') ? decodeURIComponent(searchItems.get('q')) : false;
         var prevPath = searchItems.get('path') ? decodeURIComponent(searchItems.get('path')) : false;
@@ -8826,6 +8963,7 @@ var SearchMixin = {
     searchPreviousPage: function searchPreviousPage() {
       var vm = this;
       var page = Number(vm.searchPage) - 5;
+
       if (!vm.isPrevSearchDisabled) {
         // Set the starting page and do search
         vm.$store.commit('sharedSearch/setFormStoreTemporary', {
@@ -8842,6 +8980,7 @@ var SearchMixin = {
     searchNextPage: function searchNextPage() {
       var vm = this;
       var page = Number(vm.searchPage) + 5;
+
       if (!vm.isNextSearchDisabled) {
         // Set the starting page and do search
         vm.$store.commit('sharedSearch/setFormStoreTemporary', {
@@ -8857,9 +8996,8 @@ var SearchMixin = {
     },
     checkSearch: function checkSearch() {
       // This function checks if Search API is available
-      var vm = this;
+      var vm = this; // Works only in Reader App!
 
-      // Works only in Reader App!
       return new Promise(function (resolve, reject) {
         axios__WEBPACK_IMPORTED_MODULE_4___default().get('/_search/global').then(function () {
           // Enable search tools if server is reachable
@@ -8957,6 +9095,7 @@ var SharedMixin = {
       if (this.componentMode === 'reader') {
         return "r-".concat(biticonName);
       }
+
       return biticonName;
     },
     stripHTML: function stripHTML(textWithTags) {
@@ -8978,6 +9117,7 @@ var SharedMixin = {
           namespace: this.namespace
         };
       }
+
       return {
         content: ''
       };
@@ -8994,7 +9134,9 @@ var SharedMixin = {
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = (__webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/typeof.js */ "../../../../../../node_modules/@babel/runtime/helpers/typeof.js")["default"]);
+
 __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
+
 /* eslint-disable */
 !function (e, t) {
   "object" == ( false ? 0 : _typeof(exports)) && "undefined" != "object" ? t() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (t),
@@ -9012,225 +9154,250 @@ __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../
         i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(e, i.key, i);
       }
     }
+
     return function (e, t, n) {
       return t && i(e.prototype, t), n && i(e, n), e;
     };
   }();
+
   function i(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
+
   var o = Array.prototype.slice,
-    r = Element.prototype.matches || Element.prototype.msMatchesSelector,
-    s = ["a[href]", "area[href]", "input:not([disabled])", "select:not([disabled])", "textarea:not([disabled])", "button:not([disabled])", "details", "summary", "iframe", "object", "embed", "[contenteditable]"].join(","),
-    a = function () {
-      function n(e, t) {
-        i(this, n), this._inertManager = t, this._rootElement = e, this._managedNodes = new Set(), this._rootElement.hasAttribute("aria-hidden") ? this._savedAriaHidden = this._rootElement.getAttribute("aria-hidden") : this._savedAriaHidden = null, this._rootElement.setAttribute("aria-hidden", "true"), this._makeSubtreeUnfocusable(this._rootElement), this._observer = new MutationObserver(this._onMutation.bind(this)), this._observer.observe(this._rootElement, {
-          attributes: !0,
-          childList: !0,
-          subtree: !0
+      r = Element.prototype.matches || Element.prototype.msMatchesSelector,
+      s = ["a[href]", "area[href]", "input:not([disabled])", "select:not([disabled])", "textarea:not([disabled])", "button:not([disabled])", "details", "summary", "iframe", "object", "embed", "[contenteditable]"].join(","),
+      a = function () {
+    function n(e, t) {
+      i(this, n), this._inertManager = t, this._rootElement = e, this._managedNodes = new Set(), this._rootElement.hasAttribute("aria-hidden") ? this._savedAriaHidden = this._rootElement.getAttribute("aria-hidden") : this._savedAriaHidden = null, this._rootElement.setAttribute("aria-hidden", "true"), this._makeSubtreeUnfocusable(this._rootElement), this._observer = new MutationObserver(this._onMutation.bind(this)), this._observer.observe(this._rootElement, {
+        attributes: !0,
+        childList: !0,
+        subtree: !0
+      });
+    }
+
+    return e(n, [{
+      key: "destructor",
+      value: function value() {
+        this._observer.disconnect(), this._rootElement && (null !== this._savedAriaHidden ? this._rootElement.setAttribute("aria-hidden", this._savedAriaHidden) : this._rootElement.removeAttribute("aria-hidden")), this._managedNodes.forEach(function (e) {
+          this._unmanageNode(e.node);
+        }, this), this._observer = null, this._rootElement = null, this._managedNodes = null, this._inertManager = null;
+      }
+    }, {
+      key: "_makeSubtreeUnfocusable",
+      value: function value(e) {
+        var t = this;
+        l(e, function (e) {
+          return t._visitNode(e);
+        });
+        var n = document.activeElement;
+
+        if (!document.body.contains(e)) {
+          for (var i = e, o = void 0; i;) {
+            if (i.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+              o = i;
+              break;
+            }
+
+            i = i.parentNode;
+          }
+
+          o && (n = o.activeElement);
+        }
+
+        e.contains(n) && (n.blur(), n === document.activeElement && document.body.focus());
+      }
+    }, {
+      key: "_visitNode",
+      value: function value(e) {
+        if (e.nodeType === Node.ELEMENT_NODE) {
+          var t = e;
+          t !== this._rootElement && t.hasAttribute("inert") && this._adoptInertRoot(t), (r.call(t, s) || t.hasAttribute("tabindex")) && this._manageNode(t);
+        }
+      }
+    }, {
+      key: "_manageNode",
+      value: function value(e) {
+        var t = this._inertManager.register(e, this);
+
+        this._managedNodes.add(t);
+      }
+    }, {
+      key: "_unmanageNode",
+      value: function value(e) {
+        var t = this._inertManager.deregister(e, this);
+
+        t && this._managedNodes["delete"](t);
+      }
+    }, {
+      key: "_unmanageSubtree",
+      value: function value(e) {
+        var t = this;
+        l(e, function (e) {
+          return t._unmanageNode(e);
         });
       }
-      return e(n, [{
-        key: "destructor",
-        value: function value() {
-          this._observer.disconnect(), this._rootElement && (null !== this._savedAriaHidden ? this._rootElement.setAttribute("aria-hidden", this._savedAriaHidden) : this._rootElement.removeAttribute("aria-hidden")), this._managedNodes.forEach(function (e) {
-            this._unmanageNode(e.node);
-          }, this), this._observer = null, this._rootElement = null, this._managedNodes = null, this._inertManager = null;
-        }
-      }, {
-        key: "_makeSubtreeUnfocusable",
-        value: function value(e) {
-          var t = this;
-          l(e, function (e) {
-            return t._visitNode(e);
-          });
-          var n = document.activeElement;
-          if (!document.body.contains(e)) {
-            for (var i = e, o = void 0; i;) {
-              if (i.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
-                o = i;
-                break;
-              }
-              i = i.parentNode;
-            }
-            o && (n = o.activeElement);
-          }
-          e.contains(n) && (n.blur(), n === document.activeElement && document.body.focus());
-        }
-      }, {
-        key: "_visitNode",
-        value: function value(e) {
-          if (e.nodeType === Node.ELEMENT_NODE) {
-            var t = e;
-            t !== this._rootElement && t.hasAttribute("inert") && this._adoptInertRoot(t), (r.call(t, s) || t.hasAttribute("tabindex")) && this._manageNode(t);
-          }
-        }
-      }, {
-        key: "_manageNode",
-        value: function value(e) {
-          var t = this._inertManager.register(e, this);
-          this._managedNodes.add(t);
-        }
-      }, {
-        key: "_unmanageNode",
-        value: function value(e) {
-          var t = this._inertManager.deregister(e, this);
-          t && this._managedNodes["delete"](t);
-        }
-      }, {
-        key: "_unmanageSubtree",
-        value: function value(e) {
-          var t = this;
-          l(e, function (e) {
-            return t._unmanageNode(e);
-          });
-        }
-      }, {
-        key: "_adoptInertRoot",
-        value: function value(e) {
-          var t = this._inertManager.getInertRoot(e);
-          t || (this._inertManager.setInert(e, !0), t = this._inertManager.getInertRoot(e)), t.managedNodes.forEach(function (e) {
-            this._manageNode(e.node);
-          }, this);
-        }
-      }, {
-        key: "_onMutation",
-        value: function value(e, t) {
-          e.forEach(function (e) {
-            var t = e.target;
-            if ("childList" === e.type) o.call(e.addedNodes).forEach(function (e) {
-              this._makeSubtreeUnfocusable(e);
-            }, this), o.call(e.removedNodes).forEach(function (e) {
-              this._unmanageSubtree(e);
-            }, this);else if ("attributes" === e.type) if ("tabindex" === e.attributeName) this._manageNode(t);else if (t !== this._rootElement && "inert" === e.attributeName && t.hasAttribute("inert")) {
-              this._adoptInertRoot(t);
-              var n = this._inertManager.getInertRoot(t);
-              this._managedNodes.forEach(function (e) {
-                t.contains(e.node) && n._manageNode(e.node);
-              });
-            }
-          }, this);
-        }
-      }, {
-        key: "managedNodes",
-        get: function get() {
-          return new Set(this._managedNodes);
-        }
-      }, {
-        key: "hasSavedAriaHidden",
-        get: function get() {
-          return null !== this._savedAriaHidden;
-        }
-      }, {
-        key: "savedAriaHidden",
-        set: function set(e) {
-          this._savedAriaHidden = e;
-        },
-        get: function get() {
-          return this._savedAriaHidden;
-        }
-      }]), n;
-    }(),
-    d = function () {
-      function n(e, t) {
-        i(this, n), this._node = e, this._overrodeFocusMethod = !1, this._inertRoots = new Set([t]), this._savedTabIndex = null, this._destroyed = !1, this.ensureUntabbable();
+    }, {
+      key: "_adoptInertRoot",
+      value: function value(e) {
+        var t = this._inertManager.getInertRoot(e);
+
+        t || (this._inertManager.setInert(e, !0), t = this._inertManager.getInertRoot(e)), t.managedNodes.forEach(function (e) {
+          this._manageNode(e.node);
+        }, this);
       }
-      return e(n, [{
-        key: "destructor",
-        value: function value() {
-          if (this._throwIfDestroyed(), this._node && this._node.nodeType === Node.ELEMENT_NODE) {
-            var e = this._node;
-            null !== this._savedTabIndex ? e.setAttribute("tabindex", this._savedTabIndex) : e.removeAttribute("tabindex"), this._overrodeFocusMethod && delete e.focus;
+    }, {
+      key: "_onMutation",
+      value: function value(e, t) {
+        e.forEach(function (e) {
+          var t = e.target;
+          if ("childList" === e.type) o.call(e.addedNodes).forEach(function (e) {
+            this._makeSubtreeUnfocusable(e);
+          }, this), o.call(e.removedNodes).forEach(function (e) {
+            this._unmanageSubtree(e);
+          }, this);else if ("attributes" === e.type) if ("tabindex" === e.attributeName) this._manageNode(t);else if (t !== this._rootElement && "inert" === e.attributeName && t.hasAttribute("inert")) {
+            this._adoptInertRoot(t);
+
+            var n = this._inertManager.getInertRoot(t);
+
+            this._managedNodes.forEach(function (e) {
+              t.contains(e.node) && n._manageNode(e.node);
+            });
           }
-          this._node = null, this._inertRoots = null, this._destroyed = !0;
+        }, this);
+      }
+    }, {
+      key: "managedNodes",
+      get: function get() {
+        return new Set(this._managedNodes);
+      }
+    }, {
+      key: "hasSavedAriaHidden",
+      get: function get() {
+        return null !== this._savedAriaHidden;
+      }
+    }, {
+      key: "savedAriaHidden",
+      set: function set(e) {
+        this._savedAriaHidden = e;
+      },
+      get: function get() {
+        return this._savedAriaHidden;
+      }
+    }]), n;
+  }(),
+      d = function () {
+    function n(e, t) {
+      i(this, n), this._node = e, this._overrodeFocusMethod = !1, this._inertRoots = new Set([t]), this._savedTabIndex = null, this._destroyed = !1, this.ensureUntabbable();
+    }
+
+    return e(n, [{
+      key: "destructor",
+      value: function value() {
+        if (this._throwIfDestroyed(), this._node && this._node.nodeType === Node.ELEMENT_NODE) {
+          var e = this._node;
+          null !== this._savedTabIndex ? e.setAttribute("tabindex", this._savedTabIndex) : e.removeAttribute("tabindex"), this._overrodeFocusMethod && delete e.focus;
         }
-      }, {
-        key: "_throwIfDestroyed",
-        value: function value() {
-          if (this.destroyed) throw new Error("Trying to access destroyed InertNode");
+
+        this._node = null, this._inertRoots = null, this._destroyed = !0;
+      }
+    }, {
+      key: "_throwIfDestroyed",
+      value: function value() {
+        if (this.destroyed) throw new Error("Trying to access destroyed InertNode");
+      }
+    }, {
+      key: "ensureUntabbable",
+      value: function value() {
+        if (this.node.nodeType === Node.ELEMENT_NODE) {
+          var e = this.node;
+
+          if (r.call(e, s)) {
+            if (-1 === e.tabIndex && this.hasSavedTabIndex) return;
+            e.hasAttribute("tabindex") && (this._savedTabIndex = e.tabIndex), e.setAttribute("tabindex", "-1"), e.nodeType === Node.ELEMENT_NODE && (e.focus = function () {}, this._overrodeFocusMethod = !0);
+          } else e.hasAttribute("tabindex") && (this._savedTabIndex = e.tabIndex, e.removeAttribute("tabindex"));
         }
-      }, {
-        key: "ensureUntabbable",
-        value: function value() {
-          if (this.node.nodeType === Node.ELEMENT_NODE) {
-            var e = this.node;
-            if (r.call(e, s)) {
-              if (-1 === e.tabIndex && this.hasSavedTabIndex) return;
-              e.hasAttribute("tabindex") && (this._savedTabIndex = e.tabIndex), e.setAttribute("tabindex", "-1"), e.nodeType === Node.ELEMENT_NODE && (e.focus = function () {}, this._overrodeFocusMethod = !0);
-            } else e.hasAttribute("tabindex") && (this._savedTabIndex = e.tabIndex, e.removeAttribute("tabindex"));
-          }
-        }
-      }, {
-        key: "addInertRoot",
-        value: function value(e) {
-          this._throwIfDestroyed(), this._inertRoots.add(e);
-        }
-      }, {
-        key: "removeInertRoot",
-        value: function value(e) {
-          this._throwIfDestroyed(), this._inertRoots["delete"](e), 0 === this._inertRoots.size && this.destructor();
-        }
-      }, {
-        key: "destroyed",
-        get: function get() {
-          return this._destroyed;
-        }
-      }, {
-        key: "hasSavedTabIndex",
-        get: function get() {
-          return null !== this._savedTabIndex;
-        }
-      }, {
-        key: "node",
-        get: function get() {
-          return this._throwIfDestroyed(), this._node;
-        }
-      }, {
-        key: "savedTabIndex",
-        set: function set(e) {
-          this._throwIfDestroyed(), this._savedTabIndex = e;
-        },
-        get: function get() {
-          return this._throwIfDestroyed(), this._savedTabIndex;
-        }
-      }]), n;
-    }();
+      }
+    }, {
+      key: "addInertRoot",
+      value: function value(e) {
+        this._throwIfDestroyed(), this._inertRoots.add(e);
+      }
+    }, {
+      key: "removeInertRoot",
+      value: function value(e) {
+        this._throwIfDestroyed(), this._inertRoots["delete"](e), 0 === this._inertRoots.size && this.destructor();
+      }
+    }, {
+      key: "destroyed",
+      get: function get() {
+        return this._destroyed;
+      }
+    }, {
+      key: "hasSavedTabIndex",
+      get: function get() {
+        return null !== this._savedTabIndex;
+      }
+    }, {
+      key: "node",
+      get: function get() {
+        return this._throwIfDestroyed(), this._node;
+      }
+    }, {
+      key: "savedTabIndex",
+      set: function set(e) {
+        this._throwIfDestroyed(), this._savedTabIndex = e;
+      },
+      get: function get() {
+        return this._throwIfDestroyed(), this._savedTabIndex;
+      }
+    }]), n;
+  }();
+
   function l(e, t, n) {
     if (e.nodeType == Node.ELEMENT_NODE) {
       var i = e;
       t && t(i);
       var o = i.shadowRoot;
       if (o) return void l(o, t, o);
+
       if ("content" == i.localName) {
         for (var r = i, s = r.getDistributedNodes ? r.getDistributedNodes() : [], a = 0; a < s.length; a++) {
           l(s[a], t, n);
         }
+
         return;
       }
+
       if ("slot" == i.localName) {
         for (var d = i, u = d.assignedNodes ? d.assignedNodes({
-            flatten: !0
-          }) : [], h = 0; h < u.length; h++) {
+          flatten: !0
+        }) : [], h = 0; h < u.length; h++) {
           l(u[h], t, n);
         }
+
         return;
       }
     }
+
     for (var c = e.firstChild; null != c;) {
       l(c, t, n), c = c.nextSibling;
     }
   }
+
   function u(e) {
     if (!e.querySelector("style#inert-style")) {
       var t = document.createElement("style");
       t.setAttribute("id", "inert-style"), t.textContent = "\n[inert] {\n  pointer-events: none;\n  cursor: default;\n}\n\n[inert], [inert] * {\n  user-select: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n}\n", e.appendChild(t);
     }
   }
+
   var t = new (function () {
     function t(e) {
       if (i(this, t), !e) throw new Error("Missing required argument; InertManager needs to wrap a document.");
       this._document = e, this._managedNodes = new Map(), this._inertRoots = new Map(), this._observer = new MutationObserver(this._watchForInert.bind(this)), u(e.head || e.body || e.documentElement), "loading" === e.readyState ? e.addEventListener("DOMContentLoaded", this._onDocumentLoaded.bind(this)) : this._onDocumentLoaded();
     }
+
     return e(t, [{
       key: "setInert",
       value: function value(e, t) {
@@ -9254,12 +9421,14 @@ __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../
       key: "register",
       value: function value(e, t) {
         var n = this._managedNodes.get(e);
+
         return void 0 !== n ? n.addInertRoot(t) : n = new d(e, t), this._managedNodes.set(e, n), n;
       }
     }, {
       key: "deregister",
       value: function value(e, t) {
         var n = this._managedNodes.get(e);
+
         return n ? (n.removeInertRoot(t), n.destroyed && this._managedNodes["delete"](e), n) : null;
       }
     }, {
@@ -9289,10 +9458,11 @@ __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../
                 }
               }, i);
               break;
+
             case "attributes":
               if ("inert" !== e.attributeName) return;
               var t = e.target,
-                n = t.hasAttribute("inert");
+                  n = t.hasAttribute("inert");
               i.setInert(t, n);
           }
         }, this);
@@ -9323,7 +9493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AsyncQuerySelector": () => (/* binding */ AsyncQuerySelector)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -9331,24 +9501,29 @@ __webpack_require__.r(__webpack_exports__);
 // This function waits for element to become available to select it
 // It will wait for 2s by default
 var AsyncQuerySelector = function AsyncQuerySelector(options) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     selector: false,
     maxWait: 2000,
     interval: 20
   }, options);
+
   return new Promise(function (resolve, reject) {
     var totalMs = 0;
     var el = null;
+
     if (!OPTIONS.selector) {
       reject(new Error("Element for Async select wasn't defined"));
     }
+
     var waitForSelectEl = setInterval(function () {
       totalMs += OPTIONS.interval;
       el = document.querySelector(OPTIONS.selector);
+
       if (el !== null) {
         clearInterval(waitForSelectEl);
         resolve(el);
       }
+
       if (totalMs >= OPTIONS.maxWait) {
         var error = "Element ".concat(OPTIONS.el, " was not found for ").concat(OPTIONS.maxWait, "ms");
         clearInterval(waitForSelectEl);
@@ -9371,31 +9546,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+
 
 
 
 
 var FindThemeDir = /*#__PURE__*/function () {
   function FindThemeDir(elem) {
-    (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, FindThemeDir);
-    this._elem = elem;
-    // Finds path + _document + version number, starting with `v` + any digit
-    this._pattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
-  }
+    (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, FindThemeDir);
 
-  // Getters and Setters
-  (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(FindThemeDir, [{
+    this._elem = elem; // Finds path + _document + version number, starting with `v` + any digit
+
+    this._pattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
+  } // Getters and Setters
+
+
+  (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_1__["default"])(FindThemeDir, [{
     key: "elem",
     get: function get() {
       return this._elem;
     },
     set: function set(value) {
       this._elem = value;
-    }
+    } // Functions
 
-    // Functions
   }, {
     key: "documentUrl",
     value: function documentUrl() {
@@ -9407,8 +9583,10 @@ var FindThemeDir = /*#__PURE__*/function () {
       return this._pattern.exec(this._elem)[1];
     }
   }]);
+
   return FindThemeDir;
 }();
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FindThemeDir);
 
 /***/ }),
@@ -9425,17 +9603,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Hash": () => (/* binding */ Hash)
 /* harmony export */ });
 /* eslint-disable no-bitwise */
-
 // Source: https://stackoverflow.com/a/52171480/4405477
 var Hash = function Hash(str) {
   var seed = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var h1 = 0xdeadbeef ^ seed;
   var h2 = 0x41c6ce57 ^ seed;
+
   for (var i = 0, ch; i < str.length; i++) {
     ch = str.charCodeAt(i);
     h1 = Math.imul(h1 ^ ch, 2654435761);
     h2 = Math.imul(h2 ^ ch, 1597334677);
   }
+
   h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
   h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
@@ -9460,14 +9639,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "hasFileExtension": () => (/* binding */ hasFileExtension),
 /* harmony export */   "isDocumentUrl": () => (/* binding */ isDocumentUrl)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! platform */ "../../../../../../node_modules/platform/platform.js");
 /* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(platform__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _isFalsy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isFalsy */ "../../../../../../core__front-end/v2/shared/js/utils/isFalsy.js");
 /* harmony import */ var _isFalsy__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_isFalsy__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 var _templateObject;
@@ -9478,11 +9658,14 @@ var _templateObject;
 /**
  * Adds basic utility classes to HTML element: `js`, browser engine and browser name
  */
+
 var AddHtmlClasses = function AddHtmlClasses() {
   var _htmlEl$classList;
+
   var acceptableClassName = function acceptableClassName(name) {
     return String(name).toLowerCase().replace(/\s/gi, '_');
   };
+
   var browserName = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().name));
   var browserEngine = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().layout));
   var htmlEl = document.firstElementChild;
@@ -9491,7 +9674,6 @@ var AddHtmlClasses = function AddHtmlClasses() {
   htmlEl.classList.add(browserEngine);
   htmlEl.classList.add(browserName);
 };
-
 /**
  * Tests is file has a specific extension
  *
@@ -9502,26 +9684,28 @@ var AddHtmlClasses = function AddHtmlClasses() {
  * @example
  * hasFileExtension('//resources/main.js?v=1.2.3', 'js') // True
  */
+
 var hasFileExtension = function hasFileExtension(url) {
   var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(extension) || extension.length < 2) {
     throw new Error("Please add a proper file extension. Got ".concat(extension));
   }
-  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
+
+  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
   return urlPattern.test(url);
 };
-
 /**
  * Tests if url is a document URL
  *
  * @param {String} url
  * @returns {Boolean}
  */
+
 var isDocumentUrl = function isDocumentUrl(url) {
   var documentPattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   return documentPattern.test(url);
 };
-
 /**
  * Finds theme directory based on a complete resource URL
  *
@@ -9537,6 +9721,7 @@ var isDocumentUrl = function isDocumentUrl(url) {
  *   themeUrl: "/us/ngo/oll/"
  * }
  */
+
 var findThemeDir = function findThemeDir(url) {
   var pattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   var result = pattern.exec(url);
@@ -9545,7 +9730,6 @@ var findThemeDir = function findThemeDir(url) {
     themeUrl: result[1]
   } : null;
 };
-
 /**
  * Add JS resource to HTML document
  *
@@ -9553,26 +9737,27 @@ var findThemeDir = function findThemeDir(url) {
  * @param {String} parameters.src - Script URL / path
  * @param {Boolean} [parameters.head = true] - Adds to `head`, otherwise to the end of `body`
  */
+
 var addJS = function addJS(parameters) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     src: null,
     head: true
-  }, parameters);
+  }, parameters); // Error checks
 
-  // Error checks
+
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.src) && _isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.script)) {
     throw new Error('Both "src" and "script" are missing. One must be present.');
   }
+
   if (!hasFileExtension(OPTIONS.src, 'js')) {
     throw new Error("File extension is not \"js\". Got resource URL ".concat(OPTIONS.src));
-  }
+  } // Add script resource to HTML
 
-  // Add script resource to HTML
+
   var script = document.createElement('script');
   script.setAttribute('src', OPTIONS.src);
   OPTIONS.head ? document.head.insertAdjacentElement('beforeend', script) : document.body.insertAdjacentElement('beforeend', script);
 };
-
 /**
  * Add JS resource to HTML document
  *
@@ -9580,30 +9765,31 @@ var addJS = function addJS(parameters) {
  * @param {String} parameters.url - CSS URL / path
  * @param {String} [parameters.media = true] - Optional media attribute
  */
+
 var addCSS = function addCSS(parameters) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: null,
     media: null
-  }, parameters);
+  }, parameters); // Error checking
 
-  // Error checking
+
   if (!hasFileExtension(OPTIONS.src, 'css')) {
     throw new Error("Invalid file extension in resource URL. Expected \"css\" file, got ".concat(OPTIONS.url));
-  }
+  } // Build style link
 
-  // Build style link
+
   var link = document.createElement('link');
+
   if (!_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.media)) {
     link.setAttribute('media', OPTIONS.media);
   }
+
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
-  link.setAttribute('href', OPTIONS.url);
+  link.setAttribute('href', OPTIONS.url); // Append link to head
 
-  // Append link to head
   document.head.insertAdjacentElement('beforeend', link);
 };
-
 /**
  * Finds the closest node in the DOM that has the given selector.
  *
@@ -9611,13 +9797,16 @@ var addCSS = function addCSS(parameters) {
  * @param {string} selector - The selector to search for
  * @returns {HTMLElement|null} The closest matching element, or null if none found
  */
+
 var findClosest = function findClosest(el, selector) {
   while (el) {
     if (el.matches(selector)) {
       return el;
     }
+
     el = el.parentElement;
   }
+
   return null;
 };
 
@@ -9637,7 +9826,6 @@ __webpack_require__.r(__webpack_exports__);
 /***************************************************************
  *         SHARED CORE STRINGS AND OTHER UI CONSTANTS          *
  ***************************************************************/
-
 // HISTORICAL VERSIONS
 // -----------------------------------------------------------------------------
 var ConstsHistory = Object.freeze({
@@ -9660,14 +9848,16 @@ var ConstsHistory = Object.freeze({
  * @param { Any } statement - Checks any statement for falsy
  * @returns { Boolean }
  */
-
 var isFalsy = function isFalsy() {
   var statement = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
   if (!statement || statement === null || typeof statement === 'undefined' || statement === 0 || statement === '') {
     return true;
   }
+
   return false;
 };
+
 module.exports = isFalsy;
 
 /***/ }),
@@ -9693,11 +9883,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 
 
+ // Valid Reader types
 
-
-// Valid Reader types
 var validReaders = ['app', 'lite'];
-
 /**
  * Checks for the correct reader type. If local storage entry is not found,
  * default reader app will be loaded
@@ -9705,49 +9893,50 @@ var validReaders = ['app', 'lite'];
  * @param {String} [defaultReader = 'app'] - Default reader type for current partner
  * @returns {String} - returns `app` or `lite`
  */
+
 var getReaderType = function getReaderType() {
   var defaultReader = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'app';
-  var localStorageReader = localStorage.getItem('reader');
+  var localStorageReader = localStorage.getItem('reader'); // Error checks
 
-  // Error checks
   if (!validReaders.some(function (valid) {
     return valid === defaultReader;
   })) {
     throw new Error("Default reader can be \"app\" or \"lite\". Got ".concat(defaultReader));
-  }
+  } // Return the correct reader
 
-  // Return the correct reader
+
   if (Shared_js_utils_isFalsy__WEBPACK_IMPORTED_MODULE_1___default()(localStorageReader) || !validReaders.some(function (valid) {
     return valid === localStorageReader;
   })) {
     return defaultReader;
   }
+
   return localStorageReader;
 };
-
 /**
  * Sets new reader type in local storage
  *
  * @param {String} readerType - Reader type `app` or `lite`
  * @returns {Void} - Sets reader type to local storage under `reader`
  */
+
 var setReaderType = function setReaderType(readerType) {
   // Error checks
   if (!validReaders.some(function (valid) {
     return valid === readerType;
   })) {
     throw new Error("\"readerType\" can be \"app\" or \"lite\". Got ".concat(readerType));
-  }
+  } // Set reader type in local storage
 
-  // Set reader type in local storage
+
   localStorage.setItem('reader', readerType);
 };
-
 /**
  * Checks if Reader App is available on the server. Function
  *
  * @returns {Promise} - Promise that resolves with boolean value
  */
+
 var isReaderAvailable = function isReaderAvailable() {
   return new Promise(function (resolve) {
     axios__WEBPACK_IMPORTED_MODULE_2___default().get('/_reader/js/config/theme-settings.json').then(function () {
@@ -9774,6 +9963,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
 
+
 /*
 	TRANSLATE OUR RESPONSIVE SPECS TO VUE-MQ FORMAT
 		- Reads responsive breakpoints specification from JSON file
@@ -9783,6 +9973,7 @@ var loadResponsiveConfig = function loadResponsiveConfig(jsonData) {
   var names = [];
   var points = [];
   var resolutions = jsonData.resolutions;
+
   for (var breakpoint in resolutions) {
     if (Object.prototype.hasOwnProperty.call(resolutions, breakpoint)) {
       var name = resolutions[breakpoint].name;
@@ -9791,22 +9982,26 @@ var loadResponsiveConfig = function loadResponsiveConfig(jsonData) {
       points.push(start);
     }
   }
-  return normalizeBreakpoints(names, points);
-};
 
-// Normalizes resolutions and breakpoints for vue-mq
+  return normalizeBreakpoints(names, points);
+}; // Normalizes resolutions and breakpoints for vue-mq
 // Each breakpoint needs to be paired with the next breakpoint start value
 // Last breakpoint has Infinity for value
+
 var normalizeBreakpoints = function normalizeBreakpoints(names, points) {
   var config = {};
+
   for (var i = 0; i < names.length; i++) {
     var name = names[i];
     var start = Infinity;
+
     if (i < names.length - 1) {
       start = points[i + 1];
     }
+
     config[name] = start;
   }
+
   return config;
 };
 
@@ -9836,11 +10031,11 @@ var SharedComponentsModule = {
       scope: 'main',
       // Element for which the lightbox will work
       supported: ['img', 'svg'] // Lightbox will work only with these formats
+
     },
-
     themeSettings: {} // Loaded from `theme-settings.json`
-  },
 
+  },
   getters: {
     getDocumentRoot: function getDocumentRoot(state) {
       return state.documentRoot;
@@ -10011,6 +10206,7 @@ var SharedHistoricalVersions = {
       if ('Current' in state.historicalVersions.data.publications && 'versions' in state.historicalVersions.data.publications.Current && state.historicalVersions.data.publications.Current.versions.length > 0 && state.historicalVersions.data.publications.Current.versions[1].date !== '') {
         return state.historicalVersions.data.publications.Current.versions[1].date;
       }
+
       return false;
     },
     isHistoricalVersion: function isHistoricalVersion(state) {
@@ -10031,9 +10227,11 @@ var SharedHistoricalVersions = {
       if ('display' in payload && payload.display !== '') {
         state.historicalVersions.ui.selected.history.display = payload.display;
       }
+
       if ('date' in payload && payload.date !== '') {
         state.historicalVersions.ui.selected.history.date = payload.date;
       }
+
       if ('index' in payload && payload.index !== '') {
         state.historicalVersions.ui.selected.history.index = payload.index;
       }
@@ -10042,9 +10240,11 @@ var SharedHistoricalVersions = {
       if ('display' in payload && payload.display !== '') {
         state.historicalVersions.ui.selected.compare.display = payload.display;
       }
+
       if ('date' in payload && payload.date !== '') {
         state.historicalVersions.ui.selected.compare.date = payload.date;
       }
+
       if ('index' in payload && payload.index !== '') {
         state.historicalVersions.ui.selected.compare.index = payload.index;
       }
@@ -10053,12 +10253,15 @@ var SharedHistoricalVersions = {
       if ('display' in payload && payload.display !== '') {
         state.historicalVersions.ui.selected.publication.display = payload.display;
       }
+
       if ('date' in payload && payload.date !== '') {
         state.historicalVersions.ui.selected.publication.date = payload.date;
       }
+
       if ('name' in payload && payload.name !== '') {
         state.historicalVersions.ui.selected.publication.name = payload.name;
       }
+
       if ('index' in payload && payload.index !== '') {
         state.historicalVersions.ui.selected.publication.index = payload.index;
       }
@@ -10067,33 +10270,31 @@ var SharedHistoricalVersions = {
       var activeVersion = payload.activeVersion;
       var activePublication = payload.activePublication;
       var activePublicationObject = payload.publications[activePublication];
-      var activeCompareTo = payload.activeCompareTo;
-
-      // Current version
+      var activeCompareTo = payload.activeCompareTo; // Current version
       // ---------------
+
       var versionObj = function versionObj(value) {
         return value.date === activeVersion;
       };
-      var currentVersionObject = activePublicationObject.versions.filter(versionObj);
 
-      // Populate selected version
+      var currentVersionObject = activePublicationObject.versions.filter(versionObj); // Populate selected version
+
       state.historicalVersions.ui.selected.history.date = activeVersion.toLowerCase();
-      state.historicalVersions.ui.selected.history.display = currentVersionObject[0].display;
-
-      // Current publication
+      state.historicalVersions.ui.selected.history.display = currentVersionObject[0].display; // Current publication
       // -------------------
       // Populate selected publication
+
       state.historicalVersions.ui.selected.publication.name = activePublicationObject.name;
       state.historicalVersions.ui.selected.publication.display = activePublicationObject.display;
-      state.historicalVersions.ui.selected.publication.date = activePublicationObject.date;
-
-      // Current compare
+      state.historicalVersions.ui.selected.publication.date = activePublicationObject.date; // Current compare
       // ---------------
       // Populate selected comparison
+
       if (activeCompareTo) {
         var compareObj = function compareObj(value) {
           return value.date === activeCompareTo;
         };
+
         var currentCompareObject = activePublicationObject.versions.filter(compareObj);
         state.historicalVersions.ui.selected.compare.date = currentCompareObject[0].date;
         state.historicalVersions.ui.selected.compare.display = currentCompareObject[0].display;
@@ -10109,9 +10310,8 @@ var SharedHistoricalVersions = {
       state.historicalVersions.ui.selected.publication.display = 'Current';
       state.historicalVersions.ui.selected.publication.date = 'current';
       state.historicalVersions.ui.selected.publication.name = 'Current';
-      state.historicalVersions.ui.selected.publication.index = 1;
+      state.historicalVersions.ui.selected.publication.index = 1; // Important to force component re-render
 
-      // Important to force component re-render
       state.historicalVersions.ui.selected.history.id++;
       state.historicalVersions.ui.selected.compare.id++;
       state.historicalVersions.ui.selected.publication.id++;
@@ -10199,8 +10399,7 @@ var SharedMessages = {
   namespaced: true,
   state: {
     popupMessages: {
-      data: [
-        // {
+      data: [// {
         //  id: 123456789,
         //  type: 'info',
         //  title: 'Message Title',
@@ -10211,10 +10410,10 @@ var SharedMessages = {
       ],
       ui: {
         timeout: 3500 // default message timeout
+
       }
     }
   },
-
   getters: {
     getPopupMessages: function getPopupMessages(state) {
       return state.popupMessages.data;
@@ -10225,12 +10424,10 @@ var SharedMessages = {
   },
   mutations: {
     addPopupMessage: function addPopupMessage(state, payload) {
-      var msg = {};
+      var msg = {}; // Set "unique" message ID (close enough)
 
-      // Set "unique" message ID (close enough)
-      msg.id = Number((0,Shared_js_utils_Hash__WEBPACK_IMPORTED_MODULE_1__.Hash)(new Date().getTime()) + Math.round(Math.random() * 1000000));
+      msg.id = Number((0,Shared_js_utils_Hash__WEBPACK_IMPORTED_MODULE_1__.Hash)(new Date().getTime()) + Math.round(Math.random() * 1000000)); // Set Message type
 
-      // Set Message type
       msg.type = 'info'; // Default option
 
       if (payload.type) {
@@ -10238,42 +10435,46 @@ var SharedMessages = {
           case 'success':
             msg.type = 'success';
             break;
+
           case 'error':
             msg.type = 'error';
             break;
+
           case 'warning':
             msg.type = 'warning';
             break;
+
           case 'debug':
             msg.type = 'debug';
             break;
+
           case 'info':
           default:
             msg.type = 'info';
         }
-      }
+      } // Set message title
 
-      // Set message title
+
       if (payload.title && payload.title.trim() !== '') {
         msg.title = payload.title;
-      }
+      } // Set message text
 
-      // Set message text
+
       if (payload.text && payload.text.trim() !== '') {
         msg.text = payload.text;
-      }
+      } // Set announcement
 
-      // Set announcement
+
       if (payload.announce && payload.announce !== '') {
         msg.announce = payload.announce;
-      }
+      } // Set timeout
 
-      // Set timeout
+
       if (payload.timeout && payload.timeout !== '') {
         msg.timeout = Number(payload.timeout);
-      }
+      } // Add new message
 
-      // Add new message
+
       state.popupMessages.data.push(msg);
     },
     deletePopupMessage: function deletePopupMessage(state, msgId) {
@@ -10297,7 +10498,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SharedSearchModule": () => (/* binding */ SharedSearchModule)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -10336,9 +10537,9 @@ var SharedSearchModule = {
         previousFocus: false,
         // Element that initiated popup open
         type: 'search' // Accepted options: `help` or `search`
+
       }
     },
-
     searchData: {
       formStore: {
         temporary: {
@@ -10372,8 +10573,7 @@ var SharedSearchModule = {
           from: 0
         }
       },
-      paths: [
-      // In the case that nothing is returned from the page,
+      paths: [// In the case that nothing is returned from the page,
       // this will be the default
       {
         name: 'All documents',
@@ -10381,8 +10581,7 @@ var SharedSearchModule = {
         isDefault: true,
         path: 'library'
       }],
-      pathsFallback: [
-      // Fallback path will be used if for some reason regular paths cannot be
+      pathsFallback: [// Fallback path will be used if for some reason regular paths cannot be
       // retrieved
       {
         name: 'All documents',
@@ -10471,10 +10670,10 @@ var SharedSearchModule = {
     getPaths: function getPaths(state) {
       if (state.searchData.paths.length > 0) {
         return state.searchData.paths;
-      }
-
-      // If no data is being retrieved from the store, for whatever possible error,
+      } // If no data is being retrieved from the store, for whatever possible error,
       // we will return fallback path
+
+
       return state.searchData.pathsFallback;
     },
     getCurrentPath: function getCurrentPath(state) {
@@ -10482,16 +10681,19 @@ var SharedSearchModule = {
       if (typeof state.searchData.paths[state.searchUI.dropdown.key.selected] !== 'undefined') {
         return state.searchData.paths[state.searchUI.dropdown.key.selected];
       }
+
       return state.searchData.paths[0];
     },
     findHit: function findHit(state) {
       return function (id) {
         // unused
-        var _iterator = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.searchData.response.hits.hits || []),
-          _step;
+        var _iterator = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(state.searchData.response.hits.hits || []),
+            _step;
+
         try {
           for (_iterator.s(); !(_step = _iterator.n()).done;) {
             var hit = _step.value;
+
             if (hit._id === id) {
               return hit;
             }
@@ -10501,6 +10703,7 @@ var SharedSearchModule = {
         } finally {
           _iterator.f();
         }
+
         return null;
       };
     },
@@ -10525,6 +10728,7 @@ var SharedSearchModule = {
       var defaultNode = 0;
       var defaultPath = '';
       var defaultName = '';
+
       for (var i = 0; i < state.searchData.paths.length; i++) {
         if (state.searchData.paths[i].isDefault === true || state.searchData.paths[i].isDefault === 'true') {
           defaultNode = i;
@@ -10532,6 +10736,7 @@ var SharedSearchModule = {
           defaultName = state.searchData.paths[i].name;
         }
       }
+
       state.searchUI.dropdown.key.selected = Number(defaultNode);
       state.searchData.defaultPathSet = Boolean(true);
       state.searchData.formStore.temporary.path = defaultPath;
@@ -10570,11 +10775,13 @@ var SharedSearchModule = {
       if (typeof payload !== 'undefined' && payload.length > 0) {
         // Save only those objects that have defined search path
         var filteredPaths = [];
+
         for (var i = 0; i < payload.length; i++) {
           if (payload[i].path !== undefined) {
             filteredPaths.push(payload[i]);
           }
         }
+
         state.searchData.paths = filteredPaths;
       } else {
         // If no data is being sent to store, for whatever possible error,
@@ -10586,12 +10793,15 @@ var SharedSearchModule = {
       if ('query' in payload) {
         state.searchData.formStore.temporary.query = payload.query;
       }
+
       if ('path' in payload && payload.path !== '') {
         state.searchData.formStore.temporary.path = payload.path;
       }
+
       if ('name' in payload && payload.name !== '') {
         state.searchData.formStore.temporary.name = payload.name;
       }
+
       if ('from' in payload) {
         state.searchData.formStore.temporary.from = parseInt(Number(payload.from), 10);
       }
@@ -10600,12 +10810,15 @@ var SharedSearchModule = {
       if ('query' in payload) {
         state.searchData.formStore.active.query = payload.query;
       }
+
       if ('path' in payload && payload.path !== '') {
         state.searchData.formStore.active.path = payload.path;
       }
+
       if ('name' in payload && payload.name !== '') {
         state.searchData.formStore.active.name = payload.name;
       }
+
       if ('from' in payload) {
         state.searchData.formStore.active.from = parseInt(Number(payload.from), 10);
       }
@@ -10614,12 +10827,15 @@ var SharedSearchModule = {
       if ('query' in payload) {
         state.searchData.formStore.previous.query = payload.query;
       }
+
       if ('path' in payload && payload.path !== '') {
         state.searchData.formStore.previous.path = payload.path;
       }
+
       if ('name' in payload && payload.name !== '') {
         state.searchData.formStore.previous.name = payload.name;
       }
+
       if ('from' in payload) {
         state.searchData.formStore.previous.from = parseInt(Number(payload.from), 10);
       }
@@ -10628,27 +10844,29 @@ var SharedSearchModule = {
       if ('fullHash' in payload && payload.fullHash && payload.fullHash !== '') {
         state.searchData.formStore.external.fullHash = payload.fullHash;
       }
+
       if ('query' in payload && payload.query !== '' && payload.query.trim() > 2) {
         state.searchData.formStore.external.query = payload.query.trim();
       }
+
       if ('path' in payload && payload.path !== '') {
         state.searchData.formStore.external.path = payload.path;
       }
+
       if ('name' in payload && payload.name !== '') {
         state.searchData.formStore.external.name = payload.name;
       }
+
       if ('from' in payload) {
         state.searchData.formStore.external.from = parseInt(Number(payload.from), 10);
       }
     },
     resetSearchResults: function resetSearchResults(state) {
       // For reader lite close search dropdown
-      state.searchUI.dropdown.open = false;
+      state.searchUI.dropdown.open = false; // Clear previously fetched results
 
-      // Clear previously fetched results
-      state.searchData.response = {};
+      state.searchData.response = {}; // Clear previous search query, so that it can be searched again
 
-      // Clear previous search query, so that it can be searched again
       state.searchData.formStore.previous = {
         query: false,
         from: 0
@@ -10742,6 +10960,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     doLogout: function doLogout() {
       var _this = this;
+
       this.$store.dispatch('user/logout').then(function (userData) {
         _this.$store.commit('sharedMessages/addPopupMessage', {
           type: 'success',
@@ -10809,6 +11028,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
+
     // Checks if reader is available and shows button only then
     (0,Shared_js_utils_readerSwitch__WEBPACK_IMPORTED_MODULE_2__.isReaderAvailable)().then(function (result) {
       _this.readerAvailable = result;
@@ -11002,22 +11222,23 @@ __webpack_require__.r(__webpack_exports__);
     },
     inputType: function inputType() {
       var _this = this;
-      var textualTypes = ['text', 'email', 'search', 'url'];
-      var passwordType = ['password'];
 
-      // Regular input types are returned as they are
+      var textualTypes = ['text', 'email', 'search', 'url'];
+      var passwordType = ['password']; // Regular input types are returned as they are
+
       if (textualTypes.some(function (type) {
         return type === _this.type;
       })) {
         return this.type;
-      }
+      } // Password field changes type when password reveal button is activated
 
-      // Password field changes type when password reveal button is activated
+
       if (passwordType.some(function (type) {
         return type === _this.type;
       })) {
         return this.revealPass ? 'text' : 'password';
       }
+
       return null;
     },
     disabledClass: function disabledClass() {
@@ -11039,6 +11260,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     ifClearBtn: function ifClearBtn(newValue, oldValue) {
       var _this2 = this;
+
       this.$nextTick(function () {
         _this2.getButtonWrapWidth();
       });
@@ -11097,15 +11319,13 @@ __webpack_require__.r(__webpack_exports__);
 // Styles for this component are created separately for Reader App and Documents
 // Reader App: [core]/reader/styles/_component__lightbox.scss
 // Documents: [core]/_document/
-
 // Imports
 
 
-
-
-// Inert polyfill is required by Firefox and Safari. This should be removed
+ // Inert polyfill is required by Firefox and Safari. This should be removed
 // when `inert` feature becomes standard.
 // https://caniuse.com/#feat=mdn-api_htmlelement_inert
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Lightbox',
@@ -11123,9 +11343,9 @@ __webpack_require__.r(__webpack_exports__);
       lightboxImage: '',
       previousFocus: '',
       imageType: '' // Only `img` is supported for now
+
     };
   },
-
   computed: {
     scopedEl: function scopedEl() {
       return document.querySelector(this.lightboxConfig.scope);
@@ -11133,15 +11353,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-    // Add event listeners
-    this.addImageListeners();
 
-    // If Lightbox is loaded in document mode, make all images focusable
+    // Add event listeners
+    this.addImageListeners(); // If Lightbox is loaded in document mode, make all images focusable
+
     if (this.mode !== 'reader') {
       this.$store.getters['sharedComponents/getLightbox'].supported.forEach(function (supportedFormat) {
-        var currentFormat = document.querySelectorAll("".concat(_this.$store.getters['sharedComponents/getLightbox'].scope, " ").concat(supportedFormat));
+        var currentFormat = document.querySelectorAll("".concat(_this.$store.getters['sharedComponents/getLightbox'].scope, " ").concat(supportedFormat)); // This needs to be refreshed whenever new document page has been loaded
 
-        // This needs to be refreshed whenever new document page has been loaded
         currentFormat.forEach(function (image) {
           return image.setAttribute('tabindex', 0);
         });
@@ -11151,20 +11370,24 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     openLightbox: function openLightbox(eventTarget) {
       var _this2 = this;
+
       this.previousFocus = eventTarget;
       this.imageType = eventTarget.tagName.toLowerCase();
       this.visible = true;
       this.$nextTick(function () {
         _this2.$refs.openedImage.focus();
+
         _this2.toggleInert();
       });
     },
     closeLightbox: function closeLightbox() {
       var _this3 = this;
+
       this.lightboxImage = '';
       this.visible = false;
       this.$nextTick(function () {
         _this3.toggleInert();
+
         _this3.$nextTick(function () {
           _this3.previousFocus.focus();
         });
@@ -11172,6 +11395,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     addImageListeners: function addImageListeners() {
       var _this4 = this;
+
       // Clicking on supported image will open the lightbox
       if (this.scopedEl) {
         this.scopedEl.addEventListener('click', function (e) {
@@ -11180,32 +11404,26 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       }
+
       document.addEventListener('keydown', function (e) {
         // Pressing `Enter` on supported images will open the lightbox
         if (!_this4.visible && _this4.isLightboxFormatSupported(e.target.tagName.toLowerCase()) && _this4.scopedEl.contains(e.target) && e.keyCode === 13) {
           _this4.openLightbox(e.target);
-        }
+        } // Pressing `Esc` while the lightbox is open will close it
 
-        // Pressing `Esc` while the lightbox is open will close it
+
         if (_this4.visible && e.keyCode === 27) {
           _this4.closeLightbox();
-        }
+        } // Prevent background scroll on keys while the lightbox is open
 
-        // Prevent background scroll on keys while the lightbox is open
-        if (_this4.visible && (e.keyCode === 33 ||
-        // Page Up
-        e.keyCode === 34 ||
-        // Page Down
-        e.keyCode === 35 ||
-        // Home
-        e.keyCode === 36 ||
-        // End
-        e.keyCode === 37 ||
-        // left arrow
-        e.keyCode === 38 ||
-        // Up arrow
-        e.keyCode === 39 ||
-        // Right arrow
+
+        if (_this4.visible && (e.keyCode === 33 || // Page Up
+        e.keyCode === 34 || // Page Down
+        e.keyCode === 35 || // Home
+        e.keyCode === 36 || // End
+        e.keyCode === 37 || // left arrow
+        e.keyCode === 38 || // Up arrow
+        e.keyCode === 39 || // Right arrow
         e.keyCode === 40 // Down arrow
         )) {
           e.preventDefault();
@@ -11330,17 +11548,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
     // Delete message from store if Title or Text are empty
     if (!this.msgTitle && !this.msgText) {
       this.closeMessage();
-    }
+    } // Announce message if it exists
 
-    // Announce message if it exists
+
     if (this.msgAnnounce && this.msgAnnounce !== '') {
       this.$announcer.set(this.msgAnnounce);
-    }
+    } // Timeout message after set timeout interval
 
-    // Timeout message after set timeout interval
+
     setTimeout(function () {
       _this.closeMessage();
     }, this.messageTimeout);
@@ -11432,20 +11651,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var vm = this;
+    var vm = this; // Process search paths from the page breadcrumbs and save them to the store
 
-    // Process search paths from the page breadcrumbs and save them to the store
     vm.processSearchPaths().then(function () {
       // After the search paths have been saved, check if previous search is
       // set as get parameter in URL path
       vm.checkPreviousSearch().then(function (data) {
         if (data.path) {
           // Add missing name to current data object
-          data.name = vm.findSearchPathName(data.path);
-
-          // Previous search parameters exist
+          data.name = vm.findSearchPathName(data.path); // Previous search parameters exist
           // - save them to external and temporary store
           // - save as active search
+
           vm.$store.commit('sharedSearch/setFormStoreExternal', {
             fullHash: window.location.hash,
             query: data.query,
@@ -11459,9 +11676,9 @@ __webpack_require__.r(__webpack_exports__);
             from: data.from,
             name: data.name
           });
-          vm.$store.commit('sharedSearch/setFormStoreActive', data);
-          // Check if previously searched scope/path exists and open popup
+          vm.$store.commit('sharedSearch/setFormStoreActive', data); // Check if previously searched scope/path exists and open popup
           // If previous scope doesn't exist, open default search scope
+
           vm.$store.commit('sharedSearch/setSearchDropdownSelectedKey', vm.testIfSearchPathExists(data.path));
           vm.openSearchPopup({
             type: 'search'
@@ -11469,11 +11686,11 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           // Previous search parameters do not exist:
           // - set scope to default for the current document
-          vm.$store.commit('sharedSearch/setSearchDropdownSelectedKeyToDefault');
-          // Save active scope to store
+          vm.$store.commit('sharedSearch/setSearchDropdownSelectedKeyToDefault'); // Save active scope to store
           // For Reader App, we perform this operation in
           // `DocumentModule.js` and `ReaderSearchHeader.vue` with watch
           // operation, because we extract paths in different way there
+
           vm.$store.commit('sharedSearch/setFormStoreTemporary', {
             path: vm.searchCurrentPath.path,
             name: vm.searchCurrentPath.name || vm.searchCurrentPath.search_label
@@ -11491,27 +11708,27 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   mounted: function mounted() {
-    var vm = this;
+    var vm = this; // Add click outside listener
 
-    // Add click outside listener
     document.addEventListener('click', function (e) {
       var searchEl = document.querySelector('#search');
-      var targetEl = e.target;
-
-      // If user clicks outside of the #search element, all popups will be
+      var targetEl = e.target; // If user clicks outside of the #search element, all popups will be
       // closed, if open
+
       if (searchEl !== targetEl && !searchEl.contains(targetEl)) {
         if (vm.searchUI.dropdown.open) {
           vm.closeSearchDropdown();
         }
+
         if (vm.searchUI.popup.open) {
           vm.closeSearchPopup();
         }
-      }
+      } // If search dropdown is open, close it if user clicks outside of it
 
-      // If search dropdown is open, close it if user clicks outside of it
+
       if (vm.searchUI.dropdown.open) {
         var searchDropdown = document.querySelector('#searchDropdown');
+
         if (searchDropdown !== targetEl && !searchDropdown.contains(targetEl)) {
           vm.closeSearchDropdown();
         }
@@ -11580,9 +11797,8 @@ __webpack_require__.r(__webpack_exports__);
     this.debouncedHelpTop = lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(this.setHelpTop, this.searchUI.debounce);
   },
   mounted: function mounted() {
-    var vm = this;
+    var vm = this; // Save top position of this popup in store
 
-    // Save top position of this popup in store
     vm.setHelpTop();
     window.addEventListener('resize', vm.debouncedHelpTop);
   },
@@ -11659,6 +11875,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var vm = this;
     vm.setHeaderHeight(); // FIX: Unused in Reader
+
     window.addEventListener('resize', vm.debouncedHeight);
   },
   updated: function updated() {
@@ -11776,7 +11993,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var Shared_js_mixins_SharedMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! Shared/js/mixins/SharedMixin */ "../../../../../../core__front-end/v2/shared/js/mixins/SharedMixin.js");
 /* harmony import */ var Shared_js_mixins_SearchMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! Shared/js/mixins/SearchMixin */ "../../../../../../core__front-end/v2/shared/js/mixins/SearchMixin.js");
 /* harmony import */ var lodash_throttle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash.throttle */ "../../../../../../node_modules/lodash.throttle/index.js");
@@ -11815,6 +12032,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     var _this = this;
+
     if (this.componentMode === 'lite') {
       // Check if the previous query exists and set dropdown focus if true
       this.getURLQuery().then(function (returnedQuery) {
@@ -11824,6 +12042,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+
     if (this.componentMode === 'reader') {
       this.throttledTestLabelVisibility = lodash_throttle__WEBPACK_IMPORTED_MODULE_3___default()(this.testLabelVisibility, 100, {
         leading: true
@@ -11831,13 +12050,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var vm = this;
+    var vm = this; // Save active path and name to store on initialization
 
-    // Save active path and name to store on initialization
     vm.$store.commit('sharedSearch/setFormStoreTemporary', {
       path: vm.searchCurrentPath.path,
       name: vm.searchCurrentPath.name || vm.searchCurrentPath.search_label
     });
+
     if (vm.componentMode === 'reader') {
       // Add event listener to watch for dimensions related to dropdown
       vm.throttledTestLabelVisibility();
@@ -11845,13 +12064,13 @@ __webpack_require__.r(__webpack_exports__);
         vm.throttledTestLabelVisibility();
       });
     }
+
     if (this.componentMode === 'lite') {
       this.$refs.searchDropdownButton.addEventListener('mouseover', function (e) {
         vm.dropdown.outerWidth = e.target.parentNode.clientWidth;
         vm.dropdown.innerWidth = e.target.parentNode.children[0].scrollWidth + e.target.parentNode.children[1].scrollWidth;
-      });
+      }); // Process search paths from the page breadcrumbs and save them to the store
 
-      // Process search paths from the page breadcrumbs and save them to the store
       vm.processSearchPaths()["catch"](function (err) {
         return console.error(err);
       });
@@ -11875,10 +12094,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     openDropdown: function openDropdown() {
       var _this2 = this;
+
       this.$store.commit('sharedSearch/setSearchDropdownState', true);
       this.$nextTick(function () {
         // Focus the selected key when opened
         _this2.focusedKey = Number(_this2.searchDropdownKeySelected);
+
         _this2.$refs.options.children[Number(_this2.searchDropdownKeySelected)].focus();
       });
     },
@@ -11886,11 +12107,12 @@ __webpack_require__.r(__webpack_exports__);
       return Number(this.searchDropdownKeySelected) === Number(itemKey);
     },
     selectOption: function selectOption(parameters) {
-      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         itemKey: false,
         itemPath: false,
         itemName: false
       }, parameters);
+
       this.$store.commit('sharedSearch/setSearchDropdownSelectedKey', Number(OPTIONS.itemKey));
       this.$store.commit('sharedSearch/setFormStoreTemporary', {
         path: String(OPTIONS.itemPath),
@@ -11900,28 +12122,27 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectAndClose: function selectAndClose(parameters) {
       var vm = this;
-      var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+
+      var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
         itemKey: false,
         itemPath: false,
         itemName: false
-      }, parameters);
+      }, parameters); // Select option and close menu
 
-      // Select option and close menu
+
       this.selectOption({
         itemKey: Number(OPTIONS.itemKey),
         itemPath: String(OPTIONS.itemPath),
         itemName: String(OPTIONS.itemName)
       });
-      this.closeSearchDropdown();
+      this.closeSearchDropdown(); // There has to be a small time out
 
-      // There has to be a small time out
       this.$nextTick(function () {
-        vm.$refs.searchDropdownButton.focus();
-
-        // If the search results are opened, and other dropdown option is
+        vm.$refs.searchDropdownButton.focus(); // If the search results are opened, and other dropdown option is
         // selected close them on change and clear the search results.
         // Clearing results is important for Reader App, because it is
         // equivalent of closing a popup in Reader Lite
+
         if (vm.searchUI.popup.open && vm.$store.getters['sharedSearch/getSearchFormStoreTemporary'].path !== vm.$store.getters['sharedSearch/getSearchFormStoreActive'].path) {
           vm.closeSearchPopup();
         }
@@ -11929,23 +12150,23 @@ __webpack_require__.r(__webpack_exports__);
     },
     focusItem: function focusItem(no) {
       var close = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       if (no === 'first') {
         this.focusedKey = 0;
       } else if (no === 'last') {
         this.focusedKey = Number(this.searchPaths.length - 1);
       }
+
       setTimeout(function () {
         var vm = this;
         vm.$refs.options.children[Number(vm.focusedKey)].focus();
-      }, 20);
-
-      // If we are selecting an item from ENTER key, we are
+      }, 20); // If we are selecting an item from ENTER key, we are
       // closing the menu and moving focus to button
+
       if (close) {
         var vm = this;
-        this.$store.commit('sharedSearch/setSearchDropdownState', false);
+        this.$store.commit('sharedSearch/setSearchDropdownState', false); // There has to be a small time out
 
-        // There has to be a small time out
         setTimeout(function () {
           vm.$refs.searchDropdownButton.focus();
         }, 20);
@@ -11971,8 +12192,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     testLabelVisibility: function testLabelVisibility() {
       var searchLabel = document.querySelector('.search-dropdown-label');
+
       if (searchLabel !== null) {
         var labelWidth = document.querySelector('.search-dropdown-label').getBoundingClientRect().width;
+
         if (this.componentMode === 'reader' && labelWidth && labelWidth > 80) {
           this.labelVisible = true;
         } else {
@@ -12284,8 +12507,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var vm = this;
+
     if (this.componentMode === 'lite') {
       vm.setHeaderHeight(); // FIX: Unused in Reader
+
       window.addEventListener('resize', vm.debouncedHeight);
     }
   },
@@ -12364,9 +12589,8 @@ __webpack_require__.r(__webpack_exports__);
     this.debouncedResultsTop = lodash_debounce__WEBPACK_IMPORTED_MODULE_2___default()(this.setResultsTop, this.searchUI.debounce);
   },
   mounted: function mounted() {
-    var vm = this;
+    var vm = this; // Save top position of this popup in store
 
-    // Save top position of this popup in store
     vm.setResultsTop();
     window.addEventListener('resize', vm.debouncedResultsTop);
   },
@@ -12382,6 +12606,7 @@ __webpack_require__.r(__webpack_exports__);
       if (String(encodeURIComponent(window.location.pathname)) === String(encodeURIComponent(this.searchResults[itemKey]._id))) {
         return 'search-results__list__item--same-page';
       }
+
       return false;
     },
     // Geometry
@@ -12411,6 +12636,7 @@ __webpack_require__.r(__webpack_exports__);
         var from = encodeURIComponent(this.searchPage);
         return "".concat(this.searchResults[itemKey]._id, "#!?path=").concat(path, "&q=").concat(query, "&from=").concat(from);
       }
+
       return this.searchResults[itemKey]._id;
     },
     goToURL: function goToURL(itemKey, result) {
@@ -12445,11 +12671,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     focusItem: function focusItem(no) {
       var close = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       if (no === 'first') {
         this.$store.commit('sharedSearch/setSearchResultsFocusedKey', Number(0));
       } else if (no === 'last') {
         this.$store.commit('sharedSearch/setSearchResultsFocusedKey', Number(this.searchResults.length - 1));
       }
+
       this.$refs.searchResultsListUl.children[this.focused].focus();
     },
     selectOption: function selectOption(itemKey, result) {
@@ -12490,6 +12718,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.searchFormPrevious.name) {
         return this.searchFormPrevious;
       }
+
       return false;
     },
     ifNothingFound: function ifNothingFound() {
@@ -12610,6 +12839,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.$props.disabledFake) {
         return this.$props.selected ? this.$props.classSelected + '--disabled' : this.$props.classRegular + '--disabled';
       }
+
       return false;
     },
     loadingClass: function loadingClass() {
@@ -12685,7 +12915,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.contactEmail || _vm.contactFeedback ? _c("section", {
     "class": _vm.namespace,
     attrs: {
@@ -12717,6 +12948,7 @@ var render = function render() {
     staticClass: "text"
   }, [_vm._v("Website Feedback")])]) : _vm._e()]), _vm._v(" "), _c("p", [_vm._v("We cannot respond to questions regarding the law.")])])]) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -12737,7 +12969,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("section", {
     "class": _vm.namespace,
     attrs: {
@@ -12760,6 +12993,7 @@ var render = function render() {
     }
   }) : _vm._e()], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -12780,7 +13014,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.readerAvailable ? _c("section", {
     "class": _vm.namespace,
     attrs: {
@@ -12804,6 +13039,7 @@ var render = function render() {
     }
   })], 1) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -12824,7 +13060,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("section", {
     "class": [_vm.namespace, "historical-versions"],
     attrs: {
@@ -12931,9 +13168,11 @@ var render = function render() {
     }
   })], 1)]);
 };
+
 var staticRenderFns = [function () {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "headline-wrap"
   }, [_c("label", {
@@ -12962,7 +13201,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("select", {
     directives: [{
       name: "model",
@@ -12983,6 +13223,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
+
         _vm.$set(_vm.historySelected.compare, "date", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }, _vm.historyCompareChanged]
     }
@@ -13007,6 +13248,7 @@ var render = function render() {
     }, [_vm._v("\n\t\t" + _vm._s(version.display) + "\n\t")]);
   })], 2);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13027,7 +13269,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("select", {
     directives: [{
       name: "model",
@@ -13048,6 +13291,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
+
         _vm.$set(_vm.historySelected.publication, "name", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }, _vm.historyPublicationChanged]
     }
@@ -13074,6 +13318,7 @@ var render = function render() {
     }, [_vm._v("\n\t\t" + _vm._s(publication.display) + "\n\t")]);
   })], 2);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13094,7 +13339,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("select", {
     directives: [{
       name: "model",
@@ -13115,6 +13361,7 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
+
         _vm.$set(_vm.historySelected.history, "date", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }, _vm.historyVersionChanged]
     }
@@ -13140,6 +13387,7 @@ var render = function render() {
     }, [_vm._v("\n\t\t" + _vm._s(version.display) + "\n\t")]);
   })], 2);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13160,7 +13408,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     "class": ["input-labeled-wrapper", _vm.classCustom],
     attrs: {
@@ -13196,11 +13445,13 @@ var render = function render() {
       },
       change: function change($event) {
         var $$a = _vm.value,
-          $$el = $event.target,
-          $$c = $$el.checked ? true : false;
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
         if (Array.isArray($$a)) {
           var $$v = null,
-            $$i = _vm._i($$a, $$v);
+              $$i = _vm._i($$a, $$v);
+
           if ($$el.checked) {
             $$i < 0 && (_vm.value = $$a.concat([$$v]));
           } else {
@@ -13311,6 +13562,7 @@ var render = function render() {
     }
   }) : _vm._e()], 1) : _vm._e()]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13331,7 +13583,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("transition", {
     attrs: {
       name: "component-fade",
@@ -13413,6 +13666,7 @@ var render = function render() {
     }
   })], 1)]) : _vm._e()]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13433,7 +13687,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.popupMessagesList.length > 0 ? _c("section", {
     ref: "popupInfo",
     "class": [_vm.namespace, "popup-info__wrapper"],
@@ -13454,6 +13709,7 @@ var render = function render() {
     });
   }), 1) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13474,7 +13730,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.isMessageVisible ? _c("div", {
     "class": ["message", _vm.messageClass],
     attrs: {
@@ -13499,6 +13756,7 @@ var render = function render() {
     }
   })], 1) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13519,7 +13777,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     "class": ["search", _vm.componentModeClass, _vm.namespace],
     attrs: {
@@ -13551,6 +13810,7 @@ var render = function render() {
     }
   }) : _vm._e()], 1)]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13571,7 +13831,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "advanced-help"
   }, [_c("a", {
@@ -13587,6 +13848,7 @@ var render = function render() {
     }
   }, [_vm._v("\n\t\tAdvanced search help\n\t")])]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13607,7 +13869,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "advanced-help-content",
     style: _vm.styleHeight(),
@@ -13617,6 +13880,7 @@ var render = function render() {
     }
   }, [_c("SearchAdvancedHelpContentList")], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13637,7 +13901,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("ul", {
     staticClass: "advanced-help-content__list list--no-bullet"
   }, _vm._l(_vm.searchAdvancedSymbols, function (item, key) {
@@ -13673,6 +13938,7 @@ var render = function render() {
     })])]);
   }), 0);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13693,7 +13959,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("header", {
     ref: "SearchAdvancedHelpHeader",
     staticClass: "advanced-help-header",
@@ -13709,9 +13976,11 @@ var render = function render() {
     }
   }, [_vm._m(0), _vm._v(" "), _c("SearchPopupButtonClose")], 1);
 };
+
 var staticRenderFns = [function () {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "h__ui",
     attrs: {
@@ -13738,7 +14007,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("SuperButton", {
     directives: [{
       name: "tooltip",
@@ -13765,6 +14035,7 @@ var render = function render() {
     }
   });
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13785,7 +14056,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.searchResults.length > 0 ? _c("SuperButton", {
     attrs: {
       "button-text": "Clear results",
@@ -13798,6 +14070,7 @@ var render = function render() {
     }
   }) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -13818,7 +14091,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     ref: "searchDropdown",
     staticClass: "search-dropdown",
@@ -13955,6 +14229,7 @@ var render = function render() {
           if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
           if ($event.ctrlKey || $event.shiftKey || $event.altKey || $event.metaKey) return null;
           $event.preventDefault();
+
           _vm.selectAndClose({
             itemKey: key,
             itemPath: option.path,
@@ -13965,6 +14240,7 @@ var render = function render() {
           if ($event.ctrlKey || $event.shiftKey || $event.altKey || $event.metaKey) return null;
           $event.stopPropagation();
           $event.preventDefault();
+
           _vm.selectAndClose({
             itemKey: key,
             itemPath: option.path,
@@ -13993,6 +14269,7 @@ var render = function render() {
     })]);
   }), 0)])]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14013,7 +14290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     ref: "SearchError",
     staticClass: "search-popup__error",
@@ -14039,6 +14317,7 @@ var render = function render() {
     staticClass: "h__ui"
   }, [_c("b", [_vm._v(_vm._s(_vm.searchApiError.title || _vm.searchApiError.statusText))])]), _vm._v(" "), _vm.searchApiError.solution ? _c("p", [_vm._v(_vm._s(_vm.searchApiError.solution))]) : _c("p", [_vm._v("Please try again later or report a problem if error persists.")])]), _vm._v(" "), _vm.componentMode === "lite" ? _c("SearchPopupButtonClose") : _vm._e()], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14059,7 +14338,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "search-input-wrapper"
   }, [_c("InputLabeled", {
@@ -14083,6 +14363,7 @@ var render = function render() {
     }
   })], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14103,7 +14384,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     ref: "SearchPopup",
     staticClass: "search-popup",
@@ -14116,6 +14398,7 @@ var render = function render() {
     }
   }, [_vm.type === "search" && !_vm.searchApiError && !_vm.searchResultsNotFound ? _c("SearchResultsHeader") : _vm._e(), _vm._v(" "), _vm.type === "search" && _vm.searchResultsNotFound && !_vm.loadingSharedSearch ? _c("SearchResultsNothingFound") : _vm._e(), _vm._v(" "), _vm.type === "search" && _vm.searchResultsFound ? _c("SearchResultsList") : _vm._e(), _vm._v(" "), _vm.type === "search" && _vm.searchResultsFound ? _c("SearchResultsFooter") : _vm._e(), _vm._v(" "), _vm.type === "help" ? _c("SearchAdvancedHelpHeader") : _vm._e(), _vm._v(" "), _vm.type === "help" ? _c("SearchAdvancedHelpContent") : _vm._e(), _vm._v(" "), _vm.type === "search" && _vm.searchApiError && !_vm.loadingSharedSearch ? _c("SearchError") : _vm._e()], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14136,7 +14419,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("SuperButton", {
     attrs: {
       "button-text": "Close",
@@ -14152,6 +14436,7 @@ var render = function render() {
     }
   });
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14172,7 +14457,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.searchResults && _vm.searchPagesTotal > 1 ? _c("footer", {
     ref: "SearchResultsFooter",
     staticClass: "search-results__footer",
@@ -14243,6 +14529,7 @@ var render = function render() {
     }
   })], 1) : _vm._e();
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14263,7 +14550,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("header", {
     ref: "SearchResultsHeader",
     staticClass: "search-results__header",
@@ -14286,6 +14574,7 @@ var render = function render() {
     staticClass: "search-results__header-tools"
   }, [_c("SearchButtonClearList")], 1)], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14306,7 +14595,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("nav", {
     ref: "SearchResultsList",
     staticClass: "search-results__list",
@@ -14406,6 +14696,7 @@ var render = function render() {
     }) : _vm._e()]);
   }), 0) : _vm._e()]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14426,7 +14717,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _vm.ifNothingFound ? _c("div", {
     ref: "SearchNothingFound",
     staticClass: "search-popup__nothing-found",
@@ -14449,9 +14741,11 @@ var render = function render() {
     staticClass: "nothing-found__text"
   }, [_vm._m(0), _vm._v(" "), _c("p", [_c("span", [_vm._v("Nothing found for term "), _c("b", [_vm._v(_vm._s(_vm.searchFormPrevious.query))])]), _vm._v(" "), _vm.previousQueryName ? _c("span", [_vm._v("in "), _c("b", [_vm._v(_vm._s(_vm.searchFormPrevious.name))])]) : _vm._e()])]), _vm._v(" "), _vm.componentMode === "lite" ? _c("SearchPopupButtonClose") : _vm._e()], 1) : _vm._e();
 };
+
 var staticRenderFns = [function () {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("p", {
     staticClass: "h__ui"
   }, [_c("b", [_vm._v("No results")])]);
@@ -14475,7 +14769,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("button", {
     "class": [_vm.typeClass, _vm.stateClass, _vm.fakeDisabledClass, _vm.loadingClass, _vm.classCustom],
     attrs: {
@@ -14535,6 +14830,7 @@ var render = function render() {
     }
   })]) : _vm._e(), _vm._v(" "), _vm.iconPlacement === "right" && _vm.loading ? _c("Spinner") : _vm._e()], 1);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -14555,7 +14851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var render = function render() {
   var _vm = this,
-    _c = _vm._self._c;
+      _c = _vm._self._c;
+
   return _c("div", {
     staticClass: "spinner",
     attrs: {
@@ -14573,6 +14870,7 @@ var render = function render() {
     }
   })]);
 };
+
 var staticRenderFns = [];
 render._withStripped = true;
 
@@ -23762,7 +24060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "watchSyncEffect": () => (/* binding */ watchSyncEffect)
 /* harmony export */ });
 /*!
- * Vue.js v2.7.14
+ * Vue.js v2.7.13
  * (c) 2014-2022 Evan You
  * Released under the MIT License.
  */
@@ -24639,6 +24937,77 @@ methodsToPatch.forEach(function (method) {
     });
 });
 
+var rawMap = new WeakMap();
+function reactive(target) {
+    makeReactive(target, false);
+    return target;
+}
+/**
+ * Return a shallowly-reactive copy of the original object, where only the root
+ * level properties are reactive. It also does not auto-unwrap refs (even at the
+ * root level).
+ */
+function shallowReactive(target) {
+    makeReactive(target, true);
+    def(target, "__v_isShallow" /* ReactiveFlags.IS_SHALLOW */, true);
+    return target;
+}
+function makeReactive(target, shallow) {
+    // if trying to observe a readonly proxy, return the readonly version.
+    if (!isReadonly(target)) {
+        if (true) {
+            if (isArray(target)) {
+                warn$2("Avoid using Array as root value for ".concat(shallow ? "shallowReactive()" : "reactive()", " as it cannot be tracked in watch() or watchEffect(). Use ").concat(shallow ? "shallowRef()" : "ref()", " instead. This is a Vue-2-only limitation."));
+            }
+            var existingOb = target && target.__ob__;
+            if (existingOb && existingOb.shallow !== shallow) {
+                warn$2("Target is already a ".concat(existingOb.shallow ? "" : "non-", "shallow reactive object, and cannot be converted to ").concat(shallow ? "" : "non-", "shallow."));
+            }
+        }
+        var ob = observe(target, shallow, isServerRendering() /* ssr mock reactivity */);
+        if ( true && !ob) {
+            if (target == null || isPrimitive(target)) {
+                warn$2("value cannot be made reactive: ".concat(String(target)));
+            }
+            if (isCollectionType(target)) {
+                warn$2("Vue 2 does not support reactive collection types such as Map or Set.");
+            }
+        }
+    }
+}
+function isReactive(value) {
+    if (isReadonly(value)) {
+        return isReactive(value["__v_raw" /* ReactiveFlags.RAW */]);
+    }
+    return !!(value && value.__ob__);
+}
+function isShallow(value) {
+    return !!(value && value.__v_isShallow);
+}
+function isReadonly(value) {
+    return !!(value && value.__v_isReadonly);
+}
+function isProxy(value) {
+    return isReactive(value) || isReadonly(value);
+}
+function toRaw(observed) {
+    var raw = observed && observed["__v_raw" /* ReactiveFlags.RAW */];
+    return raw ? toRaw(raw) : observed;
+}
+function markRaw(value) {
+    if (isObject(value)) {
+        rawMap.set(value, true);
+    }
+    return value;
+}
+/**
+ * @internal
+ */
+function isCollectionType(value) {
+    var type = toRawType(value);
+    return (type === 'Map' || type === 'WeakMap' || type === 'Set' || type === 'WeakSet');
+}
+
 var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
 var NO_INIITIAL_VALUE = {};
 /**
@@ -24728,6 +25097,7 @@ function observe(value, shallow, ssrMockReactivity) {
         (isArray(value) || isPlainObject(value)) &&
         Object.isExtensible(value) &&
         !value.__v_skip /* ReactiveFlags.SKIP */ &&
+        !rawMap.has(value) &&
         !isRef(value) &&
         !(value instanceof VNode)) {
         return new Observer(value, shallow, ssrMockReactivity);
@@ -24907,77 +25277,6 @@ function dependArray(value) {
     }
 }
 
-function reactive(target) {
-    makeReactive(target, false);
-    return target;
-}
-/**
- * Return a shallowly-reactive copy of the original object, where only the root
- * level properties are reactive. It also does not auto-unwrap refs (even at the
- * root level).
- */
-function shallowReactive(target) {
-    makeReactive(target, true);
-    def(target, "__v_isShallow" /* ReactiveFlags.IS_SHALLOW */, true);
-    return target;
-}
-function makeReactive(target, shallow) {
-    // if trying to observe a readonly proxy, return the readonly version.
-    if (!isReadonly(target)) {
-        if (true) {
-            if (isArray(target)) {
-                warn$2("Avoid using Array as root value for ".concat(shallow ? "shallowReactive()" : "reactive()", " as it cannot be tracked in watch() or watchEffect(). Use ").concat(shallow ? "shallowRef()" : "ref()", " instead. This is a Vue-2-only limitation."));
-            }
-            var existingOb = target && target.__ob__;
-            if (existingOb && existingOb.shallow !== shallow) {
-                warn$2("Target is already a ".concat(existingOb.shallow ? "" : "non-", "shallow reactive object, and cannot be converted to ").concat(shallow ? "" : "non-", "shallow."));
-            }
-        }
-        var ob = observe(target, shallow, isServerRendering() /* ssr mock reactivity */);
-        if ( true && !ob) {
-            if (target == null || isPrimitive(target)) {
-                warn$2("value cannot be made reactive: ".concat(String(target)));
-            }
-            if (isCollectionType(target)) {
-                warn$2("Vue 2 does not support reactive collection types such as Map or Set.");
-            }
-        }
-    }
-}
-function isReactive(value) {
-    if (isReadonly(value)) {
-        return isReactive(value["__v_raw" /* ReactiveFlags.RAW */]);
-    }
-    return !!(value && value.__ob__);
-}
-function isShallow(value) {
-    return !!(value && value.__v_isShallow);
-}
-function isReadonly(value) {
-    return !!(value && value.__v_isReadonly);
-}
-function isProxy(value) {
-    return isReactive(value) || isReadonly(value);
-}
-function toRaw(observed) {
-    var raw = observed && observed["__v_raw" /* ReactiveFlags.RAW */];
-    return raw ? toRaw(raw) : observed;
-}
-function markRaw(value) {
-    // non-extensible objects won't be observed anyway
-    if (Object.isExtensible(value)) {
-        def(value, "__v_skip" /* ReactiveFlags.SKIP */, true);
-    }
-    return value;
-}
-/**
- * @internal
- */
-function isCollectionType(value) {
-    var type = toRawType(value);
-    return (type === 'Map' || type === 'WeakMap' || type === 'Set' || type === 'WeakSet');
-}
-
 /**
  * @internal
  */
@@ -25116,8 +25415,8 @@ function toRef(object, key, defaultValue) {
     return ref;
 }
 
-var rawToReadonlyFlag = "__v_rawToReadonly";
-var rawToShallowReadonlyFlag = "__v_rawToShallowReadonly";
+var rawToReadonlyMap = new WeakMap();
+var rawToShallowReadonlyMap = new WeakMap();
 function readonly(target) {
     return createReadonly(target, false);
 }
@@ -25136,21 +25435,18 @@ function createReadonly(target, shallow) {
         }
         return target;
     }
-    if ( true && !Object.isExtensible(target)) {
-        warn$2("Vue 2 does not support creating readonly proxy for non-extensible object.");
-    }
     // already a readonly object
     if (isReadonly(target)) {
         return target;
     }
     // already has a readonly proxy
-    var existingFlag = shallow ? rawToShallowReadonlyFlag : rawToReadonlyFlag;
-    var existingProxy = target[existingFlag];
+    var map = shallow ? rawToShallowReadonlyMap : rawToReadonlyMap;
+    var existingProxy = map.get(target);
     if (existingProxy) {
         return existingProxy;
     }
     var proxy = Object.create(Object.getPrototypeOf(target));
-    def(target, existingFlag, proxy);
+    map.set(target, proxy);
     def(proxy, "__v_isReadonly" /* ReactiveFlags.IS_READONLY */, true);
     def(proxy, "__v_raw" /* ReactiveFlags.RAW */, target);
     if (isRef(target)) {
@@ -27785,7 +28081,7 @@ function onErrorCaptured(hook, target) {
 /**
  * Note: also update dist/vue.runtime.mjs when adding new exports to this file.
  */
-var version = '2.7.14';
+var version = '2.7.13';
 /**
  * @internal type is manually declared in <root>/types/v3-define-component.d.ts
  */
@@ -28933,8 +29229,7 @@ if (true) {
 /**
  * Helper that recursively merges two data objects together.
  */
-function mergeData(to, from, recursive) {
-    if (recursive === void 0) { recursive = true; }
+function mergeData(to, from) {
     if (!from)
         return to;
     var key, toVal, fromVal;
@@ -28948,7 +29243,7 @@ function mergeData(to, from, recursive) {
             continue;
         toVal = to[key];
         fromVal = from[key];
-        if (!recursive || !hasOwn(to, key)) {
+        if (!hasOwn(to, key)) {
             set(to, key, fromVal);
         }
         else if (toVal !== fromVal &&
@@ -29109,19 +29404,7 @@ strats.props =
                         extend(ret, childVal);
                     return ret;
                 };
-strats.provide = function (parentVal, childVal) {
-    if (!parentVal)
-        return childVal;
-    return function () {
-        var ret = Object.create(null);
-        mergeData(ret, isFunction(parentVal) ? parentVal.call(this) : parentVal);
-        if (childVal) {
-            mergeData(ret, isFunction(childVal) ? childVal.call(this) : childVal, false // non-recursive
-            );
-        }
-        return ret;
-    };
-};
+strats.provide = mergeDataOrFn;
 /**
  * Default strategy.
  */
@@ -34882,7 +35165,7 @@ function genFor(el, state, altGen, altHelper) {
         !el.key) {
         state.warn("<".concat(el.tag, " v-for=\"").concat(alias, " in ").concat(exp, "\">: component lists rendered with ") +
             "v-for should have explicit keys. " +
-            "See https://v2.vuejs.org/v2/guide/list.html#key for more info.", el.rawAttrsMap['v-for'], true /* tip */);
+            "See https://vuejs.org/guide/list.html#key for more info.", el.rawAttrsMap['v-for'], true /* tip */);
     }
     el.forProcessed = true; // avoid recursion
     return ("".concat(altHelper || '_l', "((").concat(exp, "),") +
@@ -37308,7 +37591,7 @@ module.exports = JSON.parse('{"clientVersion":"2.48.2","themeVersion":"v2","them
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-7ba7f54-v2-48-2.js";
+/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-24af944-v2-48-2.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -37377,7 +37660,8 @@ module.exports = JSON.parse('{"clientVersion":"2.48.2","themeVersion":"v2","them
 /******/ 				script.parentNode && script.parentNode.removeChild(script);
 /******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
 /******/ 				if(prev) return prev(event);
-/******/ 			};
+/******/ 			}
+/******/ 			;
 /******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
 /******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
 /******/ 			script.onload = onScriptComplete.bind(null, script.onload);

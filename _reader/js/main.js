@@ -20,34 +20,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * Adds Reader Lite and analytics scripts to the HTML document.
  * Correct analytics will be added through nginx url rewrite
  */
+
 var addReaderLiteScripts = function addReaderLiteScripts() {
   var cssFiles = document.querySelectorAll('head link[rel="stylesheet"]');
-  var cssUrls = [];
+  var cssUrls = []; // Find first document css and extract path to static resources
 
-  // Find first document css and extract path to static resources
   cssFiles.forEach(function (cssFile) {
     cssUrls.push(cssFile.getAttribute('href'));
   });
   var documentCss = cssUrls.find(function (cssUrl) {
     return cssUrl.includes('_document');
   }) || null;
+
   if (documentCss === null) {
     throw new Error('Unable to find static assets root. Not initializing Reader Lite');
   } else {
     try {
-      var resourcePaths = (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.findThemeDir)(documentCss);
+      var resourcePaths = (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.findThemeDir)(documentCss); // Add Reader lite to the head of the HTML document
 
-      // Add Reader lite to the head of the HTML document
       (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.addJS)({
         src: resourcePaths.documentUrl + '/js/readerLite.js'
-      });
+      }); // Attach analytics to the end of the body
 
-      // Attach analytics to the end of the body
       (0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.addJS)({
         src: '/_analytics/stats.js'
       });
@@ -76,14 +74,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "hasFileExtension": () => (/* binding */ hasFileExtension),
 /* harmony export */   "isDocumentUrl": () => (/* binding */ isDocumentUrl)
 /* harmony export */ });
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! platform */ "../../../../../../node_modules/platform/platform.js");
 /* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(platform__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _isFalsy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./isFalsy */ "../../../../../../core__front-end/v2/shared/js/utils/isFalsy.js");
 /* harmony import */ var _isFalsy__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_isFalsy__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 var _templateObject;
@@ -94,11 +93,14 @@ var _templateObject;
 /**
  * Adds basic utility classes to HTML element: `js`, browser engine and browser name
  */
+
 var AddHtmlClasses = function AddHtmlClasses() {
   var _htmlEl$classList;
+
   var acceptableClassName = function acceptableClassName(name) {
     return String(name).toLowerCase().replace(/\s/gi, '_');
   };
+
   var browserName = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().name));
   var browserEngine = acceptableClassName((platform__WEBPACK_IMPORTED_MODULE_3___default().layout));
   var htmlEl = document.firstElementChild;
@@ -107,7 +109,6 @@ var AddHtmlClasses = function AddHtmlClasses() {
   htmlEl.classList.add(browserEngine);
   htmlEl.classList.add(browserName);
 };
-
 /**
  * Tests is file has a specific extension
  *
@@ -118,26 +119,28 @@ var AddHtmlClasses = function AddHtmlClasses() {
  * @example
  * hasFileExtension('//resources/main.js?v=1.2.3', 'js') // True
  */
+
 var hasFileExtension = function hasFileExtension(url) {
   var extension = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(extension) || extension.length < 2) {
     throw new Error("Please add a proper file extension. Got ".concat(extension));
   }
-  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
+
+  var urlPattern = new RegExp(String.raw(_templateObject || (_templateObject = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_taggedTemplateLiteral_js__WEBPACK_IMPORTED_MODULE_1__["default"])([".", "((#|?){0,1}[a-zA-Z0-9.=#_-]{0,})$"], ["\\.", "((#|\\?){0,1}[a-zA-Z0-9.=#_-]{0,})$"])), extension), 'gmiu');
   return urlPattern.test(url);
 };
-
 /**
  * Tests if url is a document URL
  *
  * @param {String} url
  * @returns {Boolean}
  */
+
 var isDocumentUrl = function isDocumentUrl(url) {
   var documentPattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   return documentPattern.test(url);
 };
-
 /**
  * Finds theme directory based on a complete resource URL
  *
@@ -153,6 +156,7 @@ var isDocumentUrl = function isDocumentUrl(url) {
  *   themeUrl: "/us/ngo/oll/"
  * }
  */
+
 var findThemeDir = function findThemeDir(url) {
   var pattern = /^((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*?)_document\/v[0-9]*/gmi;
   var result = pattern.exec(url);
@@ -161,7 +165,6 @@ var findThemeDir = function findThemeDir(url) {
     themeUrl: result[1]
   } : null;
 };
-
 /**
  * Add JS resource to HTML document
  *
@@ -169,26 +172,27 @@ var findThemeDir = function findThemeDir(url) {
  * @param {String} parameters.src - Script URL / path
  * @param {Boolean} [parameters.head = true] - Adds to `head`, otherwise to the end of `body`
  */
+
 var addJS = function addJS(parameters) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     src: null,
     head: true
-  }, parameters);
+  }, parameters); // Error checks
 
-  // Error checks
+
   if (_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.src) && _isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.script)) {
     throw new Error('Both "src" and "script" are missing. One must be present.');
   }
+
   if (!hasFileExtension(OPTIONS.src, 'js')) {
     throw new Error("File extension is not \"js\". Got resource URL ".concat(OPTIONS.src));
-  }
+  } // Add script resource to HTML
 
-  // Add script resource to HTML
+
   var script = document.createElement('script');
   script.setAttribute('src', OPTIONS.src);
   OPTIONS.head ? document.head.insertAdjacentElement('beforeend', script) : document.body.insertAdjacentElement('beforeend', script);
 };
-
 /**
  * Add JS resource to HTML document
  *
@@ -196,30 +200,31 @@ var addJS = function addJS(parameters) {
  * @param {String} parameters.url - CSS URL / path
  * @param {String} [parameters.media = true] - Optional media attribute
  */
+
 var addCSS = function addCSS(parameters) {
-  var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  var OPTIONS = (0,C_Users_ThomasLewandowski_oll_platform_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: null,
     media: null
-  }, parameters);
+  }, parameters); // Error checking
 
-  // Error checking
+
   if (!hasFileExtension(OPTIONS.src, 'css')) {
     throw new Error("Invalid file extension in resource URL. Expected \"css\" file, got ".concat(OPTIONS.url));
-  }
+  } // Build style link
 
-  // Build style link
+
   var link = document.createElement('link');
+
   if (!_isFalsy__WEBPACK_IMPORTED_MODULE_4___default()(OPTIONS.media)) {
     link.setAttribute('media', OPTIONS.media);
   }
+
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('type', 'text/css');
-  link.setAttribute('href', OPTIONS.url);
+  link.setAttribute('href', OPTIONS.url); // Append link to head
 
-  // Append link to head
   document.head.insertAdjacentElement('beforeend', link);
 };
-
 /**
  * Finds the closest node in the DOM that has the given selector.
  *
@@ -227,13 +232,16 @@ var addCSS = function addCSS(parameters) {
  * @param {string} selector - The selector to search for
  * @returns {HTMLElement|null} The closest matching element, or null if none found
  */
+
 var findClosest = function findClosest(el, selector) {
   while (el) {
     if (el.matches(selector)) {
       return el;
     }
+
     el = el.parentElement;
   }
+
   return null;
 };
 
@@ -251,14 +259,16 @@ var findClosest = function findClosest(el, selector) {
  * @param { Any } statement - Checks any statement for falsy
  * @returns { Boolean }
  */
-
 var isFalsy = function isFalsy() {
   var statement = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
   if (!statement || statement === null || typeof statement === 'undefined' || statement === 0 || statement === '') {
     return true;
   }
+
   return false;
 };
+
 module.exports = isFalsy;
 
 /***/ }),
