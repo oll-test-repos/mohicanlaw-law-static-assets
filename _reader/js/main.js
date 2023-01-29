@@ -97,7 +97,21 @@ var cleanId = function cleanId(idString) {
  * cleanUrl('//test//test2//test3/') // => /test/test2/test3/
  */
 var fixUrl = function fixUrl(url) {
-  return url.replace(/(?<!:)\/{2,}/g, '/');
+  // This is the correct way to do it, but it is not supported in Safari
+  // Once it is supported, we can remove the workaround below
+  // return url.replace(/(?<!:)\/{2,}/g, '/')
+
+  // This is the workaround that works in Safari and older browsers
+  var replaceSlash = function replaceSlash(str) {
+    return str.replace(/\/{2,}/g, '/');
+  };
+  var _url = url.split('://');
+  if (_url.length === 1) {
+    _url[0] = replaceSlash(_url[0]);
+  } else {
+    _url[1] = replaceSlash(_url[1]);
+  }
+  return _url.join('://');
 };
 
 /***/ }),
@@ -111,8 +125,8 @@ var fixUrl = function fixUrl(url) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AddHtmlClasses": () => (/* binding */ AddHtmlClasses),
 /* harmony export */   "addCSS": () => (/* binding */ addCSS),
+/* harmony export */   "addHtmlClasses": () => (/* binding */ addHtmlClasses),
 /* harmony export */   "addJS": () => (/* binding */ addJS),
 /* harmony export */   "findClosest": () => (/* binding */ findClosest),
 /* harmony export */   "findThemeDir": () => (/* binding */ findThemeDir),
@@ -142,7 +156,7 @@ var _templateObject;
 /**
  * Adds basic utility classes to HTML element: `js`, browser engine and browser name
  */
-var AddHtmlClasses = function AddHtmlClasses() {
+var addHtmlClasses = function addHtmlClasses() {
   var _htmlEl$classList;
   var acceptableClassName = function acceptableClassName(name) {
     return String(name).toLowerCase().replace(/\s/gi, '_');
@@ -363,12 +377,12 @@ var staticAssetPath = function staticAssetPath(parameters) {
   }, parameters);
 
   /**
-   * Check if URL slug is valid (it should include only letters and numbers)
-   *
-   * @private
-   * @param {String} slug - URL slug
-   * @returns {Boolean} - Returns true if slug is valid, otherwise false
-   **/
+    * Check if URL slug is valid (it should include only letters and numbers)
+    *
+    * @private
+    * @param {String} slug - URL slug
+    * @returns {Boolean} - Returns true if slug is valid, otherwise false
+    **/
   var _isSlugValid = function _isSlugValid(slug) {
     var pattern = /^[a-z0-9]+$/i;
     return pattern.test(slug);
@@ -412,7 +426,7 @@ var staticAssetPath = function staticAssetPath(parameters) {
   }
 
   // READER LITE resource path
-  if (OPTIONS.componentMode === 'lite' && documentAssetsRoot && isDefaultPath) {
+  if (OPTIONS.componentMode === 'lite' && OPTIONS.documentAssetsRoot && isDefaultPath) {
     // Using default resources from the documents path. Most of these are
     // hardcoded in the document itself, so this will rarely be used, but I've
     // made it available just in case if we decide to use JS for some of them. :)
@@ -425,72 +439,72 @@ var staticAssetPath = function staticAssetPath(parameters) {
 };
 
 /**
- * Returns correct paths for a srcset assets, depending on the **default paths**
- * OR **overrides** for Reader App and Reader Lite. This function is required
- * because Reader App and Reader Lite have different paths for static assets,
- * but common `settings.json` file where the fraction of these paths is defined
- * through different objects.
- *
- * @param {Object} parameters - Parameters object
- * @param {String} [parameters.srcset=[]] - Array of partial srcset paths
- * @param {String} [parameters.componentMode='reader'] - Component mode, either
- * `reader` or `lite`
- * @param {String} [parameters.documentAssetsRoot=null] - Default path to the
- * asset, taken from the store config `themeId`, e.g. `/ca/cities/san-mateo`.
- * This is used only if we are determining a path for the Reader Lite assets
- * @param {String} [parameters.themeVersion='v2'] - Theme version, used in
- * document assets path
- * @returns {String} - Srcset string with correct paths to the assets
- *
- * @example
- * let srcsetArray = [
- *   '/images/logo.png 1x',
- *   '/images/logo@2x.png 2x',
- *   '/images/logo@3x.png 3x'
- * ]
- *
- * staticSrcsetAssetPaths({
- *   srcset: srcsetArray,
- *   componentMode: 'reader'
- * }) // => '/_reader/images/logo.png 1x, /_reader/images/logo@2x.png 2x, /_reader/images/logo@3x.png 3x'
- *
- *
- * let srcsetArrayOverride = [
- *   '/_settings/assets/logo.png 1x',
- *   '/_settings/assets/logo@2x.png 2x'
- * ]
- *
- * staticSrcsetAssetPaths({
- *   srcset: srcsetArrayOverride,
- *   componentMode: 'reader'
- * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
- *
- *
- * let documentSrcsetArray = [
- *   '/images/logo.png 1x',
- *   '/images/logo@2x.png 2x',
- * ]
- *
- * getAssetPath({
- *   srcset: documentSrcsetArray,
- *   componentMode: 'lite',
- *   documentAssetsRoot: '/ca/cities/san-mateo',
- *   themeVersion: 'v2',
- * }) // => '/ca/cities/san-mateo/_document/v2/images/logo.png 1x, /ca/cities/san-mateo/_document/v2/images/logo@2x.png 2x'
- *
- *
- * let documentSrcsetArrayOverride = [
- *   '/_settings/assets/logo.png 1x',
- *   '/_settings/assets/logo@2x.png 2x'
- * ]
- *
- * getAssetPath({
- *   srcset: documentSrcsetArrayOverride,
- *   componentMode: 'lite',
- *   documentAssetsRoot: '/ca/cities/san-mateo',
- *   themeVersion: 'v2',
- * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
- */
+  * Returns correct paths for a srcset assets, depending on the **default paths**
+  * OR **overrides** for Reader App and Reader Lite. This function is required
+  * because Reader App and Reader Lite have different paths for static assets,
+  * but common `settings.json` file where the fraction of these paths is defined
+  * through different objects.
+  *
+  * @param {Object} parameters - Parameters object
+  * @param {String} [parameters.srcset=[]] - Array of partial srcset paths
+  * @param {String} [parameters.componentMode='reader'] - Component mode, either
+  * `reader` or `lite`
+  * @param {String} [parameters.documentAssetsRoot=null] - Default path to the
+  * asset, taken from the store config `themeId`, e.g. `/ca/cities/san-mateo`.
+  * This is used only if we are determining a path for the Reader Lite assets
+  * @param {String} [parameters.themeVersion='v2'] - Theme version, used in
+  * document assets path
+  * @returns {String} - Srcset string with correct paths to the assets
+  *
+  * @example
+  * let srcsetArray = [
+  *   '/images/logo.png 1x',
+  *   '/images/logo@2x.png 2x',
+  *   '/images/logo@3x.png 3x'
+  * ]
+  *
+  * staticSrcsetAssetPaths({
+  *   srcset: srcsetArray,
+  *   componentMode: 'reader'
+  * }) // => '/_reader/images/logo.png 1x, /_reader/images/logo@2x.png 2x, /_reader/images/logo@3x.png 3x'
+  *
+  *
+  * let srcsetArrayOverride = [
+  *   '/_settings/assets/logo.png 1x',
+  *   '/_settings/assets/logo@2x.png 2x'
+  * ]
+  *
+  * staticSrcsetAssetPaths({
+  *   srcset: srcsetArrayOverride,
+  *   componentMode: 'reader'
+  * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
+  *
+  *
+  * let documentSrcsetArray = [
+  *   '/images/logo.png 1x',
+  *   '/images/logo@2x.png 2x',
+  * ]
+  *
+  * getAssetPath({
+  *   srcset: documentSrcsetArray,
+  *   componentMode: 'lite',
+  *   documentAssetsRoot: '/ca/cities/san-mateo',
+  *   themeVersion: 'v2',
+  * }) // => '/ca/cities/san-mateo/_document/v2/images/logo.png 1x, /ca/cities/san-mateo/_document/v2/images/logo@2x.png 2x'
+  *
+  *
+  * let documentSrcsetArrayOverride = [
+  *   '/_settings/assets/logo.png 1x',
+  *   '/_settings/assets/logo@2x.png 2x'
+  * ]
+  *
+  * getAssetPath({
+  *   srcset: documentSrcsetArrayOverride,
+  *   componentMode: 'lite',
+  *   documentAssetsRoot: '/ca/cities/san-mateo',
+  *   themeVersion: 'v2',
+  * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
+  */
 var staticSrcsetAssetPaths = function staticSrcsetAssetPaths(parameters) {
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     srcset: null,

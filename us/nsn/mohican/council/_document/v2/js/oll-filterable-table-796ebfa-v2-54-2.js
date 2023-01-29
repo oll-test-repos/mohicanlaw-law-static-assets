@@ -45,8 +45,8 @@ __webpack_require__.r(__webpack_exports__);
       return this.findEl('tbody', this.tableJson);
     },
     /**
-     * Returns all rows where cells include text from the input field
-     */
+      * Returns all rows where cells include text from the input field
+      */
     filteredRows: function filteredRows() {
       var _this = this;
       if (this.filter.trim() !== '') {
@@ -82,17 +82,17 @@ __webpack_require__.r(__webpack_exports__);
     tableToJson: function tableToJson(table) {
       var _this2 = this;
       /**
-       * Recursive function that parses html table and converts it into JSON.
-       *
-       * Please note that this is not a full HTML parser. It expects certain
-       * layout.
-       *
-       * Anchors are also supported, but only if they are not mixed with inline
-       * elements (they are the only child element within the TD cell).
-       *
-       * @param { Object } elHtml - HTML object that contains table
-       * @returns { Object } JSON element with parsed table
-       */
+        * Recursive function that parses html table and converts it into JSON.
+        *
+        * Please note that this is not a full HTML parser. It expects certain
+        * layout.
+        *
+        * Anchors are also supported, but only if they are not mixed with inline
+        * elements (they are the only child element within the TD cell).
+        *
+        * @param { Object } elHtml - HTML object that contains table
+        * @returns { Object } JSON element with parsed table
+        */
       var parseTable = function parseTable() {
         var elHtml = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
         if (elHtml === null) {
@@ -126,16 +126,16 @@ __webpack_require__.r(__webpack_exports__);
       this.tableJson = parseTable(table);
     },
     /**
-     * Searches for the first element with desired name
-     *
-     * @param { String } elName - Name of the element
-     * @param { Object } elNode - JSON object from converted HTML
-     *
-     * @returns { Object } First node in JSON object that satisfies the condition
-     *
-     * @example
-     * this.findEl('caption', this.tableJson)
-     */
+      * Searches for the first element with desired name
+      *
+      * @param { String } elName - Name of the element
+      * @param { Object } elNode - JSON object from converted HTML
+      *
+      * @returns { Object } First node in JSON object that satisfies the condition
+      *
+      * @example
+      * this.findEl('caption', this.tableJson)
+      */
     findEl: function findEl(elName, elNode) {
       var found = false;
       var search = function search() {
@@ -157,16 +157,16 @@ __webpack_require__.r(__webpack_exports__);
       return found;
     },
     /**
-     * Highlights text in a string
-     *
-     * @param { String } - name of the element
-     * @param { Object } - JSON object from converted HTML
-     *
-     * @returns { Object } First node in JSON object that satisfies the condition
-     *
-     * @example
-     * this.findEl('caption', this.tableJson)
-     */
+      * Highlights text in a string
+      *
+      * @param { String } - name of the element
+      * @param { Object } - JSON object from converted HTML
+      *
+      * @returns { Object } First node in JSON object that satisfies the condition
+      *
+      * @example
+      * this.findEl('caption', this.tableJson)
+      */
     highlightMatches: function highlightMatches(text) {
       if (this.filter.trim() !== '') {
         var matchExists = text.toLowerCase().includes(this.filter.toLowerCase());
@@ -237,7 +237,7 @@ var render = function render() {
     staticClass: "table--filtered"
   }, [_vm.tableCaption ? _c("h6", {
     staticClass: "h__caption"
-  }, [_vm._v("\n\t\t" + _vm._s(_vm.tableCaption.content) + "\n\t")]) : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n    " + _vm._s(_vm.tableCaption.content) + "\n  ")]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "filter-form"
   }, [_c("span", {
     staticClass: "icon icon-funnel"
@@ -275,7 +275,7 @@ var render = function render() {
     }, _vm._l(headTr.children, function (headTh, thId) {
       return _c("th", {
         key: "th_" + trhId + "_" + thId
-      }, [_vm._v("\n\t\t\t\t\t\t" + _vm._s(headTh.content) + "\n\t\t\t\t\t")]);
+      }, [_vm._v("\n            " + _vm._s(headTh.content) + "\n          ")]);
     }), 0);
   }), 0) : _vm._e(), _vm._v(" "), _vm.tableTbody ? _c("tbody", [_vm.isFilterEmpty ? _c("tr", [_c("td", {
     attrs: {
@@ -489,4 +489,4 @@ function _toConsumableArray(arr) {
 /***/ })
 
 }]);
-//# sourceMappingURL=oll-filterable-table-cbad98a-v2-51-0.js.map
+//# sourceMappingURL=oll-filterable-table-796ebfa-v2-54-2.js.map

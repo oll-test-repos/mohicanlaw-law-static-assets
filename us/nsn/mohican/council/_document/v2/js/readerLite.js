@@ -3193,7 +3193,7 @@ function withinMaxClamp(min, value, max) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ReaderLite": () => (/* binding */ ReaderLite)
+/* harmony export */   "readerLite": () => (/* binding */ readerLite)
 /* harmony export */ });
 /* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
@@ -3224,6 +3224,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_reader_lite_switch_ReaderLiteSwitch_vue__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/reader-lite-switch/ReaderLiteSwitch.vue */ "../../../../../../core__front-end/v2/_document/js/components/reader-lite-switch/ReaderLiteSwitch.vue");
 
 
+/* eslint-disable no-unused-vars */
 // Import resources
 // -----------------------------------------------------------------------------
 
@@ -3307,12 +3308,12 @@ __webpack_require__.r(__webpack_exports__);
 
 // Attach utility classes to `html` element
 // -----------------------------------------------------------------------------
-(0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.AddHtmlClasses)();
+(0,Shared_js_utils_HtmlUtils__WEBPACK_IMPORTED_MODULE_2__.addHtmlClasses)();
 
 // Reader Lite
 // -----------------------------------------------------------------------------
 // eslint-disable-next-line consistent-return
-var ReaderLite = function ReaderLite() {
+var readerLite = function readerLite() {
   var parameters = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     themeSettings: {},
@@ -3346,20 +3347,20 @@ var ReaderLite = function ReaderLite() {
     // Full html fetcher
     // -----------------
     var FULL_HTML_FETCH = new _utils_ajax_FullHtmlFetch__WEBPACK_IMPORTED_MODULE_9__["default"]('#area__content', 'article.content div.tuf-authenticate');
+
+    // Heading reordering utility
+    // --------------------------
+    var HEADING_REORDER_UTIL = new _utils_ajax_HeadingReorder__WEBPACK_IMPORTED_MODULE_10__["default"]('#area__content');
     FULL_HTML_FETCH.run().then(function () {
       return HEADING_REORDER_UTIL.run();
     })["catch"](function () {
       // console.warn(error)
     });
 
-    // Heading reordering utility
-    // --------------------------
-    var HEADING_REORDER_UTIL = new _utils_ajax_HeadingReorder__WEBPACK_IMPORTED_MODULE_10__["default"]('#area__content');
-
     // Document metadata fetcher
     // --------------------------
     var settingsUrl = "".concat(DOCROOT, "/js/settings/partner-settings-documents.json");
-    var initMeta = function initMeta(el) {
+    var initMeta = function initMeta() {
       var METADATA_FETCH = new _utils_ajax_DocumentMetadataFetch__WEBPACK_IMPORTED_MODULE_8__["default"]();
       METADATA_FETCH.run('#area__document_meta', '#area__content');
     };
@@ -3473,7 +3474,7 @@ var ReaderLite = function ReaderLite() {
             components: {
               HistoricalVersions: Shared_js_components_history_HistoricalVersions_vue__WEBPACK_IMPORTED_MODULE_17__["default"]
             },
-            template: "\n\t\t\t\t\t\t\t\t<HistoricalVersions/>",
+            template: "\n                <HistoricalVersions/>",
             store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
           });
         }
@@ -3572,18 +3573,18 @@ var ReaderLite = function ReaderLite() {
     // `.filterable-table`
     if (!(0,_utils_helpers_componentUtils__WEBPACK_IMPORTED_MODULE_3__.isComponentDisabled)('TableFilter', OPTIONS.disabledComponents)) {
       /**
-       * Cleans up breaks in HTML and temporarily replaces single quote with
-       * left apostrophe, so that we can easily pass HTML as a prop. HTML needs to
-       * be reverted on the other side.
-       *
-       * @param { String } text - Text to be sanitized
-       * @returns { String } Sanitized text
-       *
-       * @example
-       * filteredString("<span>I couldn't pass unfiltered text</span>")
-       * // Result:
-       * <span>I couldn´t pass unfiltered text</span>
-       */
+        * Cleans up breaks in HTML and temporarily replaces single quote with
+        * left apostrophe, so that we can easily pass HTML as a prop. HTML needs to
+        * be reverted on the other side.
+        *
+        * @param { String } text - Text to be sanitized
+        * @returns { String } Sanitized text
+        *
+        * @example
+        * filteredString("<span>I couldn't pass unfiltered text</span>")
+        * // Result:
+        * <span>I couldn´t pass unfiltered text</span>
+        */
       var filteredString = function filteredString(text) {
         // Needs to use temporary character instead of single quote
         return text.replace(/\n|\t|\r|\s{2,}/gmi, ' ').replace(/'/gmi, '´');
@@ -3682,9 +3683,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Class for fetching Code Publication Information metadata and putting it into all
- * document sub-pages.
- */
+  * Class for fetching Code Publication Information metadata and putting it into all
+  * document sub-pages.
+  */
 var DocumentMetadataFetch = /*#__PURE__*/function () {
   function DocumentMetadataFetch() {
     (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentMetadataFetch);
@@ -4113,7 +4114,11 @@ var DocumentUserModule = {
               }, {
                 root: true
               });
-              message.level === 'error' ? console.error(message.message) : console.info(message.message);
+              if (message.level === 'error') {
+                console.error(message.message);
+              } else {
+                console.info(message.message);
+              }
             });
           }
 
@@ -4130,7 +4135,7 @@ var DocumentUserModule = {
         });
       });
     },
-    login: function login(context, url) {
+    login: function login(context) {
       // Login URL obtained from auth provider:
       var login_url = context.state.userData.login_urls[0][1];
       // Actual portal login URL:
@@ -4139,7 +4144,7 @@ var DocumentUserModule = {
       // Escaping # keeps the hash part when redirecting to portal and back
       window.location.assign(portal_login_url.replace('#', '%23'));
     },
-    logout: function logout(context, url) {
+    logout: function logout(context) {
       return new Promise(function (resolve, reject) {
         var logoutURL = context.state.portal_api_url + '/user/logout?d=' + new Date().getTime();
         axios__WEBPACK_IMPORTED_MODULE_1__["default"].get(logoutURL, {
@@ -4392,7 +4397,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ResourceUtil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ResourceUtil */ "../../../../../../core__front-end/v2/reader/js/misc/utils/ResourceUtil.js");
 /* harmony import */ var _consts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../consts */ "../../../../../../core__front-end/v2/reader/js/misc/consts.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! platform */ "../../../../../../node_modules/platform/platform.js");
+/* harmony import */ var platform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(platform__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -4415,10 +4423,100 @@ var FOOTER_A_SELECTORS = '#area__footer__content a';
 var UNWANTED_URL_SUFFIXES = ['/index.html', '/index', '.html', '.full', '/'];
 
 // Regular expressions used to parse historical URLs
-var dateRegex = /\/_date\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm;
-var publicationRegex = /\/_publication\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm;
-var compareRegex = /\/_compare\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm;
-var compareWithCurrentRegex = /\/_compare\/current\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm;
+// const dateRegex = /\/_date\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm
+// const publicationRegex = /\/_publication\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}/gm
+// const compareRegex = /\/_compare\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm
+// const compareWithCurrentRegex = /\/_compare\/current\/[0-9]{4}[-|/]{1}[0-9]{2}[-|/]{1}[0-9]{2}\/?/gm
+
+var isExternalLink = function isExternalLink(url) {
+  var match = url.match(/^([^:/?#]+:)?(?:\/\/([^/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
+  if (typeof match[1] === 'string' && match[1].length > 0 && match[1].toLowerCase() !== location.protocol) {
+    return true;
+  }
+  if (typeof match[2] === 'string' && match[2].length > 0 && match[2].replace(new RegExp(':(' + {
+    'http:': 80,
+    'https:': 443
+  }[location.protocol] + ')?$'), '') !== location.host) {
+    return true;
+  }
+  return false;
+};
+var isPdfLink = function isPdfLink(url) {
+  var pattern = /\.pdf$/;
+  return pattern.test(url);
+};
+var editLinks = function editLinks(section) {
+  if (section) {
+    var links = section.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      // Add a class to all links inside fetched documents
+      // so they can be fetched with AJAX
+      var url = link.getAttribute('href');
+
+      // Skip external links
+      if (!isExternalLink(url) && !isPdfLink(url)) {
+        link.classList.add('documentLink');
+      } else {
+        // Open external links in new tab
+        link.setAttribute('target', '_blank');
+      }
+    }
+  }
+};
+var parseSearchPaths = function parseSearchPaths(documentHTML) {
+  var paths = [];
+  var ancestorList = documentHTML.querySelector(SEARCH_PATHS_LIST_SELECTOR);
+  if (ancestorList) {
+    for (var i = 0; i < ancestorList.children.length; i++) {
+      var item = ancestorList.children[i];
+      var path = item.getAttribute('data-search-path');
+      var heading = item.getAttribute('data-search-heading');
+      var display = heading ? heading.replace('↪ ', '') : '';
+      paths.push({
+        name: display,
+        url: path || 'library'
+      });
+    }
+  }
+  return paths;
+};
+var highlightResult = function highlightResult(html_document, result) {
+  try {
+    var elementID = "#".concat(MAIN_CONTENT_ID, " #").concat(CSS.escape(result._id));
+    var elementToHighlight = html_document.querySelector(elementID);
+    if (elementToHighlight) {
+      if (result.highlight.title) {
+        elementToHighlight.innerHTML = elementToHighlight.innerHTML.replace(result._source.title, result.highlight.title[0]);
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+var processMeta = function processMeta(metaList) {
+  if (metaList && metaList.innerHTML.trim() !== '') {
+    var links = metaList.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+
+      // Only links to PDF files need to be opened in new tab automatically
+      if (link.getAttribute('href').toLowerCase().indexOf('.pdf') !== -1) {
+        link.setAttribute('target', '_blank');
+      }
+      link.classList.remove('documentLink');
+    }
+    return metaList.outerHTML;
+  }
+  return 'Nothing to show';
+};
+
+// Historical prefix is contained in <meta itemprop='historical-prefix'> tag's content attribute
+// Only historical documents have that tag, so this function returns empty prefix for current versions.
+var parseHistoricalPrefix = function parseHistoricalPrefix(html_document) {
+  var prefixMetaEl = html_document.querySelector('head meta[itemprop=historical-prefix]');
+  return prefixMetaEl ? prefixMetaEl.getAttribute('content') : '';
+};
 
 /*
 	Parse document body and meta from loaded url
@@ -4539,23 +4637,10 @@ var findElementByURLOrHash = function findElementByURLOrHash(url) {
   }
   return element;
 };
-var highlightResult = function highlightResult(html_document, result) {
-  try {
-    var elementID = "#".concat(MAIN_CONTENT_ID, " #").concat(CSS.escape(result._id));
-    var elementToHighlight = html_document.querySelector(elementID);
-    if (elementToHighlight) {
-      if (result.highlight.title) {
-        elementToHighlight.innerHTML = elementToHighlight.innerHTML.replace(result._source.title, result.highlight.title[0]);
-      }
-    }
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 // Unwrap all <mark> tags
 var removeHighlights = function removeHighlights() {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve) {
     var html_content = document.getElementById(MAIN_CONTENT_ID);
     if (html_content) {
       var marks = html_content.querySelectorAll('mark');
@@ -4574,22 +4659,7 @@ var removeHighlights = function removeHighlights() {
       }
       resolve();
     }
-  })["catch"](function (error) {
-    reject(error);
   });
-};
-var isExternalLink = function isExternalLink(url) {
-  var match = url.match(/^([^:/?#]+:)?(?:\/\/([^/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
-  if (typeof match[1] === 'string' && match[1].length > 0 && match[1].toLowerCase() !== location.protocol) return true;
-  if (typeof match[2] === 'string' && match[2].length > 0 && match[2].replace(new RegExp(':(' + {
-    'http:': 80,
-    'https:': 443
-  }[location.protocol] + ')?$'), '') !== location.host) return true;
-  return false;
-};
-var isPdfLink = function isPdfLink(url) {
-  var pattern = /\.pdf$/;
-  return pattern.test(url);
 };
 
 // Find the <span> associated with the annotation
@@ -4670,7 +4740,9 @@ var nextUntil = function nextUntil(elem, selector) {
   // As long as a sibling exists
   while (elem) {
     // If we've reached our match, bail
-    if (elem.matches(selector)) break;
+    if (elem.matches(selector)) {
+      break;
+    }
 
     // Otherwise, push it to the siblings array
     siblings.push(elem);
@@ -4711,7 +4783,7 @@ var attachTableFilterComponent = function attachTableFilterComponent() {
     };
     filterableTableEls.forEach(function (filterableTableEl) {
       if (filterableTableEl !== null && filterableTableEl !== '') {
-        tableComponents.push(new vue__WEBPACK_IMPORTED_MODULE_4__["default"]({
+        tableComponents.push(new vue__WEBPACK_IMPORTED_MODULE_5__["default"]({
           el: filterableTableEl,
           components: {
             TableFilter: TableFilter
@@ -4728,23 +4800,24 @@ var urlToMarginaliaId = function urlToMarginaliaId(url) {
   }
   return 'marginalia_' + url.replace(/[^a-zA-Z0-9]/g, '_');
 };
+
 // Scrolls ToC area to make the active link visible if it's outside of viewport
 var scrollToC = function scrollToC(skipNextScroll) {
   // Check if ToC scrolling is disabled before scrolling:
   // context.state.skipNextScroll
   var activeLink = document.querySelector('.toc a.active');
-  if (activeLink) {
+  var tocSection = document.querySelector('section.toc') || false;
+  if (activeLink && tocSection) {
     requestAnimationFrame(function () {
-      var tocSection = document.querySelector('section.toc');
-      var tocRect = tocSection.getBoundingClientRect();
-      var linkRect = activeLink.getBoundingClientRect();
+      var tocRect = tocSection.getBoundingClientRect() || false;
+      var linkRect = activeLink.getBoundingClientRect() || false;
       // Get vertical boundaries of Table of contents area and the currently active link
       // Values are rounded so sub-pixel values are ignored
-      var tocTop = Math.round(tocRect.top);
-      var tocBottom = Math.round(tocRect.bottom);
-      var linkTop = Math.round(linkRect.top);
-      var linkBottom = Math.round(linkRect.bottom);
-      if (String(platform.name).toLowerCase() === 'safari' && String(platform.engine).toLowerCase() === 'webkit') {
+      var tocTop = Math.round(tocRect.top) || 0;
+      var tocBottom = Math.round(tocRect.bottom) || 0;
+      var linkTop = Math.round(linkRect.top) || 0;
+      var linkBottom = Math.round(linkRect.bottom) || 0;
+      if (String((platform__WEBPACK_IMPORTED_MODULE_4___default().name)).toLowerCase() === 'safari' && String((platform__WEBPACK_IMPORTED_MODULE_4___default().engine)).toLowerCase() === 'webkit') {
         // If link is above the visible ToC area (even partially),
         // scroll it into view aligning it to top:
         if (linkTop <= tocTop) {
@@ -4776,101 +4849,42 @@ var scrollToC = function scrollToC(skipNextScroll) {
 };
 // ------------------------------------------------------------------- LOCAL UTIL FUNCTIONS:
 
-// Historical prefix is contained in <meta itemprop='historical-prefix'> tag's content attribute
-// Only historical documents have that tag, so this function returns empty prefix for current versions.
-var parseHistoricalPrefix = function parseHistoricalPrefix(html_document) {
-  var prefixMetaEl = html_document.querySelector('head meta[itemprop=historical-prefix]');
-  return prefixMetaEl ? prefixMetaEl.getAttribute('content') : '';
-};
-var processMeta = function processMeta(metaList) {
-  if (metaList && metaList.innerHTML.trim() !== '') {
-    var links = metaList.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
-
-      // Only links to PDF files need to be opened in new tab automatically
-      if (link.getAttribute('href').toLowerCase().indexOf('.pdf') !== -1) {
-        link.setAttribute('target', '_blank');
-      }
-      link.classList.remove('documentLink');
-    }
-    return metaList.outerHTML;
-  }
-  return 'Nothing to show';
-};
-var editLinks = function editLinks(section) {
-  if (section) {
-    var links = section.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
-      // Add a class to all links inside fetched documents
-      // so they can be fetched with AJAX
-      var url = link.getAttribute('href');
-
-      // Skip external links
-      if (!isExternalLink(url) && !isPdfLink(url)) {
-        link.classList.add('documentLink');
-      } else {
-        // Open external links in new tab
-        link.setAttribute('target', '_blank');
-      }
-    }
-  }
-};
-var parseSearchPaths = function parseSearchPaths(documentHTML) {
-  var paths = [];
-  var ancestorList = documentHTML.querySelector(SEARCH_PATHS_LIST_SELECTOR);
-  if (ancestorList) {
-    for (var i = 0; i < ancestorList.children.length; i++) {
-      var item = ancestorList.children[i];
-      var path = item.getAttribute('data-search-path');
-      var heading = item.getAttribute('data-search-heading');
-      var display = heading ? heading.replace('↪ ', '') : '';
-      paths.push({
-        name: display,
-        url: path || 'library'
-      });
-    }
-  }
-  return paths;
-};
-
 // DEPRECATED FOR NOW
-var parseBreadcrumbs = function parseBreadcrumbs(list) {
-  var breadcrumbs = [];
-  var links = list.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    var link = links[i];
-    var url = link.getAttribute('href');
-    var name = url === '/' ? 'Home' : link.innerText;
-    var title = link.getAttribute('title') ? link.getAttribute('title') : name;
-    breadcrumbs.push({
-      name: name,
-      hint: title,
-      url: url
-    });
-  }
-  return breadcrumbs;
-};
-var parseMeta = function parseMeta(metaHTML) {
-  var meta = [];
-  if (metaHTML) {
-    var definitions = metaHTML.getElementsByTagName('dt');
-    var items = metaHTML.getElementsByTagName('dd');
-    if (definitions && items) {
-      var count = definitions.length;
-      for (var i = 0; i < count; i++) {
-        var title = definitions[i].innerText;
-        var metaItems = items[i].innerHTML.split('<br>');
-        meta.push({
-          title: title,
-          items: metaItems
-        });
-      }
-    }
-  }
-  return meta;
-};
+// var parseBreadcrumbs = (list) => {
+//  let breadcrumbs = [];
+//  let links = list.getElementsByTagName('a');
+
+//  for (let i = 0; i < links.length; i++) {
+//    let link = links[i];
+//    let url = link.getAttribute('href');
+//    let name = url === '/' ? 'Home' : link.innerText;
+//    let title = link.getAttribute('title') ? link.getAttribute('title') : name;
+
+//    breadcrumbs.push({ name, hint: title, url });
+//  }
+//  return breadcrumbs;
+// }
+
+// var parseMeta = (metaHTML) => {
+//  let meta = [];
+
+//  if (metaHTML) {
+//    let definitions = metaHTML.getElementsByTagName('dt');
+//    let items = metaHTML.getElementsByTagName('dd');
+
+//    if (definitions && items) {
+//      let count = definitions.length;
+
+//      for (let i = 0; i < count; i++) {
+//        let title = definitions[i].innerText;
+//        let metaItems = items[i].innerHTML.split('<br>');
+
+//        meta.push({ title, items: metaItems });
+//      }
+//    }
+//  }
+//  return meta;
+// }
 
 /***/ }),
 
@@ -5050,9 +5064,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/lib/axios.js");
-/* harmony import */ var semver__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semver */ "../../../../../../node_modules/semver/index.js");
-/* harmony import */ var semver__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(semver__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.object.has-own.js */ "../../../../../../node_modules/core-js/modules/es.object.has-own.js");
+/* harmony import */ var core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/lib/axios.js");
+/* harmony import */ var semver__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! semver */ "../../../../../../node_modules/semver/index.js");
+/* harmony import */ var semver__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(semver__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -5117,7 +5134,7 @@ var validateOverrides = /*#__PURE__*/function () {
             throw new Error('`url` is not set!');
           case 5:
             _context.next = 7;
-            return (0,axios__WEBPACK_IMPORTED_MODULE_7__["default"])({
+            return (0,axios__WEBPACK_IMPORTED_MODULE_8__["default"])({
               method: 'get',
               url: OPTIONS.url,
               responseType: 'json',
@@ -5129,7 +5146,7 @@ var validateOverrides = /*#__PURE__*/function () {
                   console.warn("Settings override file at ".concat(OPTIONS.url, " is not a valid JSON file!"));
                 }
                 return null;
-              } else if (!response.data.hasOwnProperty('versions') && !response.data.hasOwnProperty('overrides')) {
+              } else if (!Object.hasOwn(response.data, 'versions') && !Object.hasOwn(response.data, 'overrides')) {
                 if (OPTIONS.log) {
                   console.error("File not found or custom settings file has incorrect format.");
                 }
@@ -5150,7 +5167,7 @@ var validateOverrides = /*#__PURE__*/function () {
             }
             return _context.abrupt("return", null);
           case 11:
-            if (semver__WEBPACK_IMPORTED_MODULE_6___default().satisfies(OPTIONS.currentVersion, settings.versions)) {
+            if (semver__WEBPACK_IMPORTED_MODULE_7___default().satisfies(OPTIONS.currentVersion, settings.versions)) {
               _context.next = 14;
               break;
             }
@@ -5196,7 +5213,9 @@ var mergeDeep = function mergeDeep(target) {
   for (var _len = arguments.length, sources = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     sources[_key - 1] = arguments[_key];
   }
-  if (!sources.length) return target;
+  if (!sources.length) {
+    return target;
+  }
   var source = sources.shift();
   if (isObject(target) && isObject(source)) {
     for (var key in source) {
@@ -5225,6 +5244,7 @@ var mergeDeep = function mergeDeep(target) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tooltip_Tooltips__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tooltip/Tooltips */ "../../../../../../core__front-end/v2/shared/js/directives/tooltip/Tooltips.js");
 /* harmony import */ var _checkbox_indeterminate_Indeterminate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./checkbox-indeterminate/Indeterminate */ "../../../../../../core__front-end/v2/shared/js/directives/checkbox-indeterminate/Indeterminate.js");
+/* eslint-disable no-unused-vars */
 // All custom directives in one place
 
 
@@ -5259,6 +5279,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].directive('checkbox-indeterminate', 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "../../../../../../node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var tippy_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tippy.js */ "../../../../../../node_modules/tippy.js/dist/tippy.esm.js");
+/* eslint-disable no-unused-vars */
 
 
 
@@ -5488,7 +5509,7 @@ var HistoricalVersionsMixin = {
     fetchHistoricalVersions: function fetchHistoricalVersions() {
       var _this = this;
       var vm = this;
-      return new Promise(function (resolve, reject) {
+      return new Promise(function (resolve) {
         // Remove file extension from API request
         var urlPath = '/';
         if (_this.$store.getters['sharedComponents/getComponentMode'] === 'reader') {
@@ -5577,10 +5598,6 @@ var HistoricalVersionsMixin = {
         });
       }
     },
-    escapeSelector: function escapeSelector(selector) {
-      var unacceptable = /-|\+/;
-      return unacceptable.replace();
-    },
     reSelectHistoricalOptionsAfterUrlChange: function reSelectHistoricalOptionsAfterUrlChange(url) {
       var _this2 = this;
       // If URL was changed and for some reason select component is not updating,
@@ -5613,7 +5630,7 @@ var HistoricalVersionsMixin = {
 
         // Save selection to store, which will change the selected option in UI
         if (selectDateEl) {
-          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.AsyncQuerySelector)({
+          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.asyncQuerySelector)({
             selector: ".historical-versions__date #historyForm [data-date=\"".concat(dateHistory, "\"]")
           }).then(function (el) {
             var optionDateIndex = el.getAttribute('data-index');
@@ -5662,7 +5679,7 @@ var HistoricalVersionsMixin = {
 
         // Find and select option in Date select
         if (_selectDateEl) {
-          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.AsyncQuerySelector)({
+          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.asyncQuerySelector)({
             selector: ".historical-versions__compare #historyForm [data-date=\"".concat(_dateHistory, "\"]")
           }).then(function (el) {
             var optionDateIndex = el.getAttribute('data-index');
@@ -5683,7 +5700,7 @@ var HistoricalVersionsMixin = {
         // Find and select option in Compare select
         var selectCompareEl = document.getElementById('compareForm') || false;
         if (selectCompareEl) {
-          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.AsyncQuerySelector)({
+          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.asyncQuerySelector)({
             selector: "#compareForm [value=\"".concat(dateCompare, "\"]")
           }).then(function (el) {
             var optionCompareIndex = el.getAttribute('data-index');
@@ -5711,7 +5728,7 @@ var HistoricalVersionsMixin = {
 
         // Save selection to store, which will change the selected option in UI
         if (selectPublicationEl) {
-          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.AsyncQuerySelector)({
+          (0,Shared_js_utils_AsyncQuerySelector__WEBPACK_IMPORTED_MODULE_5__.asyncQuerySelector)({
             selector: "#publicationForm [data-name=\"".concat(datePublication, "\"]")
           }).then(function (el) {
             var optionPublicationIndex = el.getAttribute('data-index');
@@ -5981,14 +5998,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "SearchMixin": () => (/* binding */ SearchMixin)
 /* harmony export */ });
 /* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
-/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
-/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash.debounce */ "../../../../../../node_modules/lodash.debounce/index.js");
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/lib/axios.js");
-/* harmony import */ var Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! Reader/js/misc/consts */ "../../../../../../core__front-end/v2/reader/js/misc/consts.js");
+/* harmony import */ var core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.has-own.js */ "../../../../../../node_modules/core-js/modules/es.object.has-own.js");
+/* harmony import */ var core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_has_own_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.array.push.js */ "../../../../../../node_modules/core-js/modules/es.array.push.js");
+/* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
+/* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash.debounce */ "../../../../../../node_modules/lodash.debounce/index.js");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "../../../../../../node_modules/axios/lib/axios.js");
+/* harmony import */ var Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! Reader/js/misc/consts */ "../../../../../../core__front-end/v2/reader/js/misc/consts.js");
+
 
 
 
@@ -6066,7 +6086,7 @@ var SearchMixin = {
       return this.$store.getters['sharedSearch/getSearchFormStoreActive'].from;
     },
     searchResults: function searchResults() {
-      if (this.searchApiResponse.hasOwnProperty('hits') && this.searchApiResponse.hits.hits.length > 0) {
+      if (Object.hasOwn(this.searchApiResponse, 'hits') && this.searchApiResponse.hits.hits.length > 0) {
         return this.searchApiResponse.hits.hits;
       }
       return false;
@@ -6112,7 +6132,7 @@ var SearchMixin = {
   },
   created: function created() {
     // Search query is debounced in order to prevent excessive API queries
-    this.debouncedDoSearch = lodash_debounce__WEBPACK_IMPORTED_MODULE_3___default()(this.doSearch, this.searchUI.debounce);
+    this.debouncedDoSearch = lodash_debounce__WEBPACK_IMPORTED_MODULE_4___default()(this.doSearch, this.searchUI.debounce);
   },
   methods: {
     // Document processing
@@ -6194,7 +6214,7 @@ var SearchMixin = {
     },
     getURLQuery: function getURLQuery() {
       var vm = this;
-      return new Promise(function (resolve, reject) {
+      return new Promise(function (resolve) {
         if (vm.searchFormExternal.query) {
           resolve(vm.searchFormExternal.query);
         } else {
@@ -6204,7 +6224,7 @@ var SearchMixin = {
     },
     getStoreQuery: function getStoreQuery() {
       var vm = this;
-      return new Promise(function (resolve, reject) {
+      return new Promise(function (resolve) {
         if (vm.searchFormTemporary.query) {
           resolve(vm.searchFormTemporary.query);
         } else {
@@ -6253,7 +6273,7 @@ var SearchMixin = {
       if (OPTIONS.type === String('search')) {
         if (vm.componentMode === 'reader') {
           // Reader App doesn't open popup, but activates tool instead
-          vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_SEARCH_RESULTS);
+          vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
           // Open side bar
           vm.$store.commit('structure/setMainMenuOpen', true);
         }
@@ -6275,7 +6295,7 @@ var SearchMixin = {
           vm.$store.commit('sharedSearch/changeSearchPopupOpen', true);
           // Focus result in search results list
           if (vm.$store.getters['sharedComponents/getComponentMode'] === 'reader') {
-            vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_SEARCH_RESULTS);
+            vm.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
             vm.$nextTick(function () {
               return vm.autoFocusSearchResult();
             });
@@ -6379,7 +6399,7 @@ var SearchMixin = {
         if (!this.performedFirstSearch) {
           this.$store.commit('sharedSearch/setFirstSearch');
         }
-        this.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_SEARCH_RESULTS);
+        this.$store.commit('structure/setActiveItem', Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS);
       }
 
       // Search only if temporary search query is present
@@ -6412,7 +6432,7 @@ var SearchMixin = {
           resolve('Query already searched');
           vm.$store.commit('sharedLoading/setLoadingSearch', false);
         } else {
-          axios__WEBPACK_IMPORTED_MODULE_5__["default"].get('/_search/global', {
+          axios__WEBPACK_IMPORTED_MODULE_6__["default"].get('/_search/global', {
             params: {
               q: encodeURIComponent(vm.$store.getters['sharedSearch/getSearchFormStoreActive'].query),
               path: encodeURIComponent(vm.$store.getters['sharedSearch/getSearchFormStoreActive'].path),
@@ -6618,19 +6638,19 @@ var SearchMixin = {
 
       // Works only in Reader App!
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_5__["default"].get('/_search/global').then(function () {
+        axios__WEBPACK_IMPORTED_MODULE_6__["default"].get('/_search/global').then(function () {
           // Enable search tools if server is reachable
           vm.$store.commit('structure/setToolAvailable', {
-            groupName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_GROUP_SEARCH,
-            toolName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_SEARCH_RESULTS,
+            groupName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_GROUP_SEARCH,
+            toolName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS,
             isAvailable: true
           });
           resolve('Search is available');
         })["catch"](function (err) {
           // Disable search tools if server is reachable
           vm.$store.commit('structure/setToolAvailable', {
-            groupName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_GROUP_SEARCH,
-            toolName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_4__.CoreTools.TOOL_SEARCH_RESULTS,
+            groupName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_GROUP_SEARCH,
+            toolName: Reader_js_misc_consts__WEBPACK_IMPORTED_MODULE_5__.CoreTools.TOOL_SEARCH_RESULTS,
             isAvailable: false
           });
           reject(new Error("Search server is not available:\n".concat(err.message)));
@@ -7078,7 +7098,7 @@ __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AsyncQuerySelector": () => (/* binding */ AsyncQuerySelector)
+/* harmony export */   "asyncQuerySelector": () => (/* binding */ asyncQuerySelector)
 /* harmony export */ });
 /* harmony import */ var C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "../../../../../../node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.error.cause.js */ "../../../../../../node_modules/core-js/modules/es.error.cause.js");
@@ -7087,7 +7107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // This function waits for element to become available to select it
 // It will wait for 2s by default
-var AsyncQuerySelector = function AsyncQuerySelector(options) {
+var asyncQuerySelector = function asyncQuerySelector(options) {
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     selector: false,
     maxWait: 2000,
@@ -7238,7 +7258,21 @@ var cleanId = function cleanId(idString) {
  * cleanUrl('//test//test2//test3/') // => /test/test2/test3/
  */
 var fixUrl = function fixUrl(url) {
-  return url.replace(/(?<!:)\/{2,}/g, '/');
+  // This is the correct way to do it, but it is not supported in Safari
+  // Once it is supported, we can remove the workaround below
+  // return url.replace(/(?<!:)\/{2,}/g, '/')
+
+  // This is the workaround that works in Safari and older browsers
+  var replaceSlash = function replaceSlash(str) {
+    return str.replace(/\/{2,}/g, '/');
+  };
+  var _url = url.split('://');
+  if (_url.length === 1) {
+    _url[0] = replaceSlash(_url[0]);
+  } else {
+    _url[1] = replaceSlash(_url[1]);
+  }
+  return _url.join('://');
 };
 
 /***/ }),
@@ -7252,8 +7286,8 @@ var fixUrl = function fixUrl(url) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AddHtmlClasses": () => (/* binding */ AddHtmlClasses),
 /* harmony export */   "addCSS": () => (/* binding */ addCSS),
+/* harmony export */   "addHtmlClasses": () => (/* binding */ addHtmlClasses),
 /* harmony export */   "addJS": () => (/* binding */ addJS),
 /* harmony export */   "findClosest": () => (/* binding */ findClosest),
 /* harmony export */   "findThemeDir": () => (/* binding */ findThemeDir),
@@ -7283,7 +7317,7 @@ var _templateObject;
 /**
  * Adds basic utility classes to HTML element: `js`, browser engine and browser name
  */
-var AddHtmlClasses = function AddHtmlClasses() {
+var addHtmlClasses = function addHtmlClasses() {
   var _htmlEl$classList;
   var acceptableClassName = function acceptableClassName(name) {
     return String(name).toLowerCase().replace(/\s/gi, '_');
@@ -7504,12 +7538,12 @@ var staticAssetPath = function staticAssetPath(parameters) {
   }, parameters);
 
   /**
-   * Check if URL slug is valid (it should include only letters and numbers)
-   *
-   * @private
-   * @param {String} slug - URL slug
-   * @returns {Boolean} - Returns true if slug is valid, otherwise false
-   **/
+    * Check if URL slug is valid (it should include only letters and numbers)
+    *
+    * @private
+    * @param {String} slug - URL slug
+    * @returns {Boolean} - Returns true if slug is valid, otherwise false
+    **/
   var _isSlugValid = function _isSlugValid(slug) {
     var pattern = /^[a-z0-9]+$/i;
     return pattern.test(slug);
@@ -7553,7 +7587,7 @@ var staticAssetPath = function staticAssetPath(parameters) {
   }
 
   // READER LITE resource path
-  if (OPTIONS.componentMode === 'lite' && documentAssetsRoot && isDefaultPath) {
+  if (OPTIONS.componentMode === 'lite' && OPTIONS.documentAssetsRoot && isDefaultPath) {
     // Using default resources from the documents path. Most of these are
     // hardcoded in the document itself, so this will rarely be used, but I've
     // made it available just in case if we decide to use JS for some of them. :)
@@ -7566,72 +7600,72 @@ var staticAssetPath = function staticAssetPath(parameters) {
 };
 
 /**
- * Returns correct paths for a srcset assets, depending on the **default paths**
- * OR **overrides** for Reader App and Reader Lite. This function is required
- * because Reader App and Reader Lite have different paths for static assets,
- * but common `settings.json` file where the fraction of these paths is defined
- * through different objects.
- *
- * @param {Object} parameters - Parameters object
- * @param {String} [parameters.srcset=[]] - Array of partial srcset paths
- * @param {String} [parameters.componentMode='reader'] - Component mode, either
- * `reader` or `lite`
- * @param {String} [parameters.documentAssetsRoot=null] - Default path to the
- * asset, taken from the store config `themeId`, e.g. `/ca/cities/san-mateo`.
- * This is used only if we are determining a path for the Reader Lite assets
- * @param {String} [parameters.themeVersion='v2'] - Theme version, used in
- * document assets path
- * @returns {String} - Srcset string with correct paths to the assets
- *
- * @example
- * let srcsetArray = [
- *   '/images/logo.png 1x',
- *   '/images/logo@2x.png 2x',
- *   '/images/logo@3x.png 3x'
- * ]
- *
- * staticSrcsetAssetPaths({
- *   srcset: srcsetArray,
- *   componentMode: 'reader'
- * }) // => '/_reader/images/logo.png 1x, /_reader/images/logo@2x.png 2x, /_reader/images/logo@3x.png 3x'
- *
- *
- * let srcsetArrayOverride = [
- *   '/_settings/assets/logo.png 1x',
- *   '/_settings/assets/logo@2x.png 2x'
- * ]
- *
- * staticSrcsetAssetPaths({
- *   srcset: srcsetArrayOverride,
- *   componentMode: 'reader'
- * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
- *
- *
- * let documentSrcsetArray = [
- *   '/images/logo.png 1x',
- *   '/images/logo@2x.png 2x',
- * ]
- *
- * getAssetPath({
- *   srcset: documentSrcsetArray,
- *   componentMode: 'lite',
- *   documentAssetsRoot: '/ca/cities/san-mateo',
- *   themeVersion: 'v2',
- * }) // => '/ca/cities/san-mateo/_document/v2/images/logo.png 1x, /ca/cities/san-mateo/_document/v2/images/logo@2x.png 2x'
- *
- *
- * let documentSrcsetArrayOverride = [
- *   '/_settings/assets/logo.png 1x',
- *   '/_settings/assets/logo@2x.png 2x'
- * ]
- *
- * getAssetPath({
- *   srcset: documentSrcsetArrayOverride,
- *   componentMode: 'lite',
- *   documentAssetsRoot: '/ca/cities/san-mateo',
- *   themeVersion: 'v2',
- * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
- */
+  * Returns correct paths for a srcset assets, depending on the **default paths**
+  * OR **overrides** for Reader App and Reader Lite. This function is required
+  * because Reader App and Reader Lite have different paths for static assets,
+  * but common `settings.json` file where the fraction of these paths is defined
+  * through different objects.
+  *
+  * @param {Object} parameters - Parameters object
+  * @param {String} [parameters.srcset=[]] - Array of partial srcset paths
+  * @param {String} [parameters.componentMode='reader'] - Component mode, either
+  * `reader` or `lite`
+  * @param {String} [parameters.documentAssetsRoot=null] - Default path to the
+  * asset, taken from the store config `themeId`, e.g. `/ca/cities/san-mateo`.
+  * This is used only if we are determining a path for the Reader Lite assets
+  * @param {String} [parameters.themeVersion='v2'] - Theme version, used in
+  * document assets path
+  * @returns {String} - Srcset string with correct paths to the assets
+  *
+  * @example
+  * let srcsetArray = [
+  *   '/images/logo.png 1x',
+  *   '/images/logo@2x.png 2x',
+  *   '/images/logo@3x.png 3x'
+  * ]
+  *
+  * staticSrcsetAssetPaths({
+  *   srcset: srcsetArray,
+  *   componentMode: 'reader'
+  * }) // => '/_reader/images/logo.png 1x, /_reader/images/logo@2x.png 2x, /_reader/images/logo@3x.png 3x'
+  *
+  *
+  * let srcsetArrayOverride = [
+  *   '/_settings/assets/logo.png 1x',
+  *   '/_settings/assets/logo@2x.png 2x'
+  * ]
+  *
+  * staticSrcsetAssetPaths({
+  *   srcset: srcsetArrayOverride,
+  *   componentMode: 'reader'
+  * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
+  *
+  *
+  * let documentSrcsetArray = [
+  *   '/images/logo.png 1x',
+  *   '/images/logo@2x.png 2x',
+  * ]
+  *
+  * getAssetPath({
+  *   srcset: documentSrcsetArray,
+  *   componentMode: 'lite',
+  *   documentAssetsRoot: '/ca/cities/san-mateo',
+  *   themeVersion: 'v2',
+  * }) // => '/ca/cities/san-mateo/_document/v2/images/logo.png 1x, /ca/cities/san-mateo/_document/v2/images/logo@2x.png 2x'
+  *
+  *
+  * let documentSrcsetArrayOverride = [
+  *   '/_settings/assets/logo.png 1x',
+  *   '/_settings/assets/logo@2x.png 2x'
+  * ]
+  *
+  * getAssetPath({
+  *   srcset: documentSrcsetArrayOverride,
+  *   componentMode: 'lite',
+  *   documentAssetsRoot: '/ca/cities/san-mateo',
+  *   themeVersion: 'v2',
+  * }) // => '/_settings/assets/logo.png 1x, /_settings/assets/logo@2x.png 2x'
+  */
 var staticSrcsetAssetPaths = function staticSrcsetAssetPaths(parameters) {
   var OPTIONS = (0,C_projects_core_publish_client_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
     srcset: null,
@@ -7824,9 +7858,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_0__);
 
 /*
-	TRANSLATE OUR RESPONSIVE SPECS TO VUE-MQ FORMAT
-		- Reads responsive breakpoints specification from JSON file
-			and returns an object used to configure 'vue-mq' plugin.
+  TRANSLATE OUR RESPONSIVE SPECS TO VUE-MQ FORMAT
+    - Reads responsive breakpoints specification from JSON file
+      and returns an object used to configure 'vue-mq' plugin.
 */
 var loadResponsiveConfig = function loadResponsiveConfig(jsonData) {
   var names = [];
@@ -8322,9 +8356,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "SharedLoadingModule": () => (/* binding */ SharedLoadingModule)
 /* harmony export */ });
 /*
-	Store module that handles component loading state.
-	Each component that can be in Loading state is registered here,
-	so other components can trigger it's loading.
+  Store module that handles component loading state.
+  Each component that can be in Loading state is registered here,
+  so other components can trigger it's loading.
 */
 var SharedLoadingModule = {
   namespaced: true,
@@ -9604,7 +9638,7 @@ __webpack_require__.r(__webpack_exports__);
         this.previousQuerySet = true;
       }
     },
-    temporaryQuery: function temporaryQuery(newQuery, oldQery) {
+    temporaryQuery: function temporaryQuery(newQuery, oldQuery) {
       // We are watching for changes in temporary store, to see if they are
       // different from currently active. If true, reset current query to
       // the one from store. We use this feature to reset input field
@@ -11175,7 +11209,7 @@ var render = function render() {
       disabled: "disabled",
       value: "info"
     }
-  }, [_vm._v("\n\t\tSelect date to compare\n\t")]), _vm._v(" "), _vm._l(_vm.historicalVersionsData.publications[_vm.historicalVersionsData.activePublication].versions, function (version, key) {
+  }, [_vm._v("\n    Select date to compare\n  ")]), _vm._v(" "), _vm._l(_vm.historicalVersionsData.publications[_vm.historicalVersionsData.activePublication].versions, function (version, key) {
     return _c("option", {
       key: "compare_" + key,
       attrs: {
@@ -11186,7 +11220,7 @@ var render = function render() {
       domProps: {
         value: version.date
       }
-    }, [_vm._v("\n\t\t" + _vm._s(version.display) + "\n\t")]);
+    }, [_vm._v("\n    " + _vm._s(version.display) + "\n  ")]);
   })], 2);
 };
 var staticRenderFns = [];
@@ -11240,7 +11274,7 @@ var render = function render() {
       disabled: "disabled",
       value: "info"
     }
-  }, [_vm._v("\n\t\tSelect publication\n\t")]), _vm._v(" "), _vm._l(_vm.historicalVersionsPublications, function (publication, key) {
+  }, [_vm._v("\n    Select publication\n  ")]), _vm._v(" "), _vm._l(_vm.historicalVersionsPublications, function (publication, key) {
     return _c("option", {
       key: "publication_" + key,
       attrs: {
@@ -11253,7 +11287,7 @@ var render = function render() {
         selected: _vm.isHistoryOptionSelected("publication", publication),
         value: publication.name
       }
-    }, [_vm._v("\n\t\t" + _vm._s(publication.display) + "\n\t")]);
+    }, [_vm._v("\n    " + _vm._s(publication.display) + "\n  ")]);
   })], 2);
 };
 var staticRenderFns = [];
@@ -11307,7 +11341,7 @@ var render = function render() {
       disabled: "disabled",
       value: "info"
     }
-  }, [_vm._v("\n\t\tSelect date\n\t")]), _vm._v(" "), _vm._l(_vm.historicalVersionsData.publications[_vm.historicalVersionsData.activePublication].versions, function (version, key) {
+  }, [_vm._v("\n    Select date\n  ")]), _vm._v(" "), _vm._l(_vm.historicalVersionsData.publications[_vm.historicalVersionsData.activePublication].versions, function (version, key) {
     return _c("option", {
       key: "version_" + key,
       attrs: {
@@ -11319,7 +11353,7 @@ var render = function render() {
         selected: _vm.isHistoryOptionSelected("history", version),
         value: version.date
       }
-    }, [_vm._v("\n\t\t" + _vm._s(version.display) + "\n\t")]);
+    }, [_vm._v("\n    " + _vm._s(version.display) + "\n  ")]);
   })], 2);
 };
 var staticRenderFns = [];
@@ -11539,7 +11573,7 @@ var render = function render() {
     attrs: {
       id: "lightboxHeading"
     }
-  }, [_vm._v("\n\t\t\tImage Lightbox\n\t\t")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n      Image Lightbox\n    ")]), _vm._v(" "), _c("div", {
     "class": ["lightbox__image"]
   }, [_vm.visible && _vm.imageType === "img" ? _c("img", {
     ref: "openedImage",
@@ -11665,7 +11699,7 @@ var render = function render() {
     }
   }, [_vm.msgTitle ? _c("div", {
     staticClass: "h__message"
-  }, [_vm._v("\n\t\t" + _vm._s(_vm.msgTitle) + "\n\t")]) : _vm._e(), _vm._v(" "), _vm.msgText ? _c("div", {
+  }, [_vm._v("\n    " + _vm._s(_vm.msgTitle) + "\n  ")]) : _vm._e(), _vm._v(" "), _vm.msgText ? _c("div", {
     domProps: {
       innerHTML: _vm._s(_vm.msgText)
     }
@@ -11767,7 +11801,7 @@ var render = function render() {
         });
       }
     }
-  }, [_vm._v("\n\t\tAdvanced search help\n\t")])]);
+  }, [_vm._v("\n    Advanced search help\n  ")])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -12404,7 +12438,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "search-results__footer__no"
-  }, [_vm._v("\n\t\tPage " + _vm._s(_vm.returnPositiveNumber(_vm.searchPageCurrent)) + " of " + _vm._s(_vm.searchPagesTotal) + "\n\t")]), _vm._v(" "), _c("SuperButton", {
+  }, [_vm._v("\n    Page " + _vm._s(_vm.returnPositiveNumber(_vm.searchPageCurrent)) + " of " + _vm._s(_vm.searchPagesTotal) + "\n  ")]), _vm._v(" "), _c("SuperButton", {
     directives: [{
       name: "tooltip",
       rawName: "v-tooltip",
@@ -12464,7 +12498,7 @@ var render = function render() {
     attrs: {
       id: "searchResultsHeading"
     }
-  }, [_c("span", [_vm._v("\n\t\t\tFound "), _c("b", [_vm._v(_vm._s(_vm.searchApiResponse.hits.total || 0))]), _vm._v(" "), _vm.searchApiResponse.hits.total === 1 ? _c("span", [_vm._v("hit")]) : _vm._e(), _vm._v(" "), _vm.searchApiResponse.hits.total !== 1 ? _c("span", [_vm._v("hits")]) : _vm._e()]), _vm._v(" "), _vm.searchApiResponse.hits.total > 0 ? _c("span", [_vm._v('\n\t\t\tfor query "'), _c("strong", [_vm._v(_vm._s(_vm.previousQuery.query))]), _vm._v('"\n\t\t')]) : _vm._e(), _vm._v(" "), _vm.searchApiResponse.hits.total > 0 && (_vm.previousQuery.name || _vm.findSearchPathName(_vm.previousQuery.path)) ? _c("span", [_vm._v(" in "), _c("b", [_vm._v(_vm._s(_vm.previousQuery.name || _vm.findSearchPathName(_vm.previousQuery.path)))])]) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm.componentMode === "lite" ? _c("SearchPopupButtonClose") : _vm._e(), _vm._v(" "), _c("div", {
+  }, [_c("span", [_vm._v("\n      Found "), _c("b", [_vm._v(_vm._s(_vm.searchApiResponse.hits.total || 0))]), _vm._v(" "), _vm.searchApiResponse.hits.total === 1 ? _c("span", [_vm._v("hit")]) : _vm._e(), _vm._v(" "), _vm.searchApiResponse.hits.total !== 1 ? _c("span", [_vm._v("hits")]) : _vm._e()]), _vm._v(" "), _vm.searchApiResponse.hits.total > 0 ? _c("span", [_vm._v('\n      for query "'), _c("strong", [_vm._v(_vm._s(_vm.previousQuery.query))]), _vm._v('"\n    ')]) : _vm._e(), _vm._v(" "), _vm.searchApiResponse.hits.total > 0 && (_vm.previousQuery.name || _vm.findSearchPathName(_vm.previousQuery.path)) ? _c("span", [_vm._v(" in "), _c("b", [_vm._v(_vm._s(_vm.previousQuery.name || _vm.findSearchPathName(_vm.previousQuery.path)))])]) : _vm._e()]) : _vm._e(), _vm._v(" "), _vm.componentMode === "lite" ? _c("SearchPopupButtonClose") : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "search-results__header-tools"
   }, [_c("SearchButtonClearList")], 1)], 1);
 };
@@ -12700,9 +12734,9 @@ var render = function render() {
     }
   })]) : _vm._e(), _vm._v(" "), _vm.iconPlacement === "left" && _vm.loading ? _c("Spinner") : _vm._e(), _vm._v(" "), _vm.buttonText && _vm.buttonType === "button" ? _c("span", {
     staticClass: "text"
-  }, [_vm._v("\n\t\t" + _vm._s(_vm.buttonText) + "\n\t")]) : _vm._e(), _vm._v(" "), _vm.counter && _vm.buttonType === "button" ? _c("span", {
+  }, [_vm._v("\n    " + _vm._s(_vm.buttonText) + "\n  ")]) : _vm._e(), _vm._v(" "), _vm.counter && _vm.buttonType === "button" ? _c("span", {
     staticClass: "count"
-  }, [_vm._v("\n\t\t" + _vm._s(_vm.counter) + "\n\t")]) : _vm._e(), _vm._v(" "), _vm.iconPlacement === "right" && _vm.iconPictogram && !_vm.loading ? _c("span", {
+  }, [_vm._v("\n    " + _vm._s(_vm.counter) + "\n  ")]) : _vm._e(), _vm._v(" "), _vm.iconPlacement === "right" && _vm.iconPictogram && !_vm.loading ? _c("span", {
     staticClass: "icon-stack"
   }, [_vm.indicator !== null ? _c("span", {
     "class": ["icon", _vm.icon("icon-indicator")],
@@ -14887,6 +14921,24 @@ exportWebAssemblyErrorCauseWrapper('LinkError', function (init) {
 });
 exportWebAssemblyErrorCauseWrapper('RuntimeError', function (init) {
   return function RuntimeError(message) { return apply(init, this, arguments); };
+});
+
+
+/***/ }),
+
+/***/ "../../../../../../node_modules/core-js/modules/es.object.has-own.js":
+/*!***************************************************************************!*\
+  !*** ../../../../../../node_modules/core-js/modules/es.object.has-own.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "../../../../../../node_modules/core-js/internals/export.js");
+var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "../../../../../../node_modules/core-js/internals/has-own-property.js");
+
+// `Object.hasOwn` method
+// https://github.com/tc39/proposal-accessible-object-hasownproperty
+$({ target: 'Object', stat: true }, {
+  hasOwn: hasOwn
 });
 
 
@@ -43136,7 +43188,7 @@ module.exports = JSON.parse('{"resolutions":{"mobile":{"name":"mobile","breakpoi
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"clientVersion":"2.51.0","themeVersion":"v2","themeType":"custom","themeName":"custom","themeId":"/us/nsn/mohican/council","style":{"namespaceSuffix":"us-nsn-mhcn-council"},"logo":{"libraryLogo":{"image":"","srcset":[]},"header":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]},"footer":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]}},"fonts":["/biticons/biticons.css","/fonts/roboto-condensed/roboto-condensed.css","/fonts/roboto/roboto.css"],"contact":{"email":"help@openlawlib.org"},"reader":{"rootUrl":"/","themeVariation":{"header":"hv3","footer":"fv2"}}}');
+module.exports = JSON.parse('{"clientVersion":"2.54.2","themeVersion":"v2","themeType":"custom","themeName":"custom","themeId":"/us/nsn/mohican/council","style":{"namespaceSuffix":"us-nsn-mhcn-council"},"logo":{"libraryLogo":{"image":"","srcset":[]},"header":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]},"footer":{"image":"/images/logo/mohican-logo.png","srcset":["/images/logo/mohican-logo.png 1x","/images/logo/mohican-logo@2x.png 2x","/images/logo/mohican-logo@3x.png 3x"]}},"fonts":["/biticons/biticons.css","/fonts/roboto-condensed/roboto-condensed.css","/fonts/roboto/roboto.css"],"contact":{"email":"help@openlawlib.org"},"reader":{"rootUrl":"/","themeVariation":{"header":"hv3","footer":"fv2"}}}');
 
 /***/ })
 
@@ -43257,7 +43309,7 @@ module.exports = JSON.parse('{"clientVersion":"2.51.0","themeVersion":"v2","them
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-cbad98a-v2-51-0.js";
+/******/ 			if (chunkId === "OLL-Filterable-Table") return "oll-filterable-table-796ebfa-v2-54-2.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -43559,7 +43611,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_config_theme_settings_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/config/theme-settings.json */ "./src/_document/js/config/theme-settings.json");
 
 
-(0,Document_js_readerLite__WEBPACK_IMPORTED_MODULE_0__.ReaderLite)({
+(0,Document_js_readerLite__WEBPACK_IMPORTED_MODULE_0__.readerLite)({
   themeSettings: _js_config_theme_settings_json__WEBPACK_IMPORTED_MODULE_1__
 });
 })();
