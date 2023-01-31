@@ -489,4 +489,4 @@ function _toConsumableArray(arr) {
 /***/ })
 
 }]);
-//# sourceMappingURL=oll-filterable-table-796ebfa-v2-54-2.js.map
+//# sourceMappingURL=oll-filterable-table-796ebfa-v2-54-3.js.map
